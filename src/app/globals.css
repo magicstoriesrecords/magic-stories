@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+  --color-twilight: #a8a8c0;
+  --color-ink: #1f1f3a;
+  --color-warm: #e8b890;
+  --color-magic-peach: #c89878;
+  --color-magic-navy: #1c1f52;
+
+  --font-display: var(--font-cinzel-decorative);
+  --font-serif: var(--font-cinzel);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background-color: var(--color-twilight);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
