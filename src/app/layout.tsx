@@ -36,7 +36,7 @@ export default function RootLayout({
       lang="en"
       className={`${cinzel.variable} ${cinzelDecorative.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="relative flex min-h-full flex-col">
         <Nav />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />

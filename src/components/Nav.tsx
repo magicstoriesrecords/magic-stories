@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 const links = [
   { label: "Stories", href: "/stories" },
@@ -9,26 +10,28 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="px-6 py-6 md:px-12 md:py-8">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between">
+    <header className="absolute inset-x-0 top-0 z-50 px-6 py-6 md:px-12 md:py-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-center md:justify-between">
         <Link
           href="/"
-          className="font-display text-sm tracking-widest md:text-base"
+          className="font-display text-sm tracking-widest text-cream md:text-base [text-shadow:_0_1px_12px_rgba(28,31,82,0.6)]"
         >
           MAGIC STORIES RECORDS
         </Link>
-        <ul className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                className="font-serif text-sm tracking-wide transition hover:opacity-60"
-              >
-                {link.label}
-              </Link>
-            </li>
+            <Link
+              key={link.label}
+              href={link.href}
+              className="font-serif text-sm tracking-wide text-cream/80 transition hover:text-cream"
+            >
+              {link.label}
+            </Link>
           ))}
-        </ul>
+          <Button href="/stories" size="sm">
+            Open the Library
+          </Button>
+        </div>
       </nav>
     </header>
   );

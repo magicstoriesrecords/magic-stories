@@ -3,6 +3,7 @@
 @theme {
   --color-twilight: #a8a8c0;
   --color-ink: #1f1f3a;
+  --color-cream: #f3e8d8;
   --color-warm: #e8b890;
   --color-magic-peach: #c89878;
   --color-magic-navy: #1c1f52;
@@ -16,4 +17,96 @@ body {
   background-color: var(--color-twilight);
   color: var(--color-ink);
   font-family: var(--font-sans);
+}
+
+/* Liquid glass — premium variant: bright gradient rim, outer glow,
+   inner top highlight and a soft specular sparkle. */
+.liquid-glass {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  box-shadow:
+    0 0 40px rgba(255, 255, 255, 0.20),
+    inset 0 1px 2px rgba(255, 255, 255, 0.50);
+  color: var(--color-cream);
+  font-family: var(--font-inter);
+  cursor: pointer;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.liquid-glass:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 60px rgba(255, 255, 255, 0.32),
+    inset 0 1px 2px rgba(255, 255, 255, 0.62);
+}
+/* Bright gradient rim (top + bottom catch the light) */
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.35) 18%,
+    rgba(255, 255, 255, 0.08) 42%,
+    rgba(255, 255, 255, 0.08) 58%,
+    rgba(255, 255, 255, 0.35) 82%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+/* Soft specular sparkle, top-left */
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  top: 14%;
+  left: 9%;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Entrance animations */
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-rise {
+  animation: fade-rise 0.8s ease-out both;
+}
+.animate-fade-rise-delay {
+  animation: fade-rise 0.8s ease-out 0.2s both;
+}
+.animate-fade-rise-delay-2 {
+  animation: fade-rise 0.8s ease-out 0.4s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-rise,
+  .animate-fade-rise-delay,
+  .animate-fade-rise-delay-2 {
+    animation: none;
+  }
 }
