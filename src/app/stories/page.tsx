@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 // ── Chapters ────────────────────────────────────────────────────────────────
-// Each release is a chapter. Edit this array to add/update releases.
-// NOTE (Dave): catalog numbers map to the covers in /public/images.
-// Titles, artists, dates and links below are PLACEHOLDERS — replace with real
-// data. Set a links.* value to "" to hide that platform's button.
+// Each release is a chapter, newest first. Covers live in
+// /public/images/releases/<slug>.jpg (download script provided separately).
+// Add soundcloud/youtube/spotify links per release as they become
+// available ("" hides the button).
 type Links = {
   beatport?: string;
   soundcloud?: string;
@@ -26,51 +26,127 @@ type Links = {
 };
 
 type Chapter = {
-  catalog: string;
+  slug: string;
   title: string;
   artist: string;
-  date: string; // display string, e.g. "May 2026"
-  cover: string;
-  tagline: string;
+  date: string;
   links: Links;
 };
 
+const BP = "https://www.beatport.com/release";
+
 const chapters: Chapter[] = [
   {
-    catalog: "MSR015",
-    title: "Title — placeholder",
-    artist: "Artist — placeholder",
+    slug: "erg-chebbi-ep",
+    title: "Erg Chebbi EP",
+    artist: "Modern Walking (PL)",
     date: "May 2026",
-    cover: "/images/ch-015.jpg",
-    tagline: "A short, evocative line about this release.",
-    links: { beatport: "#", soundcloud: "#", youtube: "#", spotify: "#" },
+    links: { beatport: `${BP}/erg-chebbi-ep/6972085` },
   },
   {
-    catalog: "MSR014",
-    title: "Title — placeholder",
-    artist: "Artist — placeholder",
+    slug: "sunset-at-kamala-ep",
+    title: "Sunset At Kamala EP",
+    artist: "Mazze",
     date: "Apr 2026",
-    cover: "/images/ch-014.jpg",
-    tagline: "A short, evocative line about this release.",
-    links: { beatport: "#", soundcloud: "#", youtube: "#", spotify: "#" },
+    links: { beatport: `${BP}/sunset-at-kamala-ep/6800308` },
   },
   {
-    catalog: "MSR013",
-    title: "Title — placeholder",
-    artist: "Artist — placeholder",
-    date: "Mar 2026",
-    cover: "/images/ch-013.jpg",
-    tagline: "A short, evocative line about this release.",
-    links: { beatport: "#", soundcloud: "#", youtube: "#", spotify: "#" },
+    slug: "feathers-ep",
+    title: "Feathers EP",
+    artist: "Slaqk",
+    date: "Jan 2026",
+    links: { beatport: `${BP}/feathers-ep/5761789` },
   },
   {
-    catalog: "MSR012",
-    title: "Title — placeholder",
-    artist: "Artist — placeholder",
-    date: "Feb 2026",
-    cover: "/images/ch-012.jpg",
-    tagline: "A short, evocative line about this release.",
-    links: { beatport: "#", soundcloud: "#", youtube: "#", spotify: "#" },
+    slug: "mirra-ep",
+    title: "Mirra EP",
+    artist: "Peres",
+    date: "Nov 2025",
+    links: { beatport: `${BP}/mirra-ep/5529093` },
+  },
+  {
+    slug: "face-ep",
+    title: "Face EP",
+    artist: "Mauro Masi",
+    date: "Sep 2025",
+    links: { beatport: `${BP}/face-ep/5380095` },
+  },
+  {
+    slug: "liminal-glow-ep",
+    title: "Liminal Glow EP",
+    artist: "Mazze & Rafa'EL",
+    date: "Aug 2025",
+    links: { beatport: `${BP}/liminal-glow-ep/5271502` },
+  },
+  {
+    slug: "velvet-abyss",
+    title: "Velvet Abyss",
+    artist: "Mazze",
+    date: "Mar 2025",
+    links: { beatport: `${BP}/velvet-abyss/4995007` },
+  },
+  {
+    slug: "dot-circle-ep",
+    title: "Dot Circle EP",
+    artist: "Manu Amon",
+    date: "Feb 2025",
+    links: { beatport: `${BP}/dot-circle-ep/4934335` },
+  },
+  {
+    slug: "sakura-ep",
+    title: "Sakura EP",
+    artist: "Adrià Falcó",
+    date: "Jan 2025",
+    links: { beatport: `${BP}/sakura-ep/4881336` },
+  },
+  {
+    slug: "flames",
+    title: "Flames",
+    artist: "Mauro Masi",
+    date: "Jul 2024",
+    links: { beatport: `${BP}/flames/4633083` },
+  },
+  {
+    slug: "ordinary-vision-ep",
+    title: "Ordinary Vision EP",
+    artist: "Our Spaces",
+    date: "Jun 2024",
+    links: { beatport: `${BP}/ordinary-vision-ep/4605780` },
+  },
+  {
+    slug: "sleep-alone",
+    title: "Sleep Alone",
+    artist: "Miqro",
+    date: "May 2024",
+    links: { beatport: `${BP}/sleep-alone/4570957` },
+  },
+  {
+    slug: "lunar-ep",
+    title: "Lunar EP",
+    artist: "Mazze",
+    date: "Mar 2024",
+    links: { beatport: `${BP}/lunar-ep/4460074` },
+  },
+  {
+    slug: "elderose-ep",
+    title: "Elderose EP",
+    artist: "Rafa'EL",
+    date: "Feb 2024",
+    links: { beatport: `${BP}/elderose-ep/4412885` },
+  },
+  {
+    slug: "tones-of-togetherness-ep",
+    title: "Tones of Togetherness EP",
+    artist: "Mazze",
+    date: "Jan 2024",
+    links: { beatport: `${BP}/tones-of-togetherness-ep/4364653` },
+  },
+  {
+    slug: "sagala-ep",
+    title: "Sagala EP",
+    artist: "Mazze",
+    date: "Nov 2022",
+    links: { beatport: `${BP}/sagala-ep/3892199` },
   },
 ];
 
@@ -102,11 +178,11 @@ export default function StoriesPage() {
         {/* Chapters grid */}
         <ul className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 md:mt-20">
           {chapters.map((chapter) => (
-            <li key={chapter.catalog}>
+            <li key={chapter.slug}>
               <article className="group flex flex-col">
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
                   <Image
-                    src={chapter.cover}
+                    src={`/images/releases/${chapter.slug}.jpg`}
                     alt={`${chapter.title} — ${chapter.artist}`}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
@@ -119,23 +195,15 @@ export default function StoriesPage() {
                   />
                 </div>
 
-                <div className="mt-5 flex items-baseline justify-between gap-4">
-                  <span className="font-serif text-xs uppercase tracking-[0.22em] text-ink/50">
-                    {chapter.catalog}
-                  </span>
-                  <span className="font-sans text-xs text-ink/50">
-                    {chapter.date}
-                  </span>
-                </div>
+                <p className="mt-5 text-center font-sans text-xs uppercase tracking-[0.22em] text-ink/50">
+                  {chapter.date}
+                </p>
 
-                <h2 className="mt-2 font-serif text-xl font-normal leading-snug tracking-tight">
+                <h2 className="mt-2 text-center font-serif text-xl font-normal leading-snug tracking-tight">
                   {chapter.title}
                 </h2>
-                <p className="mt-1 font-sans text-sm text-ink/70">
+                <p className="mt-1 text-center font-sans text-sm text-ink/70">
                   {chapter.artist}
-                </p>
-                <p className="mt-3 font-sans text-sm italic leading-relaxed text-ink/55">
-                  {chapter.tagline}
                 </p>
 
                 {/* Listen on — glass platform buttons */}
