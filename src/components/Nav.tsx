@@ -92,7 +92,13 @@ export default function Nav() {
 
       {/* Mobile full-screen sheet */}
       {open && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-twilight/95 backdrop-blur-xl md:hidden">
+        <div
+          className="fixed inset-0 z-[60] flex flex-col backdrop-blur-xl md:hidden"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(168,168,192,0.98) 0%, rgba(168,168,192,0.98) 55%, rgba(154,154,180,0.99) 100%)",
+          }}
+        >
           <div className="flex items-center justify-between px-6 py-6">
             <span className="font-display text-sm tracking-widest text-ink">
               MAGIC STORIES RECORDS
