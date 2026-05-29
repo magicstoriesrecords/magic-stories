@@ -110,3 +110,9 @@ body {
     animation: none;
   }
 }
+
+/* Ink glyphs for liquid-glass buttons placed on the light lavender pages
+   (the default cream is tuned for the dark video hero). */
+.liquid-glass.glass-ink {
+  color: var(--color-ink);
+}

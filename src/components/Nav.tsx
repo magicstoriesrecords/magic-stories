@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
 
 const links = [
@@ -9,23 +12,41 @@ const links = [
 ];
 
 export default function Nav() {
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+
+  // Home: transparent bar floating over the magic-hour video, cream text.
+  // Inner pages: sticky bar with a soft glass backdrop and ink text so the
+  // links stay readable on the lavender background.
+  const header = onHome
+    ? "absolute inset-x-0 top-0 z-50 px-6 py-6 md:px-12 md:py-8"
+    : "sticky top-0 z-50 border-b border-ink/10 bg-twilight/70 px-6 py-5 backdrop-blur-md md:px-12 md:py-6";
+
+  const logo = onHome
+    ? "text-cream [text-shadow:_0_1px_12px_rgba(28,31,82,0.6)]"
+    : "text-ink";
+
+  const link = onHome
+    ? "text-cream/80 hover:text-cream"
+    : "text-ink/70 hover:text-ink";
+
   return (
-    <header className="absolute inset-x-0 top-0 z-50 px-6 py-6 md:px-12 md:py-8">
+    <header className={header}>
       <nav className="mx-auto flex max-w-7xl items-center justify-center md:justify-between">
         <Link
           href="/"
-          className="font-display text-sm tracking-widest text-cream md:text-base [text-shadow:_0_1px_12px_rgba(28,31,82,0.6)]"
+          className={`font-display text-sm tracking-widest md:text-base ${logo}`}
         >
           MAGIC STORIES RECORDS
         </Link>
         <div className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
+          {links.map((item) => (
             <Link
-              key={link.label}
-              href={link.href}
-              className="font-serif text-sm tracking-wide text-cream/80 transition hover:text-cream"
+              key={item.label}
+              href={item.href}
+              className={`font-serif text-sm tracking-wide transition ${link}`}
             >
-              {link.label}
+              {item.label}
             </Link>
           ))}
           <Button href="/stories" size="sm">
