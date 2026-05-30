@@ -85,7 +85,7 @@ export default function AuthorsPage() {
                   className="relative overflow-hidden rounded-3xl border border-ink/10 shadow-[0_20px_60px_-30px_rgba(28,31,82,0.5)]"
                   style={{
                     background:
-                      "linear-gradient(135deg, #bdbdd2 0%, #a8a8c0 50%, #9c9cb8 100%)",
+                      "linear-gradient(135deg, #c4cae2 0%, #b1b2cb 55%, #a2a2bd 100%)",
                   }}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2">
@@ -94,10 +94,7 @@ export default function AuthorsPage() {
                       className={`relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:min-h-[30rem] ${
                         flip ? "md:order-2" : "md:order-1"
                       }`}
-                      style={{
-                        background:
-                          "linear-gradient(160deg, #1c1f52 0%, #0c0d24 70%, #07081a 100%)",
-                      }}
+                      style={{ background: "#bfc4de" }}
                     >
                       <Parallax className="absolute inset-0" strength={20}>
                         <div className="relative h-full w-full scale-[1.12]">
@@ -112,7 +109,7 @@ export default function AuthorsPage() {
                       </Parallax>
                       <div
                         aria-hidden
-                        className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+                        className="absolute inset-0 bg-gradient-to-t from-[#a2a2bd]/35 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#a8a8c0]/25"
                       />
                     </div>
 
