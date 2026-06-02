@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 // Portraits live in /public/images/artists/<slug>.jpg (clean portrait, no text).
 // Links are placeholders ("#") until real URLs are added; "" hides a button.
 // portrait: "" renders a monogram placeholder until a real portrait is added.
+// Bios sourced from each artist's Beatport profile, rewritten in MSR voice.
 // Portraits still needed: slaqk, peres, mauro-masi, rafael, manu-amon,
 // adria-falco, our-spaces, miqro.
 type Author = {
@@ -40,11 +41,11 @@ const authors: Author[] = [
   {
     slug: "mazze",
     name: "Mazze",
-    origin: "Founder · Magic Stories Records",
-    genres: ["Organic House", "Electronica"],
+    origin: "Founder · Szczecin, Poland",
+    genres: ["Organic House", "Deep House", "Progressive"],
     bio: [
-      "Mazze is the founder of Magic Stories Records and the steady hand behind its sound — organic house built from warm pianos, patient melodies and the quiet drama of a story still unfolding.",
-      "His chapters return to the same idea again and again: a record is never a finish line, only a page in something longer. From the sun-drenched calm of ‘Sunset At Kamala’ to the velvet pull of ‘Velvet Abyss’, his music carries the emotion the label was founded on.",
+      "Mazze is a DJ and producer from Szczecin and the founder of Magic Stories Records — the steady hand behind its organic, deep and progressive sound.",
+      "His productions have travelled far beyond Poland, landing on labels like Magician on Duty and Where The Heart Is and into sets at Burning Man and All Day I Dream, championed by the likes of Nick Warren and David Hohme. MSR is the home he built for that story to keep unfolding, release after release.",
     ],
     portrait: "/images/artists/mazze.jpg",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
@@ -76,11 +77,11 @@ const authors: Author[] = [
   {
     slug: "peres",
     name: "Peres",
-    origin: "",
-    genres: ["Organic House"],
+    origin: "Silesia / Warsaw, Poland",
+    genres: ["Progressive House", "Melodic House"],
     bio: [
-      "Peres writes in the label's most reflective register. The Mirra EP is a study in mirrored, introspective melodies — organic electronica turned inward.",
-      "Quiet and patient, the music makes room for the listener to fill in the rest.",
+      "Peres is a Silesian DJ and producer, now based in Warsaw — a veteran of progressive and melodic house whose career reaches back to the late 2000s.",
+      "Across years on labels like LuPS Records and Mistique Music, and stages shared with Carl Cox, Hernán Cattaneo and John Digweed, he has kept an old-school, deeply melodic instinct. The Mirra EP is his reflective, mirrored chapter for Magic Stories.",
     ],
     portrait: "",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
@@ -89,10 +90,10 @@ const authors: Author[] = [
     slug: "mauro-masi",
     name: "Mauro Masi",
     origin: "",
-    genres: ["Organic House"],
+    genres: ["Deep House", "Progressive House", "Organic House"],
     bio: [
-      "Mauro Masi brings a sunlit, melodic strain of organic house to the label, across the Face EP and the single ‘Flames’.",
-      "His tracks lean on warm chords and unhurried grooves — music made for the long, golden part of the day.",
+      "Mauro Masi is a producer of deep and progressive house with a melodic, organic streak — a regular on labels like Consapevole, 3rd Avenue and The Purr.",
+      "His work has drawn support from Hernán Cattaneo and Nick Warren, and he records as half of the duo Newcorp. For Magic Stories he turns that craft toward warm chords and unhurried, golden-hour grooves across the Face EP and ‘Flames’.",
     ],
     portrait: "",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
@@ -100,11 +101,11 @@ const authors: Author[] = [
   {
     slug: "rafael",
     name: "Rafa'EL",
-    origin: "Poland",
-    genres: ["Organic House"],
+    origin: "Gdynia, Poland",
+    genres: ["Organic House", "Melodic House"],
     bio: [
-      "Rafa'EL is a Polish electronic producer who debuted on Magic Stories with ‘Elderose’ — a world of deep, spatial melodies and refined, layered vocals.",
-      "His writing favours atmosphere and detail, and his work threads through the label both solo and alongside Mazze.",
+      "Rafa'EL is a DJ, producer and live performer based in Gdynia, Poland, with fourteen years in the electronic scene.",
+      "He blends organic textures with melodic house, chasing one thing above all — emotion. That heartfelt instinct runs through ‘Elderose’, his Magic Stories debut, and his ongoing work alongside Mazze.",
     ],
     portrait: "",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
@@ -112,11 +113,11 @@ const authors: Author[] = [
   {
     slug: "manu-amon",
     name: "Manu Amon",
-    origin: "",
+    origin: "Nuremberg, Germany",
     genres: ["Electronica"],
     bio: [
-      "Manu Amon works in electronica — hypnotic melodies and meticulously arranged spaces, as on the Dot Circle EP.",
-      "His sound is built for immersion, each track a small, emotional journey.",
+      "Manu Amon is a DJ, producer, drummer and pianist from Nuremberg, Germany.",
+      "That musicianship shows in his electronica — hypnotic melodies and meticulously arranged spaces, as on the Dot Circle EP, each track built for immersion.",
     ],
     portrait: "",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
@@ -124,11 +125,11 @@ const authors: Author[] = [
   {
     slug: "adria-falco",
     name: "Adrià Falcó",
-    origin: "Spain",
-    genres: ["Organic House"],
+    origin: "Tarragona, Spain",
+    genres: ["Organic House", "Melodic House", "Progressive"],
     bio: [
-      "Adrià Falcó is a Spanish producer whose Sakura EP pairs organic, blossoming textures with a reflective, nostalgic undertow.",
-      "His music feels seasonal and tender — a passing moment held just long enough to notice.",
+      "Adrià Falcó is a Spanish producer from Tarragona, classically trained on piano from the age of five at the Conservatori de Música de Tarragona.",
+      "His sound moves between deep, ethnic, progressive and melodic — refined, groove-led and genre-defying, with releases on Déepalma and Café de Anatolia. The Sakura EP is his blossoming, nostalgic chapter for Magic Stories.",
     ],
     portrait: "",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
@@ -139,8 +140,8 @@ const authors: Author[] = [
     origin: "Rafa'EL & Marylin · Tricity, Poland",
     genres: ["Organic House"],
     bio: [
-      "Our Spaces is a Polish duo from Tricity — Rafa'EL and Marylin — whose Ordinary Vision EP turns everyday moments into captivating, melodic organic house.",
-      "Two voices writing one chapter, finding the extraordinary hiding inside the ordinary.",
+      "Our Spaces is a duo from Tricity, Poland — Rafa'EL crafting intricate compositions, Marylin bringing voice, lyrics and violin.",
+      "Together they weave captivating, emotive melodies inspired by the spirit of their coastal home, as on the Ordinary Vision EP — the extraordinary found inside the everyday.",
     ],
     portrait: "",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
@@ -151,8 +152,32 @@ const authors: Author[] = [
     origin: "Poland",
     genres: ["House"],
     bio: [
-      "Miqro is one of the legends of the Polish house scene, and ‘Sleep Alone’ is his sun-soaked chapter for Magic Stories.",
-      "It's the most house-leaning, summer-facing side of the label — music built for beaches and late, warm nights.",
+      "Miqro is one of the legends of the Polish house scene — a vinyl specialist since the late ’90s who became one of the country's most in-demand house DJs.",
+      "A resident and promoter at the legendary AfterParty of Sunrise Festival, with releases reaching as far as Sony BMG Poland, he co-founded the label RANDEWU in 2017. ‘Sleep Alone’ is his sun-soaked, summer-facing chapter for Magic Stories.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "robyn-balliet",
+    name: "Robyn Balliet",
+    origin: "Detroit / Los Angeles, USA",
+    genres: ["Deep House", "Progressive"],
+    bio: [
+      "Robyn Balliet is a Detroit-born, Los Angeles-based producer and first-string violinist whose sound lives in deep house with progressive undertones — melodic, percussive and emotive.",
+      "With releases on labels like 8Bit and Deepalma and stages shared with John Digweed, Sasha and Nora En Pure, she lent her groove to Magic Stories with her remix of Adrià Falcó's ‘Sakura’.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "enigmatic",
+    name: "Enigmatic",
+    origin: "",
+    genres: ["Melodic House", "Organic House"],
+    bio: [
+      "Enigmatic is a DJ, producer and promoter — a dreamy tastemaker with releases on labels like Bar25, Hoomidaas and Melody of the Soul, and a frequent collaborator of Rafa'EL.",
+      "He brought his mesmerizing, melodic touch to Magic Stories with his remix of Mazze's ‘Sagala’.",
     ],
     portrait: "",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
