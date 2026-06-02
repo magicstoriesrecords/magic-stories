@@ -18,8 +18,9 @@ export const metadata: Metadata = {
 // Each artist is a long-form chapter rendered as an open-book spread.
 // Portraits live in /public/images/artists/<slug>.jpg (clean portrait, no text).
 // Links are placeholders ("#") until real URLs are added; "" hides a button.
-// Add the rest of the roster below: Mazze, Slaqk, Peres, Mauro Masi, Rafa'EL,
-// Manu Amon, Adrià Falcó, Our Spaces, Miqro.
+// portrait: "" renders a monogram placeholder until a real portrait is added.
+// Portraits still needed: slaqk, peres, mauro-masi, rafael, manu-amon,
+// adria-falco, our-spaces, miqro.
 type Author = {
   slug: string;
   name: string;
@@ -37,6 +38,18 @@ type Author = {
 
 const authors: Author[] = [
   {
+    slug: "mazze",
+    name: "Mazze",
+    origin: "Founder · Magic Stories Records",
+    genres: ["Organic House", "Electronica"],
+    bio: [
+      "Mazze is the founder of Magic Stories Records and the steady hand behind its sound — organic house built from warm pianos, patient melodies and the quiet drama of a story still unfolding.",
+      "His chapters return to the same idea again and again: a record is never a finish line, only a page in something longer. From the sun-drenched calm of ‘Sunset At Kamala’ to the velvet pull of ‘Velvet Abyss’, his music carries the emotion the label was founded on.",
+    ],
+    portrait: "/images/artists/mazze.jpg",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
     slug: "modern-walking",
     name: "Modern Walking",
     origin: "aka Greg Roslon · Warsaw",
@@ -48,7 +61,110 @@ const authors: Author[] = [
     portrait: "/images/artists/modern-walking.jpg",
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
+  {
+    slug: "slaqk",
+    name: "Slaqk",
+    origin: "aka Miguel Lessey · Venezuela",
+    genres: ["Organic House", "House"],
+    bio: [
+      "Slaqk — Miguel Lessey from Venezuela — works in the space where house music meets something more organic and weightless.",
+      "His Feathers EP brought a light, airy touch to the label: productions that balance a dancefloor pulse against soft, breathing textures.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "peres",
+    name: "Peres",
+    origin: "",
+    genres: ["Organic House"],
+    bio: [
+      "Peres writes in the label's most reflective register. The Mirra EP is a study in mirrored, introspective melodies — organic electronica turned inward.",
+      "Quiet and patient, the music makes room for the listener to fill in the rest.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "mauro-masi",
+    name: "Mauro Masi",
+    origin: "",
+    genres: ["Organic House"],
+    bio: [
+      "Mauro Masi brings a sunlit, melodic strain of organic house to the label, across the Face EP and the single ‘Flames’.",
+      "His tracks lean on warm chords and unhurried grooves — music made for the long, golden part of the day.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "rafael",
+    name: "Rafa'EL",
+    origin: "Poland",
+    genres: ["Organic House"],
+    bio: [
+      "Rafa'EL is a Polish electronic producer who debuted on Magic Stories with ‘Elderose’ — a world of deep, spatial melodies and refined, layered vocals.",
+      "His writing favours atmosphere and detail, and his work threads through the label both solo and alongside Mazze.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "manu-amon",
+    name: "Manu Amon",
+    origin: "",
+    genres: ["Electronica"],
+    bio: [
+      "Manu Amon works in electronica — hypnotic melodies and meticulously arranged spaces, as on the Dot Circle EP.",
+      "His sound is built for immersion, each track a small, emotional journey.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "adria-falco",
+    name: "Adrià Falcó",
+    origin: "Spain",
+    genres: ["Organic House"],
+    bio: [
+      "Adrià Falcó is a Spanish producer whose Sakura EP pairs organic, blossoming textures with a reflective, nostalgic undertow.",
+      "His music feels seasonal and tender — a passing moment held just long enough to notice.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "our-spaces",
+    name: "Our Spaces",
+    origin: "Rafa'EL & Marylin · Tricity, Poland",
+    genres: ["Organic House"],
+    bio: [
+      "Our Spaces is a Polish duo from Tricity — Rafa'EL and Marylin — whose Ordinary Vision EP turns everyday moments into captivating, melodic organic house.",
+      "Two voices writing one chapter, finding the extraordinary hiding inside the ordinary.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
+  {
+    slug: "miqro",
+    name: "Miqro",
+    origin: "Poland",
+    genres: ["House"],
+    bio: [
+      "Miqro is one of the legends of the Polish house scene, and ‘Sleep Alone’ is his sun-soaked chapter for Magic Stories.",
+      "It's the most house-leaning, summer-facing side of the label — music built for beaches and late, warm nights.",
+    ],
+    portrait: "",
+    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+  },
 ];
+
+// Initials for the placeholder shown when a portrait isn't available yet.
+function monogram(name: string): string {
+  const words = name.split(/\s+/).filter(Boolean);
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[words.length - 1][0]).toUpperCase();
+}
 
 const platforms = [
   { key: "soundcloud", label: "SoundCloud", Icon: SoundcloudIcon },
@@ -96,17 +212,28 @@ export default function AuthorsPage() {
                       }`}
                       style={{ background: "#bfc4de" }}
                     >
-                      <Parallax className="absolute inset-0" strength={20}>
-                        <div className="relative h-full w-full scale-[1.12]">
-                          <Image
-                            src={author.portrait}
-                            alt={author.name}
-                            fill
-                            sizes="(min-width: 768px) 50vw, 100vw"
-                            className="object-cover"
-                          />
+                      {author.portrait ? (
+                        <Parallax className="absolute inset-0" strength={20}>
+                          <div className="relative h-full w-full scale-[1.12]">
+                            <Image
+                              src={author.portrait}
+                              alt={author.name}
+                              fill
+                              sizes="(min-width: 768px) 50vw, 100vw"
+                              className="object-cover"
+                            />
+                          </div>
+                        </Parallax>
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span
+                            aria-hidden
+                            className="font-serif text-7xl font-normal tracking-tight text-ink/25 md:text-8xl"
+                          >
+                            {monogram(author.name)}
+                          </span>
                         </div>
-                      </Parallax>
+                      )}
                       <div
                         aria-hidden
                         className="absolute inset-0 bg-gradient-to-t from-[#a2a2bd]/35 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#a8a8c0]/25"
@@ -125,9 +252,11 @@ export default function AuthorsPage() {
                       <h2 className="mt-3 font-serif text-3xl font-normal leading-[1.05] tracking-tight md:text-4xl">
                         {author.name}
                       </h2>
-                      <p className="mt-2 font-sans text-sm italic text-ink/60">
-                        {author.origin}
-                      </p>
+                      {author.origin && (
+                        <p className="mt-2 font-sans text-sm italic text-ink/60">
+                          {author.origin}
+                        </p>
+                      )}
 
                       <p className="mt-5 font-serif text-[0.7rem] uppercase tracking-[0.22em] text-ink/55">
                         {author.genres.join("  ·  ")}
