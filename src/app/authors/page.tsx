@@ -8,6 +8,8 @@ import {
   BeatportIcon,
   InstagramIcon,
 } from "@/components/PlatformIcons";
+import MagicBackdrop from "@/components/MagicBackdrop";
+import NightSky from "@/components/NightSky";
 
 export const metadata: Metadata = {
   title: "Authors — Magic Stories Records",
@@ -200,17 +202,21 @@ const platforms = [
 
 export default function AuthorsPage() {
   return (
-    <section className="px-6 pb-24 pt-16 md:px-12 md:pb-32 md:pt-20">
-      <div className="mx-auto max-w-7xl">
+    <section
+      className="relative isolate overflow-hidden px-6 pb-24 pt-16 md:px-12 md:pb-32 md:pt-20"
+      style={{ background: "linear-gradient(180deg,#15142f 0%,#1b1942 50%,#211d4f 100%)" }}
+    >
+      <NightSky />
+      <div className="relative z-10 mx-auto max-w-7xl">
         {/* Header */}
         <header className="mx-auto max-w-2xl text-center">
-          <p className="font-serif text-xs uppercase tracking-[0.28em] text-ink/60 md:text-sm">
+          <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
             Authors
           </p>
-          <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight sm:text-4xl md:text-5xl">
+          <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
             Every artist writes their own.
           </h1>
-          <p className="mt-6 font-sans text-base leading-relaxed text-ink/75">
+          <p className="mt-6 font-sans text-base leading-relaxed text-cream/75">
             The voices behind the label — each one a chapter that keeps unfolding,
             release after release.
           </p>
@@ -222,20 +228,14 @@ export default function AuthorsPage() {
             const flip = i % 2 === 1; // zig-zag: portrait left / right alternately
             return (
               <Reveal key={author.slug}>
-                <article
-                  className="relative overflow-hidden rounded-3xl border border-ink/10 shadow-[0_20px_60px_-30px_rgba(28,31,82,0.5)]"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #c4cae2 0%, #b1b2cb 55%, #a2a2bd 100%)",
-                  }}
-                >
+                <article className="glass-card relative overflow-hidden rounded-3xl">
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Portrait page (parallax) */}
                     <div
                       className={`relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:min-h-[30rem] ${
                         flip ? "md:order-2" : "md:order-1"
                       }`}
-                      style={{ background: "#bfc4de" }}
+                      style={{ background: "#171633" }}
                     >
                       {author.portrait ? (
                         <Parallax className="absolute inset-0" strength={20}>
@@ -250,18 +250,22 @@ export default function AuthorsPage() {
                           </div>
                         </Parallax>
                       ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span
-                            aria-hidden
-                            className="font-serif text-7xl font-normal tracking-tight text-ink/25 md:text-8xl"
-                          >
-                            {monogram(author.name)}
-                          </span>
-                        </div>
+                        <>
+                          <MagicBackdrop seed={author.slug} />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span
+                              aria-hidden
+                              className="font-display text-7xl font-normal tracking-tight text-cream/85 md:text-8xl"
+                              style={{ textShadow: "0 0 34px rgba(232,184,144,0.55)" }}
+                            >
+                              {monogram(author.name)}
+                            </span>
+                          </div>
+                        </>
                       )}
                       <div
                         aria-hidden
-                        className="absolute inset-0 bg-gradient-to-t from-[#a2a2bd]/35 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#a8a8c0]/25"
+                        className="absolute inset-0 bg-gradient-to-t from-[#141230]/55 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#141230]/35"
                       />
                     </div>
 
@@ -271,19 +275,19 @@ export default function AuthorsPage() {
                         flip ? "md:order-1" : "md:order-2"
                       }`}
                     >
-                      <p className="font-serif text-xs uppercase tracking-[0.28em] text-ink/50">
+                      <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/55">
                         Author
                       </p>
-                      <h2 className="mt-3 font-serif text-3xl font-normal leading-[1.05] tracking-tight md:text-4xl">
+                      <h2 className="mt-3 font-serif text-3xl font-normal leading-[1.05] tracking-tight text-cream md:text-4xl">
                         {author.name}
                       </h2>
                       {author.origin && (
-                        <p className="mt-2 font-sans text-sm italic text-ink/60">
+                        <p className="mt-2 font-sans text-sm italic text-cream/65">
                           {author.origin}
                         </p>
                       )}
 
-                      <p className="mt-5 font-serif text-[0.7rem] uppercase tracking-[0.22em] text-ink/55">
+                      <p className="mt-5 font-serif text-[0.7rem] uppercase tracking-[0.22em] text-warm/85">
                         {author.genres.join("  ·  ")}
                       </p>
 
@@ -291,7 +295,7 @@ export default function AuthorsPage() {
                         {author.bio.map((para, j) => (
                           <p
                             key={j}
-                            className="font-sans text-sm leading-relaxed text-ink/80 md:text-base"
+                            className="font-sans text-sm leading-relaxed text-cream/80 md:text-base"
                           >
                             {para}
                           </p>
@@ -310,7 +314,7 @@ export default function AuthorsPage() {
                               rel="noopener noreferrer"
                               aria-label={`${label} — ${author.name}`}
                               title={label}
-                              className="liquid-glass glass-ink flex h-11 w-11 items-center justify-center"
+                              className="liquid-glass flex h-11 w-11 items-center justify-center"
                             >
                               <Icon />
                             </a>
