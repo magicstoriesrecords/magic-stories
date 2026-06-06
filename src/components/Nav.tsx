@@ -51,58 +51,67 @@ export default function Nav() {
     ? "text-cream/80 hover:text-cream"
     : "text-ink/70 hover:text-ink";
 
+  const logoTone = lightOnDark ? "text-cream" : "text-ink";
+
   // The menu/close toggle inherits the page-appropriate ink/cream tone.
   const toggle = lightOnDark ? "text-cream" : "text-ink";
 
   return (
-    <header className={header}>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between">
-        <Link href="/" aria-label="Magic Stories Records" className="flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/logo-mark.svg"
-            alt="Magic Stories Records"
-            className="h-9 w-auto drop-shadow-[0_1px_6px_rgba(8,7,24,0.6)] md:h-11"
-          />
-        </Link>
+    <>
+      <header className={header}>
+        <nav className="mx-auto flex max-w-7xl items-center justify-between">
+          <Link
+            href="/"
+            aria-label="Magic Stories Records"
+            className={`flex items-center ${logoTone}`}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo-mark.svg"
+              alt="Magic Stories Records"
+              className="h-9 w-auto drop-shadow-[0_1px_6px_rgba(8,7,24,0.6)] md:h-11"
+            />
+          </Link>
 
-        {/* Desktop links */}
-        <div className="hidden items-center gap-8 md:flex">
-          {links.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={`font-serif text-sm tracking-wide transition ${link}`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Button href="/stories" size="sm">
-            Open the Library
-          </Button>
-        </div>
+          {/* Desktop links */}
+          <div className="hidden items-center gap-8 md:flex">
+            {links.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`font-serif text-sm tracking-wide transition ${link}`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Button href="/stories" size="sm">
+              Open the Library
+            </Button>
+          </div>
 
-        {/* Mobile toggle — subtle two-line mark */}
-        <button
-          type="button"
-          aria-label="Open menu"
-          aria-expanded={open}
-          onClick={() => setOpen(true)}
-          className={`flex h-11 w-11 items-center justify-center md:hidden ${toggle}`}
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M3 9h18M3 15h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-        </button>
-      </nav>
+          {/* Mobile toggle — subtle two-line mark */}
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+            className={`flex h-11 w-11 items-center justify-center md:hidden ${toggle}`}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 9h18M3 15h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+        </nav>
+      </header>
 
-      {/* Mobile full-screen sheet */}
+      {/* Mobile full-screen sheet — rendered OUTSIDE <header> so the header's
+          backdrop-filter doesn't trap this fixed element to the bar's box. */}
       {open && (
         <div
-          className="fixed inset-0 z-[60] flex flex-col backdrop-blur-xl md:hidden"
+          className="fixed inset-0 z-[70] flex flex-col md:hidden"
           style={{
             background:
-              "linear-gradient(180deg, rgba(168,168,192,0.98) 0%, rgba(168,168,192,0.98) 55%, rgba(154,154,180,0.99) 100%)",
+              "linear-gradient(180deg, rgba(168,168,192,0.985) 0%, rgba(168,168,192,0.985) 55%, rgba(150,150,178,0.99) 100%)",
           }}
         >
           <div className="flex items-center justify-between px-6 py-6">
@@ -142,6 +151,6 @@ export default function Nav() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

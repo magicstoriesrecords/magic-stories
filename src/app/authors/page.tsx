@@ -257,9 +257,9 @@ export default function AuthorsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Portrait page (parallax) */}
                     <div
-                      className={`relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:min-h-[30rem] ${
-                        flip ? "md:order-2" : "md:order-1"
-                      }`}
+                      className={`relative w-full overflow-hidden md:aspect-auto md:min-h-[30rem] ${
+                        author.cutout ? "aspect-[3/2]" : "aspect-[4/5]"
+                      } ${flip ? "md:order-2" : "md:order-1"}`}
                       style={author.cutout ? undefined : { background: "#171633" }}
                     >
                       {author.portrait ? (
