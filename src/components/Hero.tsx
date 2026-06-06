@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-end overflow-hidden px-6 pb-12 pt-28 text-center text-cream md:pb-20">
+    <section className="relative flex min-h-[100svh] w-full flex-col items-center justify-end overflow-hidden px-6 pb-12 pt-28 text-center text-cream md:pb-20">
       {/* Fullscreen looping background video */}
       <video
         ref={videoRef}
@@ -62,17 +62,17 @@ export default function Hero() {
 
       {/* Wordmark sits above the emblem (the glowing book in the video). */}
       <div className="absolute inset-x-0 top-24 z-10 flex justify-center px-6 md:top-28">
-        <div className="animate-fade-rise flex items-center gap-4">
+        <div className="animate-fade-rise flex items-center gap-2 sm:gap-4">
           <span
             aria-hidden
-            className="h-px w-10 bg-gradient-to-r from-transparent to-warm/60 md:w-16"
+            className="h-px w-6 bg-gradient-to-r from-transparent to-warm/60 sm:w-10 md:w-16"
           />
-          <p className="font-serif text-sm uppercase tracking-[0.34em] text-cream/85 md:text-base [text-shadow:_0_1px_3px_rgba(8,7,24,0.65),_0_1px_16px_rgba(8,7,24,0.6)]">
+          <p className="whitespace-nowrap font-serif text-[0.62rem] uppercase tracking-[0.2em] text-cream/85 sm:text-sm sm:tracking-[0.34em] md:text-base [text-shadow:_0_1px_3px_rgba(8,7,24,0.65),_0_1px_16px_rgba(8,7,24,0.6)]">
             Magic Stories Records
           </p>
           <span
             aria-hidden
-            className="h-px w-10 bg-gradient-to-l from-transparent to-warm/60 md:w-16"
+            className="h-px w-6 bg-gradient-to-l from-transparent to-warm/60 sm:w-10 md:w-16"
           />
         </div>
       </div>

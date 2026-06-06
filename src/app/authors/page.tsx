@@ -50,7 +50,8 @@ const authors: Author[] = [
       "Mazze is a DJ and producer from Szczecin and the founder of Magic Stories Records — the steady hand behind its organic, deep and progressive sound.",
       "His productions have travelled far beyond Poland, landing on labels like Magician on Duty and Where The Heart Is and into sets at Burning Man and All Day I Dream, championed by the likes of Nick Warren and David Hohme. MSR is the home he built for that story to keep unfolding, release after release.",
     ],
-    portrait: "/images/artists/mazze.jpg",
+    portrait: "/images/artists/dj-mazze.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -75,7 +76,8 @@ const authors: Author[] = [
       "Slaqk — Miguel Lessey from Venezuela — works in the space where house music meets something more organic and weightless.",
       "His Feathers EP brought a light, airy touch to the label: productions that balance a dancefloor pulse against soft, breathing textures.",
     ],
-    portrait: "",
+    portrait: "/images/artists/dj-slaqk.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -87,7 +89,8 @@ const authors: Author[] = [
       "Peres is a Silesian DJ and producer, now based in Warsaw — a veteran of progressive and melodic house whose career reaches back to the late 2000s.",
       "Across years on labels like LuPS Records and Mistique Music, and stages shared with Carl Cox, Hernán Cattaneo and John Digweed, he has kept an old-school, deeply melodic instinct. The Mirra EP is his reflective, mirrored chapter for Magic Stories.",
     ],
-    portrait: "",
+    portrait: "/images/artists/dj-peres.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -99,7 +102,8 @@ const authors: Author[] = [
       "Mauro Masi is a producer of deep and progressive house with a melodic, organic streak — a regular on labels like Consapevole, 3rd Avenue and The Purr.",
       "His work has drawn support from Hernán Cattaneo and Nick Warren, and he records as half of the duo Newcorp. For Magic Stories he turns that craft toward warm chords and unhurried, golden-hour grooves across the Face EP and ‘Flames’.",
     ],
-    portrait: "",
+    portrait: "/images/artists/mauro-masi.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -111,7 +115,8 @@ const authors: Author[] = [
       "Rafa'EL is a DJ, producer and live performer based in Gdynia, Poland, with fourteen years in the electronic scene.",
       "He blends organic textures with melodic house, chasing one thing above all — emotion. That heartfelt instinct runs through ‘Elderose’, his Magic Stories debut, and his ongoing work alongside Mazze.",
     ],
-    portrait: "",
+    portrait: "/images/artists/rafa-el.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -123,7 +128,8 @@ const authors: Author[] = [
       "Manu Amon is a DJ, producer, drummer and pianist from Nuremberg, Germany.",
       "That musicianship shows in his electronica — hypnotic melodies and meticulously arranged spaces, as on the Dot Circle EP, each track built for immersion.",
     ],
-    portrait: "",
+    portrait: "/images/artists/manu-amon.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -135,7 +141,8 @@ const authors: Author[] = [
       "Adrià Falcó is a Spanish producer from Tarragona, classically trained on piano from the age of five at the Conservatori de Música de Tarragona.",
       "His sound moves between deep, ethnic, progressive and melodic — refined, groove-led and genre-defying, with releases on Déepalma and Café de Anatolia. The Sakura EP is his blossoming, nostalgic chapter for Magic Stories.",
     ],
-    portrait: "",
+    portrait: "/images/artists/adria-falco.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -147,7 +154,8 @@ const authors: Author[] = [
       "Our Spaces is a duo from Tricity, Poland — Rafa'EL crafting intricate compositions, Marylin bringing voice, lyrics and violin.",
       "Together they weave captivating, emotive melodies inspired by the spirit of their coastal home, as on the Ordinary Vision EP — the extraordinary found inside the everyday.",
     ],
-    portrait: "",
+    portrait: "/images/artists/our-spaces.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -159,7 +167,8 @@ const authors: Author[] = [
       "Miqro is one of the legends of the Polish house scene — a vinyl specialist since the late ’90s who became one of the country's most in-demand house DJs.",
       "A resident and promoter at the legendary AfterParty of Sunrise Festival, with releases reaching as far as Sony BMG Poland, he co-founded the label RANDEWU in 2017. ‘Sleep Alone’ is his sun-soaked, summer-facing chapter for Magic Stories.",
     ],
-    portrait: "",
+    portrait: "/images/artists/dj-miqro.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -171,7 +180,8 @@ const authors: Author[] = [
       "Robyn Balliet is a Detroit-born, Los Angeles-based producer and first-string violinist whose sound lives in deep house with progressive undertones — melodic, percussive and emotive.",
       "With releases on labels like 8Bit and Deepalma and stages shared with John Digweed, Sasha and Nora En Pure, she lent her groove to Magic Stories with her remix of Adrià Falcó's ‘Sakura’.",
     ],
-    portrait: "",
+    portrait: "/images/artists/robyn-balliet.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -183,7 +193,8 @@ const authors: Author[] = [
       "Enigmatic is a DJ, producer and promoter — a dreamy tastemaker with releases on labels like Bar25, Hoomidaas and Melody of the Soul, and a frequent collaborator of Rafa'EL.",
       "He brought his mesmerizing, melodic touch to Magic Stories with his remix of Mazze's ‘Sagala’.",
     ],
-    portrait: "",
+    portrait: "/images/artists/dj-enigmatic.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
 ];
@@ -208,16 +219,19 @@ export default function AuthorsPage() {
       className="relative isolate overflow-hidden px-6 pb-24 pt-16 md:px-12 md:pb-32 md:pt-20"
       style={{ background: "linear-gradient(180deg,#15142f 0%,#1b1942 50%,#211d4f 100%)" }}
     >
-      {/* Base fallback: procedural sky (shows if the photo is missing). */}
-      <NightSky />
+      {/* Fixed viewport-sized sky backdrop: own compositor layer →
+          crisp photo + smooth scroll (no background-attachment:fixed jank). */}
+      <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden">
+        <NightSky />
       {/* Real sky photo — drop the file at /public/images/authors-sky.jpg. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 -z-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/authors-sky.png')" }}
       />
       {/* Gentle darkening for text contrast. */}
       <div aria-hidden className="absolute inset-0 -z-0 bg-[#141230]/25" />
+      </div>
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Header */}
         <header className="mx-auto max-w-2xl text-center">

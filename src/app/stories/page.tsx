@@ -14,16 +14,19 @@ export default function StoriesPage() {
       className="relative isolate overflow-hidden px-6 pb-24 pt-16 md:px-12 md:pb-32 md:pt-20"
       style={{ background: "linear-gradient(180deg,#15142f 0%,#1b1942 50%,#211d4f 100%)" }}
     >
-      {/* Base fallback: procedural sky (shows if the photo is missing). */}
-      <NightSky />
+      {/* Fixed viewport-sized sky backdrop: own compositor layer →
+          crisp photo + smooth scroll (no background-attachment:fixed jank). */}
+      <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden">
+        <NightSky />
       {/* Real sky photo — shared with the Authors section. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 -z-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/authors-sky.png')" }}
       />
       {/* Gentle darkening for text contrast. */}
       <div aria-hidden className="absolute inset-0 -z-0 bg-[#141230]/25" />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <header className="mx-auto max-w-2xl text-center">
