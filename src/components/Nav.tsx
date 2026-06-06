@@ -12,9 +12,15 @@ const links = [
   { label: "Submit", href: "/submit" },
 ];
 
+// Pages whose hero sits on a dark night-sky background. The bar floats as a
+// dark glass strip with cream text so it reads against the sky.
+const darkPages = ["/authors", "/stories"];
+
 export default function Nav() {
   const pathname = usePathname();
   const onHome = pathname === "/";
+  const onDark = darkPages.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const lightOnDark = onHome || onDark; // cream text + light-on-dark treatment
   const [open, setOpen] = useState(false);
 
   // Lock background scroll + allow Escape to close while the sheet is open.
@@ -33,31 +39,31 @@ export default function Nav() {
   }, [open]);
 
   // Home: transparent bar floating over the magic-hour video, cream text.
-  // Inner pages: sticky bar with a soft glass backdrop and ink text so the
-  // links stay readable on the lavender background.
+  // Dark pages (night-sky hero): sticky dark-glass strip with cream text.
+  // Other inner pages: sticky soft-glass bar with ink text on lavender.
   const header = onHome
     ? "absolute inset-x-0 top-0 z-50 px-6 py-6 md:px-12 md:py-8"
-    : "sticky top-0 z-50 border-b border-ink/10 bg-twilight/70 px-6 py-5 backdrop-blur-md md:px-12 md:py-6";
+    : onDark
+      ? "sticky top-0 z-50 border-b border-cream/10 bg-[#15142f]/70 px-6 py-5 backdrop-blur-md md:px-12 md:py-6"
+      : "sticky top-0 z-50 border-b border-ink/10 bg-twilight/70 px-6 py-5 backdrop-blur-md md:px-12 md:py-6";
 
-  const logo = onHome
-    ? "text-cream [text-shadow:_0_1px_12px_rgba(28,31,82,0.6)]"
-    : "text-ink";
-
-  const link = onHome
+  const link = lightOnDark
     ? "text-cream/80 hover:text-cream"
     : "text-ink/70 hover:text-ink";
 
   // The menu/close toggle inherits the page-appropriate ink/cream tone.
-  const toggle = onHome ? "text-cream" : "text-ink";
+  const toggle = lightOnDark ? "text-cream" : "text-ink";
 
   return (
     <header className={header}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between">
-        <Link
-          href="/"
-          className={`font-display text-sm tracking-widest md:text-base ${logo}`}
-        >
-          MAGIC STORIES RECORDS
+        <Link href="/" aria-label="Magic Stories Records" className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo-mark.svg"
+            alt="Magic Stories Records"
+            className="h-9 w-auto drop-shadow-[0_1px_6px_rgba(8,7,24,0.6)] md:h-11"
+          />
         </Link>
 
         {/* Desktop links */}

@@ -31,6 +31,7 @@ type Author = {
   genres: string[];
   bio: string[];
   portrait: string;
+  cutout?: boolean; // transparent PNG cut-out (no background)
   links: {
     instagram?: string;
     spotify?: string;
@@ -61,7 +62,8 @@ const authors: Author[] = [
       "Modern Walking — Greg Roslon from Warsaw — is a DJ and producer who blends electronica, organic house, downtempo, deep house, breaks and ambient, all carried by the warmth of classic synthesizers.",
       "His story began in the late 1990s, shaped by Warsaw's club culture and later by formative years in Leeds, where vinyl, parties and the underground helped define his sound.",
     ],
-    portrait: "/images/artists/modern-walking.jpg",
+    portrait: "/images/artists/modern-walking.png",
+    cutout: true,
     links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
   },
   {
@@ -244,17 +246,17 @@ export default function AuthorsPage() {
                       className={`relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:min-h-[30rem] ${
                         flip ? "md:order-2" : "md:order-1"
                       }`}
-                      style={{ background: "#171633" }}
+                      style={author.cutout ? undefined : { background: "#171633" }}
                     >
                       {author.portrait ? (
                         <Parallax className="absolute inset-0" strength={20}>
-                          <div className="relative h-full w-full scale-[1.12]">
+                          <div className={`relative h-full w-full ${author.cutout ? "" : "scale-[1.12]"}`}>
                             <Image
                               src={author.portrait}
                               alt={author.name}
                               fill
                               sizes="(min-width: 768px) 50vw, 100vw"
-                              className="object-cover"
+                              className={author.cutout ? "object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]" : "object-cover"}
                             />
                           </div>
                         </Parallax>
@@ -272,10 +274,12 @@ export default function AuthorsPage() {
                           </div>
                         </>
                       )}
-                      <div
-                        aria-hidden
-                        className="absolute inset-0 bg-gradient-to-t from-[#141230]/55 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#141230]/35"
-                      />
+                      {!author.cutout && (
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-gradient-to-t from-[#141230]/55 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#141230]/35"
+                        />
+                      )}
                     </div>
 
                     {/* Text page */}

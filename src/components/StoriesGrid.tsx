@@ -22,8 +22,8 @@ export default function StoriesGrid() {
     <ul className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 md:mt-20">
       {releases.map((release, i) => (
         <Reveal as="li" key={release.slug} delayMs={Math.min(i, 5) * 70}>
-          <article className="group flex flex-col">
-            <div className="relative aspect-square w-full overflow-hidden rounded-2xl shadow-[0_10px_30px_-18px_rgba(28,31,82,0.5)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_26px_55px_-22px_rgba(28,31,82,0.6)]">
+          <article className="group glass-card flex flex-col rounded-3xl p-4 transition-all duration-500 hover:-translate-y-1">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl shadow-[0_10px_30px_-18px_rgba(0,0,0,0.6)]">
               <Image
                 src={`/images/releases/${release.slug}.jpg`}
                 alt={`${release.title} — ${release.artist}`}
@@ -57,13 +57,13 @@ export default function StoriesGrid() {
               </div>
             </div>
 
-            <p className="mt-5 text-center font-sans text-xs uppercase tracking-[0.22em] text-ink/50">
+            <p className="mt-5 text-center font-sans text-xs uppercase tracking-[0.22em] text-cream/55">
               {release.date}
             </p>
-            <h2 className="mt-2 text-center font-serif text-xl font-normal leading-snug tracking-tight">
+            <h2 className="mt-2 text-center font-serif text-xl font-normal leading-snug tracking-tight text-cream">
               {release.title}
             </h2>
-            <p className="mt-1 text-center font-sans text-sm text-ink/70">
+            <p className="mb-1 mt-1 text-center font-sans text-sm text-cream/70">
               {release.artist}
             </p>
           </article>

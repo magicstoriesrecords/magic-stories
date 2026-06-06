@@ -3,10 +3,11 @@
 import { useEffect, useRef } from "react";
 import Button from "@/components/ui/Button";
 
-// Background video — our magic-hour material (Kling AI).
-// File: public/hero-magic-hour.mp4 — seamless 10s loop, ~4 MB.
-// Poster fallback: public/hero-poster.jpg.
-const VIDEO_SRC = "/hero-magic-hour.mp4";
+// Background video — wildflower magic-hour loop (Kling AI).
+// File: public/hero-wildflower-v4.mp4 — seamless 10s loop, ~1.8 MB.
+// Endpoints near-identical + duplicate last frame dropped → no visible cut.
+// Poster fallback: public/hero-poster.jpg (first frame).
+const VIDEO_SRC = "/hero-wildflower-v4.mp4";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -45,23 +46,41 @@ export default function Hero() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(28,31,82,0.28) 0%, rgba(28,31,82,0.20) 40%, rgba(28,31,82,0.30) 62%, rgba(28,31,82,0.62) 85%, rgba(28,31,82,0.78) 100%)",
+            "linear-gradient(180deg, rgba(28,31,82,0.28) 0%, rgba(28,31,82,0.22) 38%, rgba(20,18,48,0.42) 60%, rgba(20,18,48,0.72) 82%, rgba(16,14,40,0.88) 100%)",
+        }}
+      />
+      {/* Localized scrim — pools soft darkness directly behind the headline
+          so the type stays legible over the bright cloud/flower centre. */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 z-[2] h-[72%]"
+        style={{
+          background:
+            "radial-gradient(58% 70% at 50% 78%, rgba(14,12,36,0.70) 0%, rgba(14,12,36,0.42) 42%, rgba(14,12,36,0.0) 74%)",
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center">
-        <p className="animate-fade-rise mb-4 font-serif text-xs uppercase tracking-[0.28em] text-twilight md:mb-5 md:text-sm [text-shadow:_0_1px_12px_rgba(28,31,82,0.7)]">
-          Magic Stories Records
-        </p>
+      {/* Wordmark sits above the emblem (the glowing book in the video). */}
+      <div className="absolute inset-x-0 top-24 z-10 flex justify-center px-6 md:top-28">
+        <div className="animate-fade-rise flex items-center gap-4">
+          <span
+            aria-hidden
+            className="h-px w-10 bg-gradient-to-r from-transparent to-warm/60 md:w-16"
+          />
+          <p className="font-serif text-sm uppercase tracking-[0.34em] text-cream/85 md:text-base [text-shadow:_0_1px_3px_rgba(8,7,24,0.65),_0_1px_16px_rgba(8,7,24,0.6)]">
+            Magic Stories Records
+          </p>
+          <span
+            aria-hidden
+            className="h-px w-10 bg-gradient-to-l from-transparent to-warm/60 md:w-16"
+          />
+        </div>
+      </div>
 
-        <h1 className="animate-fade-rise-delay max-w-3xl font-serif text-4xl font-normal leading-[1.05] tracking-tight sm:text-5xl md:text-6xl [text-shadow:_0_2px_30px_rgba(28,31,82,0.6)]">
+      <div className="relative z-10 flex flex-col items-center">
+        <h1 className="animate-fade-rise-delay max-w-3xl font-serif text-4xl font-normal leading-[1.05] tracking-tight sm:text-5xl md:text-6xl text-cream [text-shadow:_0_2px_4px_rgba(8,7,24,0.55),_0_4px_34px_rgba(8,7,24,0.75)]">
           Where music <span className="text-twilight">paints dreams.</span>
         </h1>
-
-        <p className="animate-fade-rise-delay mt-6 max-w-xl font-sans text-base leading-relaxed text-twilight">
-          A library of melodic &amp; organic house, where every release opens a
-          chapter and every artist writes their own.
-        </p>
 
         <Button
           href="/stories"
