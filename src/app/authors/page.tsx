@@ -7,6 +7,7 @@ import {
   SoundcloudIcon,
   BeatportIcon,
   InstagramIcon,
+  FacebookIcon,
 } from "@/components/PlatformIcons";
 import MagicBackdrop from "@/components/MagicBackdrop";
 import NightSky from "@/components/NightSky";
@@ -19,11 +20,9 @@ export const metadata: Metadata = {
 // ── Authors ──────────────────────────────────────────────────────────────────
 // Each artist is a long-form chapter rendered as an open-book spread.
 // Portraits live in /public/images/artists/<slug>.jpg (clean portrait, no text).
-// Links are placeholders ("#") until real URLs are added; "" hides a button.
+// Links are real platform URLs; an omitted/empty key hides that button.
 // portrait: "" renders a monogram placeholder until a real portrait is added.
 // Bios sourced from each artist's Beatport profile, rewritten in MSR voice.
-// Portraits still needed: slaqk, peres, mauro-masi, rafael, manu-amon,
-// adria-falco, our-spaces, miqro.
 type Author = {
   slug: string;
   name: string;
@@ -33,6 +32,7 @@ type Author = {
   portrait: string;
   cutout?: boolean; // transparent PNG cut-out (no background)
   links: {
+    facebook?: string;
     instagram?: string;
     spotify?: string;
     soundcloud?: string;
@@ -52,7 +52,13 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/dj-mazze.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/Mazzemusic",
+      instagram: "https://www.instagram.com/mazze9/",
+      spotify: "https://open.spotify.com/artist/0NlHo4o0X08MfypPJxlm48",
+      soundcloud: "https://soundcloud.com/mazzemusic",
+      beatport: "https://www.beatport.com/artist/mazze/323552",
+    },
   },
   {
     slug: "modern-walking",
@@ -65,7 +71,12 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/modern-walking.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/profile.php?id=100067740896015",
+      spotify: "https://open.spotify.com/artist/3OVP0HzUg08EKbAYQJSe4p",
+      soundcloud: "https://on.soundcloud.com/Fic7NTwa08DNgDFOwc",
+      beatport: "https://www.beatport.com/artist/modern-walking-pl/1044338",
+    },
   },
   {
     slug: "slaqk",
@@ -78,7 +89,12 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/dj-slaqk.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      instagram: "https://www.instagram.com/slaqk",
+      spotify: "https://open.spotify.com/artist/6dJawdKmaoNjzZgL99PhOy",
+      soundcloud: "https://soundcloud.com/slaqk",
+      beatport: "https://www.beatport.com/artist/slaqk/748229",
+    },
   },
   {
     slug: "peres",
@@ -91,7 +107,13 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/dj-peres.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/Peresdj",
+      instagram: "https://www.instagram.com/peres_music",
+      spotify: "https://open.spotify.com/artist/6RcGbsoD1gLadO1Vrhb8OK",
+      soundcloud: "https://soundcloud.com/peres",
+      beatport: "https://www.beatport.com/artist/peres/12763",
+    },
   },
   {
     slug: "mauro-masi",
@@ -104,7 +126,12 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/mauro-masi.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/mauromasi.Dj.producer",
+      instagram: "https://www.instagram.com/mauro.masi.music/",
+      soundcloud: "https://soundcloud.com/mauromasimusic",
+      beatport: "https://www.beatport.com/artist/mauro-masi/792827",
+    },
   },
   {
     slug: "rafael",
@@ -117,7 +144,12 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/rafa-el.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/raf.musicman",
+      spotify: "https://open.spotify.com/artist/1UGSixfO4Tyh1HncCf2TlD",
+      soundcloud: "https://soundcloud.com/rafael-music",
+      beatport: "https://www.beatport.com/artist/rafael/329366",
+    },
   },
   {
     slug: "manu-amon",
@@ -130,7 +162,11 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/manu-amon.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/manuamonmusic",
+      instagram: "https://www.instagram.com/manu_amon_music",
+      soundcloud: "https://soundcloud.com/manu_amon",
+    },
   },
   {
     slug: "adria-falco",
@@ -143,7 +179,12 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/adria-falco.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/adriafalcomusic/",
+      spotify: "https://open.spotify.com/artist/1bwmUz4XLI9rdyvGyTs9Qp",
+      soundcloud: "https://soundcloud.com/adriafalcomusic",
+      beatport: "https://www.beatport.com/artist/adria-falco/961872",
+    },
   },
   {
     slug: "our-spaces",
@@ -156,7 +197,11 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/our-spaces.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/ourspacesmusic",
+      instagram: "https://www.instagram.com/Ourspaces.music",
+      beatport: "https://www.beatport.com/artist/our-spaces/1215040",
+    },
   },
   {
     slug: "miqro",
@@ -169,7 +214,13 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/dj-miqro.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/djMIQRO",
+      instagram: "https://www.instagram.com/miqro.pl",
+      spotify: "https://open.spotify.com/artist/5DrihC1Hr8u1gSi3AlGyqx",
+      soundcloud: "https://soundcloud.com/miqro",
+      beatport: "https://www.beatport.com/artist/miqro/129763",
+    },
   },
   {
     slug: "robyn-balliet",
@@ -182,7 +233,12 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/robyn-balliet.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/robyn.balliet",
+      spotify: "https://open.spotify.com/artist/1c2i1KUDT3ghnZUy0cKmS5",
+      soundcloud: "https://soundcloud.com/robynballiet",
+      beatport: "https://www.beatport.com/artist/robyn-balliet/1147425",
+    },
   },
   {
     slug: "enigmatic",
@@ -195,7 +251,13 @@ const authors: Author[] = [
     ],
     portrait: "/images/artists/dj-enigmatic.png",
     cutout: true,
-    links: { instagram: "#", spotify: "#", soundcloud: "#", beatport: "#" },
+    links: {
+      facebook: "https://www.facebook.com/EnigmaticMusic",
+      instagram: "https://www.instagram.com/enigmati_c",
+      spotify: "https://open.spotify.com/artist/7Dp0ZMnYTM3JJV5ccGLX4A",
+      soundcloud: "https://soundcloud.com/enigmatictapes",
+      beatport: "https://www.beatport.com/artist/enigmatic/28769",
+    },
   },
 ];
 
@@ -211,6 +273,7 @@ const platforms = [
   { key: "spotify", label: "Spotify", Icon: SpotifyIcon },
   { key: "instagram", label: "Instagram", Icon: InstagramIcon },
   { key: "beatport", label: "Beatport", Icon: BeatportIcon },
+  { key: "facebook", label: "Facebook", Icon: FacebookIcon },
 ] as const;
 
 export default function AuthorsPage() {
