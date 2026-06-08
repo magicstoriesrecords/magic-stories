@@ -4,17 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
+import AuthNav from "@/components/auth/AuthNav";
 
 const links = [
   { label: "Stories", href: "/stories" },
   { label: "Authors", href: "/authors" },
+  { label: "Campfire", href: "/campfire" },
   { label: "Sessions", href: "/sessions" },
   { label: "Submit", href: "/submit" },
 ];
 
 // Pages whose hero sits on a dark night-sky background. The bar floats as a
 // dark glass strip with cream text so it reads against the sky.
-const darkPages = ["/authors", "/stories"];
+const darkPages = ["/authors", "/stories", "/campfire"];
 
 export default function Nav() {
   const pathname = usePathname();
@@ -87,6 +89,7 @@ export default function Nav() {
             <Button href="/stories" size="sm">
               Open the Library
             </Button>
+            <AuthNav tone={lightOnDark ? "cream" : "ink"} />
           </div>
 
           {/* Mobile toggle — subtle two-line mark */}
@@ -141,6 +144,13 @@ export default function Nav() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/account"
+              onClick={() => setOpen(false)}
+              className="font-serif text-2xl tracking-wide text-ink transition hover:opacity-60"
+            >
+              Account
+            </Link>
             <Link
               href="/stories"
               onClick={() => setOpen(false)}
