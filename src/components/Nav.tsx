@@ -8,7 +8,7 @@ import AuthNav from "@/components/auth/AuthNav";
 
 const links = [
   { label: "Stories", href: "/stories" },
-  { label: "Authors", href: "/authors" },
+  { label: "Artists", href: "/authors" },
   { label: "Campfire", href: "/campfire" },
   { label: "Sessions", href: "/sessions" },
   { label: "Submit", href: "/submit" },

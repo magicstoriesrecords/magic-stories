@@ -13,7 +13,7 @@ import MagicBackdrop from "@/components/MagicBackdrop";
 import NightSky from "@/components/NightSky";
 
 export const metadata: Metadata = {
-  title: "Authors — Magic Stories Records",
+  title: "Artists — Magic Stories Records",
   description: "Every artist writes their own chapter.",
 };
 
@@ -299,7 +299,7 @@ export default function AuthorsPage() {
         {/* Header */}
         <header className="mx-auto max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
-            Authors
+            Artists
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
             Every artist writes their own.
@@ -366,7 +366,7 @@ export default function AuthorsPage() {
                       }`}
                     >
                       <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/55">
-                        Author
+                        Artist
                       </p>
                       <h2 className="mt-3 font-serif text-3xl font-normal leading-[1.05] tracking-tight text-cream md:text-4xl">
                         {author.name}
