@@ -82,7 +82,7 @@ export default function Composer({
             onChange={(e) => setBody(e.target.value)}
             rows={3}
             maxLength={2000}
-            placeholder="Co słychać przy ognisku?"
+            placeholder="Dopisz swój rozdział…"
             className="w-full resize-none rounded-xl border border-cream/15 bg-magic-navy/30 px-4 py-3 font-sans text-[0.95rem] text-cream outline-none placeholder:text-cream/40 focus:border-cream/40"
           />
           <div className="mt-2 flex items-center rounded-xl border border-cream/15 bg-magic-navy/30 px-3 focus-within:border-cream/40">

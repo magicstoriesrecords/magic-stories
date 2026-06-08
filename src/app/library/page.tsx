@@ -5,7 +5,7 @@ import type { FeedAuthor, FeedPost } from "@/components/campfire/types";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
-  title: "The Campfire — Magic Stories Records",
+  title: "Magic Library — Magic Stories Records",
   description: "Gather round. Stories, links and conversation from the MSR community.",
 };
 
@@ -24,7 +24,7 @@ type Row = {
   replies: { count: number }[] | null;
 };
 
-export default async function CampfirePage() {
+export default async function LibraryPage() {
   const supabase = await createClient();
 
   const {
@@ -85,13 +85,13 @@ export default async function CampfirePage() {
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <header className="mx-auto max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
-            The Campfire
+            Magic Library
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
-            Przy ognisku
+            Magiczna Biblioteka
           </h1>
           <p className="mt-6 font-sans text-base leading-relaxed text-cream/75">
-            Miejsce na wpisy, linki i rozmowy społeczności MSR. Wrzuć kawałek z
+            Wspólny rozdział społeczności MSR — wpisy, linki i rozmowy. Wrzuć kawałek z
             YouTube, SoundCloud czy X i opowiedz swoją historię.
           </p>
         </header>

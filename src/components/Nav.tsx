@@ -9,14 +9,14 @@ import AuthNav from "@/components/auth/AuthNav";
 const links = [
   { label: "Stories", href: "/stories" },
   { label: "Artists", href: "/authors" },
-  { label: "Campfire", href: "/campfire" },
+  { label: "Magic Library", href: "/library" },
   { label: "Sessions", href: "/sessions" },
   { label: "Submit", href: "/submit" },
 ];
 
 // Pages whose hero sits on a dark night-sky background. The bar floats as a
 // dark glass strip with cream text so it reads against the sky.
-const darkPages = ["/authors", "/stories", "/campfire"];
+const darkPages = ["/authors", "/stories", "/library"];
 
 export default function Nav() {
   const pathname = usePathname();
@@ -87,7 +87,7 @@ export default function Nav() {
               </Link>
             ))}
             <Button href="/stories" size="sm">
-              Open the Library
+              Browse Releases
             </Button>
             <AuthNav tone={lightOnDark ? "cream" : "ink"} />
           </div>
@@ -156,7 +156,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               className="liquid-glass glass-ink mt-4 rounded-full px-12 py-[1.1rem] text-[0.95rem]"
             >
-              Open the Library
+              Browse Releases
             </Link>
           </nav>
         </div>

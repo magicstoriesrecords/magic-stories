@@ -54,8 +54,8 @@ export default async function AccountPage() {
           </h1>
           <p className="mt-6 font-sans text-base leading-relaxed text-cream/75">
             {user
-              ? "Ustaw swoją nazwę i avatar — tak zobaczą Cię inni przy ognisku."
-              : "Zaloguj się kontem Google, by pisać przy ognisku, lajkować i odpowiadać."}
+              ? "Ustaw swoją nazwę i avatar — tak zobaczą Cię inni w bibliotece."
+              : "Zaloguj się kontem Google, by dopisywać rozdziały, lajkować i odpowiadać."}
           </p>
         </header>
 

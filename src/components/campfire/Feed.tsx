@@ -68,7 +68,7 @@ export default function Feed({
   useEffect(() => {
     const supabase = createClient();
     const channel = supabase
-      .channel("campfire-feed")
+      .channel("library-feed")
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "posts" },
@@ -163,7 +163,7 @@ export default function Feed({
         <Composer authorId={authorId} author={author} onPosted={handlePosted} />
       ) : (
         <div className="glass-card rounded-2xl p-6 text-center">
-          <p className="font-sans text-cream/80">Zaloguj się, aby pisać przy ognisku.</p>
+          <p className="font-sans text-cream/80">Zaloguj się, aby dopisać swój rozdział.</p>
           <Link
             href="/account"
             className="liquid-glass mt-4 inline-block rounded-full px-7 py-2.5 text-sm"
@@ -175,7 +175,7 @@ export default function Feed({
 
       {posts.length === 0 ? (
         <p className="py-12 text-center font-sans text-cream/50">
-          Jeszcze cicho. Bądź pierwszy i rozpal ognisko.
+          Biblioteka jest jeszcze pusta. Dopisz pierwszy rozdział.
         </p>
       ) : (
         posts.map((post) => (

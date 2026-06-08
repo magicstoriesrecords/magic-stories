@@ -1,4 +1,4 @@
-// Link detection + helpers for The Campfire feed.
+// Link detection + helpers for the Magic Library feed.
 // We only ever build embeds for known providers from parsed/encoded values,
 // never by injecting the raw user URL into an iframe.
 
