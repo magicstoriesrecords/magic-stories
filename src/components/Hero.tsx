@@ -30,7 +30,7 @@ export default function Hero() {
       {/* Fullscreen looping background video */}
       <video
         ref={videoRef}
-        className="absolute inset-0 z-0 h-full w-full object-cover"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-bottom"
         src={VIDEO_SRC}
         poster="/hero-poster.jpg"
         autoPlay
