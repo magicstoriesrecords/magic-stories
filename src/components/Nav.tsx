@@ -10,13 +10,13 @@ const links = [
   { label: "Stories", href: "/stories" },
   { label: "Artists", href: "/authors" },
   { label: "Magic Library", href: "/library" },
-  { label: "Sessions", href: "/sessions" },
+  { label: "Podcasts", href: "/podcasts" },
   { label: "Submit", href: "/submit" },
 ];
 
 // Pages whose hero sits on a dark night-sky background. The bar floats as a
 // dark glass strip with cream text so it reads against the sky.
-const darkPages = ["/authors", "/stories", "/library"];
+const darkPages = ["/authors", "/stories", "/library", "/podcasts"];
 
 export default function Nav() {
   const pathname = usePathname();
