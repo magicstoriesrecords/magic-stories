@@ -49,11 +49,11 @@ export default function PodcastsPage() {
             return (
               <Reveal key={ep.code}>
                 <article className="glass-card relative overflow-hidden rounded-3xl">
-                  <div className="grid grid-cols-1 md:grid-cols-2 md:items-center">
+                  <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Cover slot — fixed 3:2, so one artwork size always fills it
                         edge to edge. Design covers at 3:2 (e.g. 1500×1000). */}
                     <div
-                      className={`relative aspect-[3/2] w-full overflow-hidden ${
+                      className={`relative aspect-[3/2] w-full overflow-hidden md:aspect-auto md:min-h-[22rem] ${
                         flip ? "md:order-2" : "md:order-1"
                       }`}
                       style={{ background: "#171633" }}
