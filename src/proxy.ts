@@ -1,7 +1,10 @@
 import { type NextRequest } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 
-export async function middleware(request: NextRequest) {
+// Renamed from middleware.ts -> proxy.ts for Next.js 16 (the "middleware"
+// file convention is deprecated). Behaviour is unchanged: refresh the Supabase
+// auth session on each request. Note: proxy always runs on the Node.js runtime.
+export async function proxy(request: NextRequest) {
   return await updateSession(request);
 }
 
