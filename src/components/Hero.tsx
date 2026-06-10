@@ -46,7 +46,7 @@ export default function Hero() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(28,31,82,0.28) 0%, rgba(28,31,82,0.22) 38%, rgba(20,18,48,0.42) 60%, rgba(20,18,48,0.74) 82%, rgba(15,13,38,0.9) 96%, rgba(14,12,36,0.97) 100%)",
+            "linear-gradient(180deg, rgba(28,31,82,0.26) 0%, rgba(28,31,82,0.2) 40%, rgba(20,18,48,0.36) 62%, rgba(18,16,44,0.55) 82%, rgba(16,14,40,0.74) 100%)",
         }}
       />
       {/* Localized scrim — pools soft darkness directly behind the headline

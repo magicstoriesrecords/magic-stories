@@ -4,15 +4,12 @@ import type { News } from "@/data/news";
 import type { EngagementMap } from "@/components/news/types";
 
 // News container directly beneath the Hero. The artwork is the lower
-// continuation of the SAME source as the Hero, so for a seamless seam:
-//   • the Hero video is scaled by WIDTH (object-cover) and anchored to its
-//     BOTTOM edge (object-bottom);
-//   • this artwork is scaled by WIDTH too (background-size: 100% auto) and
-//     anchored to its TOP edge — identical horizontal scale ⇒ the video's
-//     bottom row meets the artwork's top row at the same magnification.
-// The artwork must be exported at the SAME WIDTH as the video (1916 px) with
-// its top edge continuing the video's bottom edge. The Hero's magic-hour veil
-// is then carried across the seam to absorb the warm→cool tonal shift.
+// continuation of the SAME source as the Hero. To avoid a hard mp4↔png seam the
+// section overlaps the Hero's bottom and BOTH background layers (the artwork and
+// the dark seam veil) share one soft top mask, so they dissolve in from
+// transparent over ~80px — the Hero video melts into the artwork with no edge.
+// The seam veil darkens the artwork's top to match the Hero's darkened bottom,
+// then lifts, giving a soft symmetric transition.
 export default function NewsSection({
   items,
   engagement,
@@ -26,11 +23,11 @@ export default function NewsSection({
 }) {
   if (items.length === 0) return null;
 
+  const fade = "linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 82px)";
+
   return (
-    <section className="relative isolate overflow-hidden px-6 pb-24 pt-32 md:px-12 md:pb-32 md:pt-40">
-      {/* Continuation artwork — scaled by width (matches the Hero video's
-          width-cover) and anchored to the top so its top row meets the Hero's
-          bottom row. Any area below the image falls back to the night colour. */}
+    <section className="relative isolate -mt-[64px] overflow-hidden px-6 pb-24 pt-40 md:px-12 md:pb-32 md:pt-48">
+      {/* Artwork + dark base, dissolving in at the top. */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
@@ -40,16 +37,20 @@ export default function NewsSection({
           backgroundSize: "100% auto",
           backgroundPosition: "top center",
           backgroundRepeat: "no-repeat",
+          WebkitMaskImage: fade,
+          maskImage: fade,
         }}
       />
-      {/* Seam veil — continues the Hero's magic-hour veil. Starts at the Hero's
-          exact closing tone (rgba(16,14,40,0.88)) and lifts to clear. */}
+      {/* Seam veil — darkens the artwork's top to match the Hero's bottom, then
+          lifts. Shares the same top mask so it has no hard edge of its own. */}
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 -z-10 h-[420px]"
+        className="absolute inset-x-0 top-0 -z-10 h-[460px]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(14,12,36,0.97) 0%, rgba(14,12,36,0.95) 3%, rgba(16,14,40,0.82) 12%, rgba(18,16,44,0.5) 26%, rgba(20,18,48,0.26) 44%, rgba(20,18,48,0.08) 66%, rgba(20,18,48,0) 100%)",
+            "linear-gradient(180deg, rgba(13,11,34,0.8) 0%, rgba(15,13,40,0.62) 16%, rgba(18,16,44,0.4) 34%, rgba(20,18,48,0.22) 54%, rgba(20,18,48,0.07) 76%, rgba(20,18,48,0) 100%)",
+          WebkitMaskImage: fade,
+          maskImage: fade,
         }}
       />
       {/* Lower legibility veil for the carousel area. */}
@@ -58,7 +59,7 @@ export default function NewsSection({
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(180deg, rgba(12,11,32,0) 55%, rgba(12,11,32,0.34) 100%)",
+            "linear-gradient(180deg, rgba(12,11,32,0) 40%, rgba(12,11,32,0.32) 100%)",
         }}
       />
 
