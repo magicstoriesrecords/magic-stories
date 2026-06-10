@@ -7,7 +7,6 @@ import type { News } from "@/data/news";
 const STORY_BG = "/images/news-sky.png";
 // MSR emblem (book + arcs) — drawn centred at the top of the story.
 const LOGO = "/images/logo-mark.svg";
-const SITE = "magic-stories-three.vercel.app";
 
 // Loads an image; resolves null on error so we can fall back gracefully.
 function loadImage(src: string): Promise<HTMLImageElement | null> {
@@ -236,13 +235,10 @@ export default function ShareStory({ item }: { item: News }) {
       by += blurbLineH;
     }
 
-    // ── Footer: date + site ──
+    // ── Footer: date only (no URL — keeps the story clean). ──
     ctx.fillStyle = "rgba(232,184,144,0.9)";
     ctx.font = "600 30px Georgia, serif";
-    drawTracked(ctx, prettyDate(item.date).toUpperCase(), W / 2, H - 150, 5);
-    ctx.fillStyle = "rgba(243,232,216,0.6)";
-    ctx.font = "400 28px Inter, system-ui, sans-serif";
-    ctx.fillText(SITE, W / 2, H - 90);
+    drawTracked(ctx, prettyDate(item.date).toUpperCase(), W / 2, H - 120, 5);
 
     return await new Promise<Blob | null>((resolve) =>
       canvas.toBlob((b) => resolve(b), "image/png", 0.95),
