@@ -5,9 +5,11 @@ import type { News } from "@/data/news";
 
 // Background art reused for the generated story (same as the section backdrop).
 const STORY_BG = "/images/news-sky.png";
+// MSR emblem (book + arcs) — drawn centred at the top of the story.
+const LOGO = "/images/logo-mark.svg";
 const SITE = "magic-stories-three.vercel.app";
 
-// Loads an image; resolves null on error so we can fall back to a gradient.
+// Loads an image; resolves null on error so we can fall back gracefully.
 function loadImage(src: string): Promise<HTMLImageElement | null> {
   return new Promise((resolve) => {
     const img = new Image();
@@ -18,17 +20,37 @@ function loadImage(src: string): Promise<HTMLImageElement | null> {
   });
 }
 
-// Draws `img` to cover an w*h box (object-fit: cover), centred.
+// Draws `img` to cover the (x, y, w, h) box (object-fit: cover), centred.
 function drawCover(
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement,
+  x: number,
+  y: number,
   w: number,
   h: number,
 ) {
   const r = Math.max(w / img.width, h / img.height);
   const dw = img.width * r;
   const dh = img.height * r;
-  ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+  ctx.drawImage(img, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
+}
+
+// Rounded-rect path (manual — roundRect() is still missing on some engines).
+function roundedPath(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  r: number,
+) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
 }
 
 // Wraps `text` to a max width, returns the lines.
@@ -49,7 +71,7 @@ function wrapLines(ctx: CanvasRenderingContext2D, text: string, maxW: number): s
   return lines;
 }
 
-// Draws letter-spaced uppercase text centred at (cx, y). Returns nothing.
+// Draws letter-spaced uppercase text centred at (cx, y).
 function drawTracked(
   ctx: CanvasRenderingContext2D,
   text: string,
@@ -82,6 +104,11 @@ export default function ShareStory({ item }: { item: News }) {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
 
+  // 1080×1920 IG story:
+  //   MSR emblem centred at the top + tracked label name beneath it,
+  //   the news artwork in a rounded 3:2 panel, then title / blurb,
+  //   date + site pinned to the bottom. Without artwork the title block
+  //   is vertically centred instead (original layout).
   async function generate(): Promise<Blob | null> {
     const W = 1080;
     const H = 1920;
@@ -91,10 +118,15 @@ export default function ShareStory({ item }: { item: News }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return null;
 
+    const [bg, logo, art] = await Promise.all([
+      loadImage(STORY_BG),
+      loadImage(LOGO),
+      item.image ? loadImage(item.image) : Promise.resolve(null),
+    ]);
+
     // Background — sky art (cover) or a twilight gradient fallback.
-    const bg = await loadImage(STORY_BG);
     if (bg) {
-      drawCover(ctx, bg, W, H);
+      drawCover(ctx, bg, 0, 0, W, H);
     } else {
       const g = ctx.createLinearGradient(0, 0, 0, H);
       g.addColorStop(0, "#1c1f52");
@@ -103,10 +135,10 @@ export default function ShareStory({ item }: { item: News }) {
       ctx.fillRect(0, 0, W, H);
     }
 
-    // Readability veil — darker top and bottom, where the type sits.
+    // Readability veil — darker top and bottom, where logo and type sit.
     const veil = ctx.createLinearGradient(0, 0, 0, H);
-    veil.addColorStop(0, "rgba(12,11,32,0.62)");
-    veil.addColorStop(0.4, "rgba(12,11,32,0.20)");
+    veil.addColorStop(0, "rgba(12,11,32,0.66)");
+    veil.addColorStop(0.4, "rgba(12,11,32,0.22)");
     veil.addColorStop(0.62, "rgba(12,11,32,0.45)");
     veil.addColorStop(1, "rgba(8,7,22,0.90)");
     ctx.fillStyle = veil;
@@ -115,26 +147,71 @@ export default function ShareStory({ item }: { item: News }) {
     ctx.textAlign = "center";
     ctx.textBaseline = "alphabetic";
 
-    // Kicker — label name, letter-spaced.
-    ctx.fillStyle = "rgba(243,232,216,0.85)";
-    ctx.font = "600 30px Georgia, 'Times New Roman', serif";
-    drawTracked(ctx, "MAGIC STORIES RECORDS", W / 2, 150, 8);
+    // ── Header: emblem + label name ──
+    let headerBottom: number;
+    if (logo) {
+      const lw = 232;
+      const lh = (logo.height / logo.width) * lw;
+      ctx.save();
+      ctx.shadowColor = "rgba(8,7,24,0.55)";
+      ctx.shadowBlur = 30;
+      ctx.shadowOffsetY = 6;
+      ctx.drawImage(logo, (W - lw) / 2, 104, lw, lh);
+      ctx.restore();
+      ctx.fillStyle = "rgba(243,232,216,0.88)";
+      ctx.font = "600 28px Georgia, 'Times New Roman', serif";
+      drawTracked(ctx, "MAGIC STORIES RECORDS", W / 2, 104 + lh + 58, 8);
+      headerBottom = 104 + lh + 58;
+    } else {
+      ctx.fillStyle = "rgba(243,232,216,0.85)";
+      ctx.font = "600 30px Georgia, 'Times New Roman', serif";
+      drawTracked(ctx, "MAGIC STORIES RECORDS", W / 2, 150, 8);
+      ctx.strokeStyle = "rgba(232,184,144,0.7)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(W / 2 - 60, 185);
+      ctx.lineTo(W / 2 + 60, 185);
+      ctx.stroke();
+      headerBottom = 185;
+    }
 
-    // Warm divider.
-    ctx.strokeStyle = "rgba(232,184,144,0.7)";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(W / 2 - 60, 185);
-    ctx.lineTo(W / 2 + 60, 185);
-    ctx.stroke();
+    // ── Artwork panel (3:2, rounded, hairline + shadow) ──
+    let textTop: number | null = null;
+    if (art) {
+      const pw = 880;
+      const ph = 587; // 3:2
+      const px = (W - pw) / 2;
+      const py = Math.max(headerBottom + 96, 410);
+      ctx.save();
+      ctx.shadowColor = "rgba(4,3,16,0.6)";
+      ctx.shadowBlur = 60;
+      ctx.shadowOffsetY = 18;
+      roundedPath(ctx, px, py, pw, ph, 28);
+      ctx.fillStyle = "#171633";
+      ctx.fill();
+      ctx.restore();
+      ctx.save();
+      roundedPath(ctx, px, py, pw, ph, 28);
+      ctx.clip();
+      drawCover(ctx, art, px, py, pw, ph);
+      ctx.restore();
+      roundedPath(ctx, px, py, pw, ph, 28);
+      ctx.strokeStyle = "rgba(243,232,216,0.22)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      textTop = py + ph + 116;
+    }
 
-    // Title — large serif, wrapped, vertically centred-ish.
+    // ── Title ──
     ctx.fillStyle = "#f3e8d8";
-    ctx.font = "400 96px Georgia, 'Times New Roman', serif";
-    const lines = wrapLines(ctx, item.title, W - 200);
-    const lineH = 116;
+    ctx.font = art
+      ? "400 76px Georgia, 'Times New Roman', serif"
+      : "400 96px Georgia, 'Times New Roman', serif";
+    const maxTitleLines = art ? 3 : 5;
+    const lines = wrapLines(ctx, item.title, W - 200).slice(0, maxTitleLines);
+    const lineH = art ? 92 : 116;
     const blockH = lines.length * lineH;
-    let ty = H / 2 - blockH / 2 + 80;
+    let ty = textTop ?? H / 2 - blockH / 2 + 80;
     ctx.shadowColor = "rgba(8,7,24,0.65)";
     ctx.shadowBlur = 24;
     ctx.shadowOffsetY = 4;
@@ -146,22 +223,23 @@ export default function ShareStory({ item }: { item: News }) {
     ctx.shadowBlur = 0;
     ctx.shadowOffsetY = 0;
 
-    // Blurb — a couple of lines under the title.
+    // ── Blurb ──
     ctx.fillStyle = "rgba(243,232,216,0.82)";
-    ctx.font = "400 38px Inter, system-ui, sans-serif";
-    const blurbLines = wrapLines(ctx, item.blurb, W - 240).slice(0, 4);
-    let by = ty + 36;
+    ctx.font = art
+      ? "400 34px Inter, system-ui, sans-serif"
+      : "400 38px Inter, system-ui, sans-serif";
+    const blurbLines = wrapLines(ctx, item.blurb, W - 240).slice(0, art ? 3 : 4);
+    let by = ty + (art ? 28 : 36);
+    const blurbLineH = art ? 48 : 52;
     for (const ln of blurbLines) {
       ctx.fillText(ln, W / 2, by);
-      by += 52;
+      by += blurbLineH;
     }
 
-    // Date.
+    // ── Footer: date + site ──
     ctx.fillStyle = "rgba(232,184,144,0.9)";
     ctx.font = "600 30px Georgia, serif";
     drawTracked(ctx, prettyDate(item.date).toUpperCase(), W / 2, H - 150, 5);
-
-    // Footer URL.
     ctx.fillStyle = "rgba(243,232,216,0.6)";
     ctx.font = "400 28px Inter, system-ui, sans-serif";
     ctx.fillText(SITE, W / 2, H - 90);

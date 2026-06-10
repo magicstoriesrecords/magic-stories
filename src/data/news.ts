@@ -22,6 +22,7 @@ export const news: News[] = [
     title: "Erg Chebbi EP — out now",
     blurb:
       "MSR016 has landed. A desert-night journey across melodic and organic house — stream it on your platform of choice.",
+    image: "/images/releases/erg-chebbi-ep.jpg", // TODO: placeholder — replace with 3:2 news art
     link: "/stories",
     cta: "Listen",
   },
@@ -31,6 +32,7 @@ export const news: News[] = [
     title: "The MSR podcast series is live",
     blurb:
       "Twelve chapters, twelve mixes from the label's artists and friends. New sounds gathered from around the world.",
+    image: "/images/podcasts/msrp-012.jpg", // TODO: placeholder — replace with 3:2 news art
     link: "/podcasts",
     cta: "Open Podcasts",
   },
@@ -40,6 +42,7 @@ export const news: News[] = [
     title: "Magic Library is open",
     blurb:
       "Our community space — share a track, start a conversation, gather round the page. Sign in with Google and write your chapter.",
+    image: "/images/hero-msr.jpg", // TODO: placeholder — replace with 3:2 news art
     link: "/library",
     cta: "Enter the Library",
   },

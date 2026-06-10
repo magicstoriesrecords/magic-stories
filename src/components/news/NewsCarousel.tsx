@@ -147,58 +147,71 @@ export default function NewsCarousel({
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      {/* Slide */}
-      <div key={current.slug} className="animate-fade-rise">
-        <NewsCard
-          item={current}
-          eng={curEng}
-          meId={meId}
-          meAuthor={meAuthor}
-          onToggleLike={toggleLike}
-          onCommentAdded={bumpComment}
-        />
+      {/* Slide + arrows share ONE positioning context, so both arrows are
+          centred on the card itself (not card + dots) and sit at exactly the
+          same height: top 50% minus half the 44px button via margin — no
+          translate, nothing else can move them. */}
+      <div className="relative">
+        <div key={current.slug} className="animate-fade-rise">
+          <NewsCard
+            item={current}
+            eng={curEng}
+            meId={meId}
+            meAuthor={meAuthor}
+            onToggleLike={toggleLike}
+            onCommentAdded={bumpComment}
+          />
+        </div>
+
+        {/* NOTE: .liquid-glass sets position:relative in (unlayered) globals.css,
+            which beats Tailwind's layered `absolute` utility — so positioning
+            lives on a plain wrapper and liquid-glass stays on the button. */}
+        {count > 1 && (
+          <>
+            <div className="absolute -left-3 top-1/2 z-10 hidden -translate-y-1/2 md:block lg:-left-5">
+              <button
+                type="button"
+                onClick={() => go(index - 1)}
+                aria-label="Poprzedni news"
+                className="liquid-glass flex h-11 w-11 items-center justify-center"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="-ml-px">
+                  <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 md:block lg:-right-5">
+              <button
+                type="button"
+                onClick={() => go(index + 1)}
+                aria-label="Następny news"
+                className="liquid-glass flex h-11 w-11 items-center justify-center"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="ml-px">
+                  <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
+      {/* Dots */}
       {count > 1 && (
-        <>
-          {/* Arrows */}
-          <button
-            type="button"
-            onClick={() => go(index - 1)}
-            aria-label="Poprzedni news"
-            className="liquid-glass absolute -left-3 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center md:flex lg:-left-5"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            onClick={() => go(index + 1)}
-            aria-label="Następny news"
-            className="liquid-glass absolute -right-3 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center md:flex lg:-right-5"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-
-          {/* Dots */}
-          <div className="mt-7 flex items-center justify-center gap-2.5">
-            {items.map((n, i) => (
-              <button
-                key={n.slug}
-                type="button"
-                onClick={() => go(i)}
-                aria-label={`Przejdź do newsa ${i + 1}`}
-                aria-current={i === index}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  i === index ? "w-7 bg-cream/90" : "w-2.5 bg-cream/35 hover:bg-cream/60"
-                }`}
-              />
-            ))}
-          </div>
-        </>
+        <div className="mt-7 flex items-center justify-center gap-2.5">
+          {items.map((n, i) => (
+            <button
+              key={n.slug}
+              type="button"
+              onClick={() => go(i)}
+              aria-label={`Przejdź do newsa ${i + 1}`}
+              aria-current={i === index}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                i === index ? "w-7 bg-cream/90" : "w-2.5 bg-cream/35 hover:bg-cream/60"
+              }`}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
