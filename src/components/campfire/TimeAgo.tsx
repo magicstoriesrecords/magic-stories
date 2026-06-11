@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "next-intl";
 import { timeAgo } from "@/lib/time";
 
 // Initial label is computed during render; the element carries
@@ -8,15 +9,23 @@ import { timeAgo } from "@/lib/time";
 // differ slightly between server render and client hydration. The interval
 // keeps it fresh without a synchronous setState in the effect body.
 export default function TimeAgo({ iso }: { iso: string }) {
-  const [label, setLabel] = useState(() => timeAgo(iso));
+  const locale = useLocale();
+  // Recomputed on every render (locale/iso changes re-render anyway); the
+  // interval only nudges a re-render once a minute to keep the label fresh.
+  const label = timeAgo(iso, locale);
+  const [, setTick] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setLabel(timeAgo(iso)), 60_000);
+    const t = setInterval(() => setTick((v) => v + 1), 60_000);
     return () => clearInterval(t);
-  }, [iso]);
+  }, []);
 
   return (
-    <time dateTime={iso} title={new Date(iso).toLocaleString("pl-PL")} suppressHydrationWarning>
+    <time
+      dateTime={iso}
+      title={new Date(iso).toLocaleString(locale === "en" ? "en-US" : "pl-PL")}
+      suppressHydrationWarning
+    >
       {label}
     </time>
   );

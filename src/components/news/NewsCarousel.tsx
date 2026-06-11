@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import NewsCard from "@/components/news/NewsCard";
 import { createClient } from "@/lib/supabase/client";
 import type { FeedAuthor } from "@/components/campfire/types";
@@ -21,6 +22,7 @@ export default function NewsCarousel({
   meId: string | null;
   meAuthor: FeedAuthor | null;
 }) {
+  const t = useTranslations("news");
   const [eng, setEng] = useState<EngagementMap>(initialEngagement);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -172,7 +174,7 @@ export default function NewsCarousel({
               <button
                 type="button"
                 onClick={() => go(index - 1)}
-                aria-label="Poprzedni news"
+                aria-label={t("prevAria")}
                 className="liquid-glass flex h-11 w-11 items-center justify-center"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="-ml-px">
@@ -184,7 +186,7 @@ export default function NewsCarousel({
               <button
                 type="button"
                 onClick={() => go(index + 1)}
-                aria-label="Następny news"
+                aria-label={t("nextAria")}
                 className="liquid-glass flex h-11 w-11 items-center justify-center"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="ml-px">
@@ -204,7 +206,7 @@ export default function NewsCarousel({
               key={n.slug}
               type="button"
               onClick={() => go(i)}
-              aria-label={`Przejdź do newsa ${i + 1}`}
+              aria-label={t("gotoAria", { n: i + 1 })}
               aria-current={i === index}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 i === index ? "w-7 bg-cream/90" : "w-2.5 bg-cream/35 hover:bg-cream/60"

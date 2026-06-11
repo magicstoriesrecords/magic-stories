@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 import { normalizeUrl, detectLinkType } from "@/lib/links";
 import type { FeedAuthor, FeedPost } from "@/components/campfire/types";
@@ -14,6 +15,7 @@ export default function Composer({
   author: FeedAuthor;
   onPosted: (post: FeedPost) => void;
 }) {
+  const t = useTranslations("composer");
   const [body, setBody] = useState("");
   const [link, setLink] = useState("");
   const [status, setStatus] = useState<"idle" | "posting" | "error">("idle");
@@ -23,7 +25,7 @@ export default function Composer({
     const text = body.trim();
     if (!text) {
       setStatus("error");
-      setMessage("Napisz coś, zanim wyślesz.");
+      setMessage(t("errEmpty"));
       return;
     }
     let linkUrl: string | null = null;
@@ -32,7 +34,7 @@ export default function Composer({
       const norm = normalizeUrl(link);
       if (!norm) {
         setStatus("error");
-        setMessage("Niepoprawny link.");
+        setMessage(t("errLink"));
         return;
       }
       linkUrl = norm;
@@ -50,7 +52,7 @@ export default function Composer({
 
     if (error || !data) {
       setStatus("error");
-      setMessage("Nie udało się wysłać. Spróbuj ponownie.");
+      setMessage(t("errSend"));
       return;
     }
 
@@ -82,7 +84,7 @@ export default function Composer({
             onChange={(e) => setBody(e.target.value)}
             rows={3}
             maxLength={2000}
-            placeholder="Dopisz swój rozdział…"
+            placeholder={t("placeholder")}
             className="w-full resize-none rounded-xl border border-cream/15 bg-magic-navy/30 px-4 py-3 font-sans text-[0.95rem] text-cream outline-none placeholder:text-cream/40 focus:border-cream/40"
           />
           <div className="mt-2 flex items-center rounded-xl border border-cream/15 bg-magic-navy/30 px-3 focus-within:border-cream/40">
@@ -97,7 +99,7 @@ export default function Composer({
             <input
               value={link}
               onChange={(e) => setLink(e.target.value)}
-              placeholder="Link (YouTube, SoundCloud, X) — opcjonalnie"
+              placeholder={t("linkPlaceholder")}
               className="w-full bg-transparent px-2 py-2.5 font-sans text-sm text-cream outline-none placeholder:text-cream/40"
             />
           </div>
@@ -114,7 +116,7 @@ export default function Composer({
                 disabled={status === "posting"}
                 className="liquid-glass rounded-full px-7 py-2.5 text-sm disabled:opacity-60"
               >
-                {status === "posting" ? "Wysyłam…" : "Opublikuj"}
+                {status === "posting" ? t("posting") : t("publish")}
               </button>
             </div>
           </div>

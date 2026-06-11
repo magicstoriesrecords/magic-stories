@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 const socials = [
   { label: "Spotify", href: "#" },
   { label: "SoundCloud", href: "#" },
@@ -7,6 +9,7 @@ const socials = [
 ];
 
 export default function Footer() {
+  const t = useTranslations("footer");
   return (
     <footer className="px-6 py-16 md:px-12 md:py-20">
       <div className="mx-auto max-w-7xl text-center">
@@ -14,7 +17,7 @@ export default function Footer() {
           MAGIC STORIES RECORDS
         </p>
         <p className="mt-3 font-serif text-sm italic opacity-70">
-          Where music paints dreams
+          {t("tagline")}
         </p>
         <p className="mt-8 font-sans text-xs">
           {socials.map((social, index) => (

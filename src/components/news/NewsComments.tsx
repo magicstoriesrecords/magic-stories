@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { createClient } from "@/lib/supabase/client";
 import TimeAgo from "@/components/campfire/TimeAgo";
 import type { FeedAuthor } from "@/components/campfire/types";
@@ -23,6 +24,9 @@ export default function NewsComments({
   meAuthor: FeedAuthor | null;
   onCommentAdded: () => void;
 }) {
+  const t = useTranslations("news");
+  const ta = useTranslations("auth");
+  const tp = useTranslations("post");
   const [comments, setComments] = useState<NewsComment[]>([]);
   const [loading, setLoading] = useState(true);
   const [body, setBody] = useState("");
@@ -102,7 +106,7 @@ export default function NewsComments({
       ) : (
         <ul className="space-y-3">
           {comments.map((c) => {
-            const name = c.author?.display_name || (c.author ? `@${c.author.username}` : "Ktoś");
+            const name = c.author?.display_name || (c.author ? `@${c.author.username}` : tp("someone"));
             return (
               <li key={c.id} className="flex gap-3">
                 {c.author?.avatar_url ? (
@@ -138,7 +142,7 @@ export default function NewsComments({
             );
           })}
           {comments.length === 0 && (
-            <p className="font-sans text-xs text-cream/40">Brak komentarzy. Bądź pierwszy.</p>
+            <p className="font-sans text-xs text-cream/40">{t("empty")}</p>
           )}
         </ul>
       )}
@@ -150,7 +154,7 @@ export default function NewsComments({
             onChange={(e) => setBody(e.target.value)}
             rows={1}
             maxLength={2000}
-            placeholder="Skomentuj…"
+            placeholder={t("commentPlaceholder")}
             className="min-h-[42px] w-full resize-none rounded-xl border border-cream/15 bg-magic-navy/30 px-3 py-2.5 font-sans text-sm text-cream outline-none placeholder:text-cream/40 focus:border-cream/40"
           />
           <button
@@ -159,15 +163,15 @@ export default function NewsComments({
             disabled={posting || !body.trim()}
             className="liquid-glass shrink-0 rounded-full px-5 py-2.5 text-sm disabled:opacity-50"
           >
-            {posting ? "…" : "Wyślij"}
+            {posting ? "…" : t("send")}
           </button>
         </div>
       ) : (
         <p className="mt-4 font-sans text-xs text-cream/40">
           <Link href="/account" className="underline underline-offset-2 hover:text-cream/70">
-            Zaloguj się
+            {ta("signInShort")}
           </Link>{" "}
-          aby skomentować.
+          {t("toComment")}
         </p>
       )}
     </div>

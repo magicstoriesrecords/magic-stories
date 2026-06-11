@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import NightSky from "@/components/NightSky";
 import SignInButton from "@/components/auth/SignInButton";
 import SignOutButton from "@/components/auth/SignOutButton";
 import ProfileEditor, { type Profile } from "@/components/account/ProfileEditor";
 import { createClient } from "@/lib/supabase/server";
 
-export const metadata: Metadata = {
-  title: "Account — Magic Stories Records",
-  description: "Your profile in the Magic Stories community.",
-};
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.account" });
+  return { title: t("title"), description: t("description") };
+}
 
 // Profile is per-user and depends on the auth cookie, so render dynamically.
 export const dynamic = "force-dynamic";
 
 export default async function AccountPage() {
+  const t = await getTranslations("account");
   const supabase = await createClient();
   const {
     data: { user },
@@ -47,15 +52,13 @@ export default async function AccountPage() {
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <header className="mx-auto max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
-            Your Profile
+            {t("kicker")}
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
-            {user ? "Twój profil" : "Dołącz do społeczności"}
+            {user ? t("titleIn") : t("titleOut")}
           </h1>
           <p className="mt-6 font-sans text-base leading-relaxed text-cream/75">
-            {user
-              ? "Ustaw swoją nazwę i avatar — tak zobaczą Cię inni w bibliotece."
-              : "Zaloguj się kontem Google, by dopisywać rozdziały, lajkować i odpowiadać."}
+            {user ? t("leadIn") : t("leadOut")}
           </p>
         </header>
 

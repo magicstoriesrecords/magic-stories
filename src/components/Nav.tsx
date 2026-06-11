@@ -1,24 +1,72 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import Button from "@/components/ui/Button";
 import AuthNav from "@/components/auth/AuthNav";
 
-const links = [
-  { label: "Stories", href: "/stories" },
-  { label: "Artists", href: "/authors" },
-  { label: "Magic Library", href: "/library" },
-  { label: "Podcasts", href: "/podcasts" },
-  { label: "Submit", href: "/submit" },
-];
+const navLinks = [
+  { key: "stories", href: "/stories" },
+  { key: "artists", href: "/authors" },
+  { key: "library", href: "/library" },
+  { key: "podcasts", href: "/podcasts" },
+  { key: "submit", href: "/submit" },
+] as const;
 
 // Pages whose hero sits on a dark night-sky background. The bar floats as a
 // dark glass strip with cream text so it reads against the sky.
+// NOTE: usePathname (from i18n/navigation) returns the path WITHOUT the
+// locale prefix, so these checks work for both / and /pl/.
 const darkPages = ["/authors", "/stories", "/library", "/podcasts", "/submit"];
 
+// Inline EN | PL toggle. Switching locales keeps the current route; next-intl
+// remembers the choice in the NEXT_LOCALE cookie.
+function LocaleSwitch({
+  tone,
+  onPick,
+  size = "sm",
+}: {
+  tone: "cream" | "ink";
+  onPick?: () => void;
+  size?: "sm" | "lg";
+}) {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const base =
+    size === "lg" ? "font-serif text-xl tracking-wide" : "font-serif text-sm tracking-wide";
+  const active = tone === "cream" ? "text-cream" : "text-ink";
+  const idle =
+    tone === "cream" ? "text-cream/50 hover:text-cream" : "text-ink/45 hover:text-ink";
+  const divider = tone === "cream" ? "text-cream/30" : "text-ink/25";
+
+  return (
+    <span className={`flex items-center gap-1.5 ${base}`}>
+      {routing.locales.map((l, i) => (
+        <span key={l} className="flex items-center gap-1.5">
+          {i > 0 && <span className={divider}>|</span>}
+          <button
+            type="button"
+            aria-current={l === locale ? "true" : undefined}
+            onClick={() => {
+              if (l !== locale) router.replace(pathname, { locale: l });
+              onPick?.();
+            }}
+            className={`uppercase transition ${l === locale ? active : idle}`}
+          >
+            {l}
+          </button>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export default function Nav() {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const onHome = pathname === "/";
   const onDark = darkPages.some((p) => pathname === p || pathname.startsWith(p + "/"));
@@ -77,25 +125,26 @@ export default function Nav() {
 
           {/* Desktop links */}
           <div className="hidden items-center gap-8 md:flex">
-            {links.map((item) => (
+            {navLinks.map((item) => (
               <Link
-                key={item.label}
+                key={item.key}
                 href={item.href}
                 className={`font-serif text-sm tracking-wide transition ${link}`}
               >
-                {item.label}
+                {t(item.key)}
               </Link>
             ))}
             <Button href="/stories" size="sm">
-              Browse Releases
+              {t("browseReleases")}
             </Button>
             <AuthNav tone={lightOnDark ? "cream" : "ink"} />
+            <LocaleSwitch tone={lightOnDark ? "cream" : "ink"} />
           </div>
 
           {/* Mobile toggle — subtle two-line mark */}
           <button
             type="button"
-            aria-label="Open menu"
+            aria-label={t("openMenu")}
             aria-expanded={open}
             onClick={() => setOpen(true)}
             className={`flex h-11 w-11 items-center justify-center md:hidden ${toggle}`}
@@ -123,7 +172,7 @@ export default function Nav() {
             </span>
             <button
               type="button"
-              aria-label="Close menu"
+              aria-label={t("closeMenu")}
               onClick={() => setOpen(false)}
               className="flex h-11 w-11 items-center justify-center text-ink"
             >
@@ -134,14 +183,14 @@ export default function Nav() {
           </div>
 
           <nav className="flex flex-1 flex-col items-center justify-center gap-8">
-            {links.map((item) => (
+            {navLinks.map((item) => (
               <Link
-                key={item.label}
+                key={item.key}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="font-serif text-2xl tracking-wide text-ink transition hover:opacity-60"
               >
-                {item.label}
+                {t(item.key)}
               </Link>
             ))}
             <Link
@@ -149,14 +198,15 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               className="font-serif text-2xl tracking-wide text-ink transition hover:opacity-60"
             >
-              Account
+              {t("account")}
             </Link>
+            <LocaleSwitch tone="ink" size="lg" onPick={() => setOpen(false)} />
             <Link
               href="/stories"
               onClick={() => setOpen(false)}
               className="liquid-glass glass-ink mt-4 rounded-full px-12 py-[1.1rem] text-[0.95rem]"
             >
-              Browse Releases
+              {t("browseReleases")}
             </Link>
           </nav>
         </div>

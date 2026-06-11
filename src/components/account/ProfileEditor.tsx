@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
@@ -23,6 +24,7 @@ export default function ProfileEditor({
   profile: Profile;
   email: string | undefined;
 }) {
+  const t = useTranslations("profile");
   const router = useRouter();
   const fileInput = useRef<HTMLInputElement>(null);
 
@@ -45,7 +47,7 @@ export default function ProfileEditor({
 
     if (uploadError) {
       setStatus("error");
-      setMessage("Nie udało się wgrać zdjęcia.");
+      setMessage(t("errUpload"));
       return;
     }
 
@@ -62,7 +64,7 @@ export default function ProfileEditor({
 
     if (updateError) {
       setStatus("error");
-      setMessage("Zdjęcie wgrane, ale nie zapisało się w profilu.");
+      setMessage(t("errUploadProfile"));
       return;
     }
 
@@ -75,7 +77,7 @@ export default function ProfileEditor({
   async function save() {
     if (!USERNAME_RE.test(username)) {
       setStatus("error");
-      setMessage("Nazwa: 3–20 znaków, małe litery, cyfry i podkreślenie.");
+      setMessage(t("errUsername"));
       return;
     }
     setStatus("saving");
@@ -90,8 +92,8 @@ export default function ProfileEditor({
       setStatus("error");
       setMessage(
         error.code === "23505"
-          ? "Ta nazwa użytkownika jest już zajęta."
-          : "Nie udało się zapisać zmian.",
+          ? t("errTaken")
+          : t("errSave"),
       );
       return;
     }
@@ -120,9 +122,9 @@ export default function ProfileEditor({
               onClick={() => fileInput.current?.click()}
               className="font-sans text-sm text-cream underline-offset-4 transition hover:underline"
             >
-              Zmień avatar
+              {t("changeAvatar")}
             </button>
-            <p className="mt-1 font-sans text-xs text-cream/50">JPG lub PNG, do ~2&nbsp;MB.</p>
+            <p className="mt-1 font-sans text-xs text-cream/50">{t("avatarHint")}</p>
             <input
               ref={fileInput}
               type="file"
@@ -136,7 +138,7 @@ export default function ProfileEditor({
           </div>
           {profile.role === "artist" && (
             <span className="ml-auto rounded-full border border-warm/50 bg-warm/10 px-3 py-1 font-serif text-xs tracking-wide text-warm">
-              Artysta
+              {t("artistBadge")}
             </span>
           )}
         </div>
@@ -145,7 +147,7 @@ export default function ProfileEditor({
         <div className="mt-8 space-y-5">
           <label className="block">
             <span className="font-serif text-xs uppercase tracking-[0.18em] text-cream/60">
-              Nazwa użytkownika
+              {t("usernameLabel")}
             </span>
             <div className="mt-2 flex items-center rounded-xl border border-cream/15 bg-magic-navy/30 px-3 focus-within:border-cream/40">
               <span className="font-sans text-cream/40">@</span>
@@ -153,24 +155,24 @@ export default function ProfileEditor({
                 value={username}
                 onChange={(e) => setUsername(e.target.value.toLowerCase())}
                 className="w-full bg-transparent px-1 py-2.5 font-sans text-cream outline-none"
-                placeholder="twoja_nazwa"
+                placeholder={t("usernamePlaceholder")}
               />
             </div>
           </label>
 
           <label className="block">
             <span className="font-serif text-xs uppercase tracking-[0.18em] text-cream/60">
-              Nazwa wyświetlana <span className="normal-case text-cream/40">(opcjonalnie)</span>
+              {t("displayNameLabel")} <span className="normal-case text-cream/40">{t("optional")}</span>
             </span>
             <input
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
               className="mt-2 w-full rounded-xl border border-cream/15 bg-magic-navy/30 px-4 py-2.5 font-sans text-cream outline-none focus:border-cream/40"
-              placeholder="Jak chcesz być widoczny/a"
+              placeholder={t("displayNamePlaceholder")}
             />
           </label>
 
-          <p className="font-sans text-xs text-cream/45">Zalogowano jako {email}</p>
+          <p className="font-sans text-xs text-cream/45">{t("signedInAs", { email: email ?? "" })}</p>
         </div>
 
         {/* Actions */}
@@ -181,9 +183,9 @@ export default function ProfileEditor({
             disabled={status === "saving"}
             className="liquid-glass rounded-full px-8 py-3 text-sm disabled:opacity-60"
           >
-            {status === "saving" ? "Zapisuję…" : "Zapisz zmiany"}
+            {status === "saving" ? t("saving") : t("save")}
           </button>
-          {status === "saved" && <span className="font-sans text-sm text-warm">Zapisano ✓</span>}
+          {status === "saved" && <span className="font-sans text-sm text-warm">{t("savedCheck")}</span>}
           {status === "error" && <span className="font-sans text-sm text-red-300">{message}</span>}
         </div>
       </div>

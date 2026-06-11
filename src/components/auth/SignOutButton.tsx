@@ -2,9 +2,11 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
 
 export default function SignOutButton() {
+  const t = useTranslations("auth");
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +24,7 @@ export default function SignOutButton() {
       disabled={loading}
       className="font-sans text-sm text-cream/70 underline-offset-4 transition hover:text-cream hover:underline disabled:opacity-60"
     >
-      {loading ? "Wylogowuję…" : "Wyloguj się"}
+      {loading ? t("signingOut") : t("signOut")}
     </button>
   );
 }

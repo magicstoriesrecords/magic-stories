@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Reveal from "@/components/Reveal";
 import NightSky from "@/components/NightSky";
 import { SoundcloudIcon } from "@/components/PlatformIcons";
 import { podcasts } from "@/data/podcasts";
 
-export const metadata: Metadata = {
-  title: "Podcasts — Magic Stories Records",
-  description:
-    "The Magic Stories Records podcast series — guest and founder mixes, chapter after chapter.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function PodcastsPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.podcasts" });
+  return { title: t("title"), description: t("description") };
+}
+
+export default async function PodcastsPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("podcasts");
   return (
     <section
       className="relative isolate overflow-hidden px-6 pb-24 pt-16 md:px-12 md:pb-32 md:pt-20"
@@ -31,14 +37,13 @@ export default function PodcastsPage() {
         {/* Header */}
         <header className="mx-auto max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
-            Podcasts
+            {t("kicker")}
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
-            Every chapter, a new mix.
+            {t("title")}
           </h1>
           <p className="mt-6 font-sans text-base leading-relaxed text-cream/75">
-            The Magic Stories podcast series — hour-long journeys mixed by the
-            label&rsquo;s artists and friends, new sounds gathered from around the world.
+            {t("lead")}
           </p>
         </header>
 
@@ -86,12 +91,12 @@ export default function PodcastsPage() {
                       </h2>
 
                       <p className="mt-5 font-sans text-sm leading-relaxed text-cream/80 md:text-base">
-                        {ep.blurb}
+                        {locale === "pl" ? ep.blurbPl : ep.blurb}
                       </p>
 
                       <div className="mt-6">
                         <p className="font-serif text-[0.7rem] uppercase tracking-[0.22em] text-warm/85">
-                          Featuring
+                          {t("featuring")}
                         </p>
                         <p className="mt-2 font-sans text-sm leading-relaxed text-cream/65">
                           {ep.artists.join("  ·  ")}
@@ -103,11 +108,11 @@ export default function PodcastsPage() {
                           href={ep.soundcloud}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Listen to ${ep.code} on SoundCloud`}
+                          aria-label={t("listenAria", { code: ep.code })}
                           className="liquid-glass inline-flex items-center gap-3 rounded-full px-6 py-3 text-[0.9rem] text-cream"
                         >
                           <SoundcloudIcon />
-                          Listen on SoundCloud
+                          {t("listen")}
                         </a>
                       </div>
                     </div>

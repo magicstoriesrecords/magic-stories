@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { createClient } from "@/lib/supabase/client";
 import TimeAgo from "@/components/campfire/TimeAgo";
 import type { FeedAuthor, Reply } from "@/components/campfire/types";
@@ -20,6 +21,9 @@ export default function ReplyThread({
   meAuthor: FeedAuthor | null;
   onReplyAdded: () => void;
 }) {
+  const t = useTranslations("reply");
+  const ta = useTranslations("auth");
+  const tp = useTranslations("post");
   const [replies, setReplies] = useState<Reply[]>([]);
   const [loading, setLoading] = useState(true);
   const [body, setBody] = useState("");
@@ -90,7 +94,7 @@ export default function ReplyThread({
       ) : (
         <ul className="space-y-3">
           {replies.map((r) => {
-            const name = r.author?.display_name || (r.author ? `@${r.author.username}` : "Ktoś");
+            const name = r.author?.display_name || (r.author ? `@${r.author.username}` : tp("someone"));
             return (
               <li key={r.id} className="flex gap-3">
                 {r.author?.avatar_url ? (
@@ -126,7 +130,7 @@ export default function ReplyThread({
             );
           })}
           {replies.length === 0 && (
-            <p className="font-sans text-xs text-cream/40">Brak odpowiedzi. Bądź pierwszy.</p>
+            <p className="font-sans text-xs text-cream/40">{t("empty")}</p>
           )}
         </ul>
       )}
@@ -138,7 +142,7 @@ export default function ReplyThread({
             onChange={(e) => setBody(e.target.value)}
             rows={1}
             maxLength={2000}
-            placeholder="Odpowiedz…"
+            placeholder={t("placeholder")}
             className="min-h-[42px] w-full resize-none rounded-xl border border-cream/15 bg-magic-navy/30 px-3 py-2.5 font-sans text-sm text-cream outline-none placeholder:text-cream/40 focus:border-cream/40"
           />
           <button
@@ -147,15 +151,15 @@ export default function ReplyThread({
             disabled={posting || !body.trim()}
             className="liquid-glass shrink-0 rounded-full px-5 py-2.5 text-sm disabled:opacity-50"
           >
-            {posting ? "…" : "Wyślij"}
+            {posting ? "…" : t("send")}
           </button>
         </div>
       ) : (
         <p className="mt-4 font-sans text-xs text-cream/40">
           <Link href="/account" className="underline underline-offset-2 hover:text-cream/70">
-            Zaloguj się
+            {ta("signInShort")}
           </Link>{" "}
-          aby odpowiedzieć.
+          {t("toReply")}
         </p>
       )}
     </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import LinkEmbed from "@/components/campfire/LinkEmbed";
 import TimeAgo from "@/components/campfire/TimeAgo";
 import LikeButton from "@/components/campfire/LikeButton";
@@ -27,6 +28,7 @@ export default function PostCard({
   onUpdated: (post: FeedPost) => void;
   onDeleted: (postId: string) => void;
 }) {
+  const t = useTranslations("post");
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState(false);
   const [editBody, setEditBody] = useState(post.body);
@@ -36,14 +38,14 @@ export default function PostCard({
   const [err, setErr] = useState("");
 
   const author = post.author;
-  const name = author?.display_name || (author ? `@${author.username}` : "Ktoś");
+  const name = author?.display_name || (author ? `@${author.username}` : t("someone"));
   const isArtist = author?.role === "artist";
   const canManage = !!meId && post.author_id === meId;
 
   async function saveEdit() {
     const text = editBody.trim();
     if (!text) {
-      setErr("Wpis nie może być pusty.");
+      setErr(t("errEmpty"));
       return;
     }
     let linkUrl: string | null = null;
@@ -51,7 +53,7 @@ export default function PostCard({
     if (editLink.trim()) {
       const norm = normalizeUrl(editLink);
       if (!norm) {
-        setErr("Niepoprawny link.");
+        setErr(t("errLink"));
         return;
       }
       linkUrl = norm;
@@ -66,7 +68,7 @@ export default function PostCard({
       .eq("id", post.id);
     setBusy(false);
     if (error) {
-      setErr("Nie udało się zapisać.");
+      setErr(t("errSave"));
       return;
     }
     onUpdated({ ...post, body: text, link_url: linkUrl, link_type: linkType });
@@ -79,7 +81,7 @@ export default function PostCard({
     const { error } = await supabase.from("posts").delete().eq("id", post.id);
     if (error) {
       setBusy(false);
-      setErr("Nie udało się usunąć.");
+      setErr(t("errDelete"));
       return;
     }
     onDeleted(post.id);
@@ -109,7 +111,7 @@ export default function PostCard({
                 href="/authors"
                 className="rounded-full border border-warm/50 bg-warm/10 px-2 py-0.5 font-serif text-[0.65rem] uppercase tracking-wide text-warm transition hover:bg-warm/20"
               >
-                Artysta
+                {t("artistBadge")}
               </Link>
             )}
           </div>
@@ -128,8 +130,8 @@ export default function PostCard({
                 setConfirmDel(false);
                 setErr("");
               }}
-              aria-label="Edytuj wpis"
-              title="Edytuj"
+              aria-label={t("editAria")}
+              title={t("edit")}
               className="flex h-8 w-8 items-center justify-center rounded-full text-cream/45 transition hover:bg-cream/5 hover:text-cream"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -145,8 +147,8 @@ export default function PostCard({
             <button
               type="button"
               onClick={() => setConfirmDel((v) => !v)}
-              aria-label="Usuń wpis"
-              title="Usuń"
+              aria-label={t("deleteAria")}
+              title={t("delete")}
               className="flex h-8 w-8 items-center justify-center rounded-full text-cream/45 transition hover:bg-red-400/10 hover:text-red-300"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -165,7 +167,7 @@ export default function PostCard({
 
       {confirmDel && !editing && (
         <div className="mt-3 flex items-center justify-between gap-3 rounded-xl border border-red-400/30 bg-red-400/5 px-4 py-2.5">
-          <span className="font-sans text-sm text-cream/80">Usunąć ten wpis?</span>
+          <span className="font-sans text-sm text-cream/80">{t("confirmDelete")}</span>
           <div className="flex items-center gap-2">
             <button
               type="button"
@@ -173,7 +175,7 @@ export default function PostCard({
               disabled={busy}
               className="font-sans text-sm text-cream/60 transition hover:text-cream"
             >
-              Anuluj
+              {t("cancel")}
             </button>
             <button
               type="button"
@@ -181,7 +183,7 @@ export default function PostCard({
               disabled={busy}
               className="rounded-full bg-red-400/90 px-4 py-1.5 font-sans text-sm font-medium text-magic-navy transition hover:bg-red-300 disabled:opacity-60"
             >
-              {busy ? "Usuwam…" : "Usuń"}
+              {busy ? t("deleting") : t("delete")}
             </button>
           </div>
         </div>
@@ -199,7 +201,7 @@ export default function PostCard({
           <input
             value={editLink}
             onChange={(e) => setEditLink(e.target.value)}
-            placeholder="Link (opcjonalnie)"
+            placeholder={t("linkOptional")}
             className="mt-2 w-full rounded-xl border border-cream/15 bg-magic-navy/30 px-4 py-2.5 font-sans text-sm text-cream outline-none placeholder:text-cream/40 focus:border-cream/40"
           />
           <div className="mt-3 flex items-center gap-3">
@@ -209,7 +211,7 @@ export default function PostCard({
               disabled={busy}
               className="liquid-glass rounded-full px-6 py-2 text-sm disabled:opacity-60"
             >
-              {busy ? "Zapisuję…" : "Zapisz"}
+              {busy ? t("saving") : t("save")}
             </button>
             <button
               type="button"
@@ -221,7 +223,7 @@ export default function PostCard({
               }}
               className="font-sans text-sm text-cream/60 transition hover:text-cream"
             >
-              Anuluj
+              {t("cancel")}
             </button>
             {err && <span className="font-sans text-sm text-red-300">{err}</span>}
           </div>
@@ -247,7 +249,7 @@ export default function PostCard({
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          aria-label="Odpowiedzi"
+          aria-label={t("repliesAria")}
           className={`group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-150 ${
             open ? "bg-cream/5 text-cream" : "text-cream/55 hover:bg-cream/5 hover:text-cream"
           }`}

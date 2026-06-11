@@ -1,33 +1,32 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Reveal from "@/components/Reveal";
 import NightSky from "@/components/NightSky";
 
-export const metadata: Metadata = {
-  title: "Submit — Magic Stories Records",
-  description:
-    "Send your demo to Magic Stories Records — melodic and organic house with a story to tell.",
-};
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.submit" });
+  return { title: t("title"), description: t("description") };
+}
 
 const DEMO_EMAIL = "magicstoriesrecords@gmail.com";
-const MAILTO = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Demo — [your artist name]")}`;
 
-// What we ask for, kept short — three quiet rules rather than a form.
-const guidelines = [
-  {
-    title: "Two or three tracks",
-    body: "Finished, or close to it. Private SoundCloud links work best — please, no attachments or zips.",
-  },
-  {
-    title: "A line about you",
-    body: "Who you are, where your sound comes from, and one link to wherever you live online.",
-  },
-  {
-    title: "Your story, not a copy",
-    body: "We listen for melodic and organic house with a heart — music that paints a place we haven't been yet.",
-  },
-];
+export default async function SubmitPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("submit");
 
-export default function SubmitPage() {
+  const mailto = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent(t("mailSubject"))}`;
+
+  // What we ask for, kept short — three quiet rules rather than a form.
+  const guidelines = [
+    { title: t("rule1Title"), body: t("rule1Body") },
+    { title: t("rule2Title"), body: t("rule2Body") },
+    { title: t("rule3Title"), body: t("rule3Body") },
+  ];
+
   return (
     <section
       className="relative isolate overflow-hidden px-6 pb-24 pt-16 md:px-12 md:pb-32 md:pt-20"
@@ -48,15 +47,13 @@ export default function SubmitPage() {
         {/* Header */}
         <header className="mx-auto max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
-            Submit
+            {t("kicker")}
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
-            Send us your story.
+            {t("title")}
           </h1>
           <p className="mt-6 font-sans text-base leading-relaxed text-cream/75">
-            Every release here began as a demo in somebody&rsquo;s inbox. If your
-            music belongs in the evening mist — melodic, organic, patient — we
-            would love to hear it.
+            {t("lead")}
           </p>
         </header>
 
@@ -83,13 +80,13 @@ export default function SubmitPage() {
         <Reveal delayMs={360}>
           <div className="mx-auto mt-14 max-w-2xl text-center md:mt-20">
             <a
-              href={MAILTO}
+              href={mailto}
               className="liquid-glass inline-flex items-center justify-center whitespace-nowrap rounded-full px-12 py-[1.1rem] text-[0.95rem] text-cream focus-visible:outline-none"
             >
-              Send your demo
+              {t("cta")}
             </a>
             <p className="mt-5 font-sans text-sm text-cream/65">
-              or write to{" "}
+              {t("orWriteTo")}{" "}
               <a
                 href={`mailto:${DEMO_EMAIL}`}
                 className="text-twilight underline decoration-twilight/40 underline-offset-4 transition-colors hover:text-cream"
@@ -98,9 +95,7 @@ export default function SubmitPage() {
               </a>
             </p>
             <p className="mt-8 font-sans text-xs leading-relaxed text-cream/50">
-              We listen to everything that arrives. If your story resonates with
-              ours, we&rsquo;ll write back — it can take a little while, and
-              silence never means your music wasn&rsquo;t heard.
+              {t("footnote")}
             </p>
           </div>
         </Reveal>

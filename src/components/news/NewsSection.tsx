@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import NewsCarousel from "@/components/news/NewsCarousel";
 import type { FeedAuthor } from "@/components/campfire/types";
 import type { News } from "@/data/news";
@@ -34,6 +35,7 @@ export default function NewsSection({
   meId: string | null;
   meAuthor: FeedAuthor | null;
 }) {
+  const t = useTranslations("news");
   if (items.length === 0) return null;
 
   // Completes slightly inside the overlap band in BOTH cover regimes
@@ -94,10 +96,10 @@ export default function NewsSection({
       <div className="relative z-10 mx-auto max-w-3xl">
         <header className="mx-auto max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm [text-shadow:_0_1px_10px_rgba(8,7,24,0.7)]">
-            News
+            {t("kicker")}
           </p>
           <h2 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl [text-shadow:_0_2px_18px_rgba(8,7,24,0.75)]">
-            Fresh from the label.
+            {t("title")}
           </h2>
         </header>
 

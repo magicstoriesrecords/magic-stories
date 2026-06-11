@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "stories": "Historie",
+    "artists": "Artyści",
+    "library": "Magiczna Biblioteka",
+    "podcasts": "Podcasty",
+    "submit": "Wyślij demo",
+    "account": "Konto",
+    "browseReleases": "Przeglądaj wydania",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "signIn": "Zaloguj się",
+    "yourAccount": "Twoje konto"
+  },
+  "hero": {
+    "title1": "Where music",
+    "title2": "paints dreams.",
+    "cta": "Enter the Story"
+  },
+  "footer": {
+    "tagline": "Gdzie muzyka maluje sny"
+  },
+  "meta": {
+    "home": {
+      "title": "Magic Stories Records",
+      "description": "Gdzie muzyka maluje sny"
+    },
+    "stories": {
+      "title": "Historie — Magic Stories Records",
+      "description": "Każde wydanie otwiera nowy rozdział. Biblioteka melodic i organic house."
+    },
+    "authors": {
+      "title": "Artyści — Magic Stories Records",
+      "description": "Każdy artysta pisze własny rozdział."
+    },
+    "podcasts": {
+      "title": "Podcasty — Magic Stories Records",
+      "description": "Seria podcastów Magic Stories Records — mixy gości i założyciela, rozdział za rozdziałem."
+    },
+    "submit": {
+      "title": "Wyślij demo — Magic Stories Records",
+      "description": "Wyślij swoje demo do Magic Stories Records — melodic i organic house z historią do opowiedzenia."
+    },
+    "library": {
+      "title": "Magiczna Biblioteka — Magic Stories Records",
+      "description": "Usiądź z nami. Historie, linki i rozmowy społeczności MSR."
+    },
+    "account": {
+      "title": "Konto — Magic Stories Records",
+      "description": "Twój profil w społeczności Magic Stories."
+    }
+  },
+  "stories": {
+    "kicker": "Historie",
+    "title": "Każde wydanie otwiera nowy rozdział.",
+    "lead": "Rosnąca biblioteka melodic i organic house — każda płyta to strona tego samego wieczoru, uchwycona gdzieś między zmierzchem a snem."
+  },
+  "authors": {
+    "kicker": "Artyści",
+    "title": "Każdy artysta pisze własny.",
+    "lead": "Głosy, które tworzą wytwórnię — każdy z nich to rozdział, który rozwija się dalej, wydanie po wydaniu.",
+    "artistLabel": "Artysta"
+  },
+  "podcasts": {
+    "kicker": "Podcasty",
+    "title": "Każdy rozdział to nowy mix.",
+    "lead": "Seria podcastów Magic Stories — godzinne podróże miksowane przez artystów i przyjaciół wytwórni, nowe brzmienia zebrane z całego świata.",
+    "featuring": "Usłyszysz",
+    "listen": "Słuchaj na SoundCloud",
+    "listenAria": "Słuchaj {code} na SoundCloud"
+  },
+  "submit": {
+    "kicker": "Demo",
+    "title": "Wyślij nam swoją historię.",
+    "lead": "Każde z naszych wydań zaczęło się jako demo w czyjejś skrzynce. Jeśli Twoja muzyka należy do wieczornej mgły — melodyjna, organiczna, cierpliwa — chętnie jej posłuchamy.",
+    "mailSubject": "Demo — [twoja nazwa artystyczna]",
+    "rule1Title": "Dwa, trzy utwory",
+    "rule1Body": "Skończone albo prawie skończone. Najlepiej prywatne linki SoundCloud — prosimy, bez załączników i zipów.",
+    "rule2Title": "Parę słów o Tobie",
+    "rule2Body": "Kim jesteś, skąd bierze się Twoje brzmienie i jeden link do miejsca, gdzie mieszkasz w sieci.",
+    "rule3Title": "Twoja historia, nie kopia",
+    "rule3Body": "Szukamy melodic i organic house z sercem — muzyki, która maluje miejsce, w którym jeszcze nie byliśmy.",
+    "cta": "Wyślij demo",
+    "orWriteTo": "albo napisz na",
+    "footnote": "Słuchamy wszystkiego, co do nas trafia. Jeśli Twoja historia zabrzmi razem z naszą, odpiszemy — może to chwilę potrwać, a cisza nigdy nie znaczy, że Twoja muzyka nie została wysłuchana."
+  },
+  "library": {
+    "kicker": "Magic Library",
+    "title": "Magiczna Biblioteka",
+    "lead": "Wspólny rozdział społeczności MSR — wpisy, linki i rozmowy. Wrzuć kawałek z YouTube, SoundCloud czy X i opowiedz swoją historię.",
+    "empty": "Biblioteka jest jeszcze pusta. Dopisz pierwszy rozdział."
+  },
+  "account": {
+    "kicker": "Twój profil",
+    "titleIn": "Twój profil",
+    "titleOut": "Dołącz do społeczności",
+    "leadIn": "Ustaw swoją nazwę i avatar — tak zobaczą Cię inni w Bibliotece.",
+    "leadOut": "Zaloguj się kontem Google, by dopisywać rozdziały, lajkować i odpowiadać."
+  },
+  "auth": {
+    "signInGoogle": "Zaloguj się przez Google",
+    "connecting": "Łączę z Google…",
+    "signOut": "Wyloguj się",
+    "signingOut": "Wylogowuję…",
+    "signInPrompt": "Zaloguj się, aby dopisać swój rozdział.",
+    "signInShort": "Zaloguj się"
+  },
+  "profile": {
+    "usernameLabel": "Nazwa użytkownika",
+    "usernamePlaceholder": "twoja_nazwa",
+    "displayNameLabel": "Wyświetlana nazwa",
+    "displayNamePlaceholder": "Jak chcesz być widoczny/a",
+    "save": "Zapisz zmiany",
+    "saving": "Zapisuję…",
+    "saved": "Zapisano.",
+    "errUpload": "Nie udało się wgrać zdjęcia.",
+    "errUploadProfile": "Zdjęcie wgrane, ale nie zapisało się w profilu.",
+    "errUsername": "Nazwa: 3–20 znaków, małe litery, cyfry i podkreślenie.",
+    "errTaken": "Ta nazwa użytkownika jest już zajęta.",
+    "errSave": "Nie udało się zapisać zmian.",
+    "changeAvatar": "Zmień avatar",
+    "avatarHint": "JPG lub PNG, do ~2 MB.",
+    "artistBadge": "Artysta",
+    "optional": "(opcjonalnie)",
+    "signedInAs": "Zalogowano jako {email}",
+    "savedCheck": "Zapisano ✓"
+  },
+  "composer": {
+    "placeholder": "Dopisz swój rozdział…",
+    "linkPlaceholder": "Link (YouTube, SoundCloud, X) — opcjonalnie",
+    "publish": "Opublikuj",
+    "posting": "Wysyłam…",
+    "errEmpty": "Napisz coś, zanim wyślesz.",
+    "errLink": "Niepoprawny link.",
+    "errSend": "Nie udało się wysłać. Spróbuj ponownie."
+  },
+  "post": {
+    "someone": "Ktoś",
+    "errEmpty": "Wpis nie może być pusty.",
+    "errLink": "Niepoprawny link.",
+    "errSave": "Nie udało się zapisać.",
+    "errDelete": "Nie udało się usunąć.",
+    "edit": "Edytuj",
+    "editAria": "Edytuj wpis",
+    "delete": "Usuń",
+    "deleteAria": "Usuń wpis",
+    "deleting": "Usuwam…",
+    "confirmDelete": "Usunąć ten wpis?",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "saving": "Zapisuję…",
+    "linkOptional": "Link (opcjonalnie)",
+    "repliesAria": "Odpowiedzi",
+    "artistBadge": "Artysta"
+  },
+  "reply": {
+    "placeholder": "Odpowiedz…",
+    "send": "Wyślij",
+    "empty": "Brak odpowiedzi. Bądź pierwszy.",
+    "toReply": "aby odpowiedzieć."
+  },
+  "like": {
+    "like": "Polub",
+    "unlike": "Cofnij polubienie",
+    "signInToReact": "Zaloguj się, aby reagować"
+  },
+  "news": {
+    "kicker": "Aktualności",
+    "title": "Świeżo z wytwórni.",
+    "readMore": "Czytaj dalej",
+    "commentsAria": "Komentarze",
+    "prevAria": "Poprzedni news",
+    "nextAria": "Następny news",
+    "gotoAria": "Przejdź do newsa {n}",
+    "commentPlaceholder": "Skomentuj…",
+    "send": "Wyślij",
+    "empty": "Brak komentarzy. Bądź pierwszy.",
+    "share": "Udostępnij",
+    "shareAria": "Udostępnij jako grafikę do Stories",
+    "shareTitle": "Udostępnij / pobierz grafikę do Stories",
+    "shareFailed": "Nie udało się wygenerować grafiki.",
+    "shareDownloaded": "Pobrano grafikę — wrzuć ją na Instagram Stories.",
+    "toComment": "aby skomentować."
+  }
+}

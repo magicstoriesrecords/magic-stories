@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { useState } from "react";
 
 export default function LikeButton({
@@ -13,6 +15,7 @@ export default function LikeButton({
   disabled?: boolean;
   onClick: () => void;
 }) {
+  const t = useTranslations("like");
   const [pop, setPop] = useState(false);
 
   function handle() {
@@ -29,8 +32,8 @@ export default function LikeButton({
       onClick={handle}
       disabled={disabled}
       aria-pressed={liked}
-      aria-label={liked ? "Cofnij polubienie" : "Polub"}
-      title={disabled ? "Zaloguj się, aby reagować" : liked ? "Cofnij polubienie" : "Polub"}
+      aria-label={liked ? t("unlike") : t("like")}
+      title={disabled ? t("signInToReact") : liked ? t("unlike") : t("like")}
       className={`group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-150 disabled:cursor-default disabled:opacity-60 ${
         liked
           ? "text-rose-300 hover:bg-rose-300/10"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import type { News } from "@/data/news";
 
 // Background art reused for the generated story (same as the section backdrop).
@@ -89,17 +90,19 @@ function drawTracked(
   ctx.textAlign = "center";
 }
 
-const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
-];
-function prettyDate(iso: string): string {
+function prettyDate(iso: string, locale: string): string {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  return d.toLocaleDateString(locale === "pl" ? "pl-PL" : "en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 }
 
 export default function ShareStory({ item }: { item: News }) {
+  const t = useTranslations("news");
+  const locale = useLocale();
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
 
@@ -238,7 +241,7 @@ export default function ShareStory({ item }: { item: News }) {
     // ── Footer: date only (no URL — keeps the story clean). ──
     ctx.fillStyle = "rgba(232,184,144,0.9)";
     ctx.font = "600 30px Georgia, serif";
-    drawTracked(ctx, prettyDate(item.date).toUpperCase(), W / 2, H - 120, 5);
+    drawTracked(ctx, prettyDate(item.date, locale).toUpperCase(), W / 2, H - 120, 5);
 
     return await new Promise<Blob | null>((resolve) =>
       canvas.toBlob((b) => resolve(b), "image/png", 0.95),
@@ -252,7 +255,7 @@ export default function ShareStory({ item }: { item: News }) {
     try {
       const blob = await generate();
       if (!blob) {
-        setMsg("Nie udało się wygenerować grafiki.");
+        setMsg(t("shareFailed"));
         return;
       }
       const file = new File([blob], `msr-${item.slug}.png`, { type: "image/png" });
@@ -283,7 +286,7 @@ export default function ShareStory({ item }: { item: News }) {
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
-      setMsg("Pobrano grafikę — wrzuć ją na Instagram Stories.");
+      setMsg(t("shareDownloaded"));
     } finally {
       setBusy(false);
     }
@@ -295,8 +298,8 @@ export default function ShareStory({ item }: { item: News }) {
         type="button"
         onClick={handleShare}
         disabled={busy}
-        aria-label="Udostępnij jako grafikę do Stories"
-        title="Udostępnij / pobierz grafikę do Stories"
+        aria-label={t("shareAria")}
+        title={t("shareTitle")}
         className="group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-cream/55 transition-colors duration-150 hover:bg-cream/5 hover:text-cream disabled:opacity-60"
       >
         <svg
@@ -315,7 +318,7 @@ export default function ShareStory({ item }: { item: News }) {
             strokeLinejoin="round"
           />
         </svg>
-        {busy ? "…" : "Share"}
+        {busy ? "…" : t("share")}
       </button>
       {msg && <span className="max-w-[12rem] text-right font-sans text-[0.7rem] text-cream/50">{msg}</span>}
     </div>

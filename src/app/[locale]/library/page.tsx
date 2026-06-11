@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import NightSky from "@/components/NightSky";
 import Feed from "@/components/campfire/Feed";
 import type { FeedAuthor, FeedPost } from "@/components/campfire/types";
 import { createClient } from "@/lib/supabase/server";
 
-export const metadata: Metadata = {
-  title: "Magic Library — Magic Stories Records",
-  description: "Gather round. Stories, links and conversation from the MSR community.",
-};
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.library" });
+  return { title: t("title"), description: t("description") };
+}
 
 // User-specific (composer + my likes) + fresh feed → render dynamically.
 export const dynamic = "force-dynamic";
@@ -25,6 +29,7 @@ type Row = {
 };
 
 export default async function LibraryPage() {
+  const t = await getTranslations("library");
   const supabase = await createClient();
 
   const {
@@ -85,14 +90,13 @@ export default async function LibraryPage() {
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <header className="mx-auto max-w-2xl text-center">
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
-            Magic Library
+            {t("kicker")}
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
-            Magiczna Biblioteka
+            {t("title")}
           </h1>
           <p className="mt-6 font-sans text-base leading-relaxed text-cream/75">
-            Wspólny rozdział społeczności MSR — wpisy, linki i rozmowy. Wrzuć kawałek z
-            YouTube, SoundCloud czy X i opowiedz swoją historię.
+            {t("lead")}
           </p>
         </header>
 

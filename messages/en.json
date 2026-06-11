@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "stories": "Stories",
+    "artists": "Artists",
+    "library": "Magic Library",
+    "podcasts": "Podcasts",
+    "submit": "Submit",
+    "account": "Account",
+    "browseReleases": "Browse Releases",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "signIn": "Sign in",
+    "yourAccount": "Your account"
+  },
+  "hero": {
+    "title1": "Where music",
+    "title2": "paints dreams.",
+    "cta": "Enter the Story"
+  },
+  "footer": {
+    "tagline": "Where music paints dreams"
+  },
+  "meta": {
+    "home": {
+      "title": "Magic Stories Records",
+      "description": "Where music paints dreams"
+    },
+    "stories": {
+      "title": "Stories — Magic Stories Records",
+      "description": "Every release opens a chapter. A library of melodic & organic house."
+    },
+    "authors": {
+      "title": "Artists — Magic Stories Records",
+      "description": "Every artist writes their own chapter."
+    },
+    "podcasts": {
+      "title": "Podcasts — Magic Stories Records",
+      "description": "The Magic Stories Records podcast series — guest and founder mixes, chapter after chapter."
+    },
+    "submit": {
+      "title": "Submit — Magic Stories Records",
+      "description": "Send your demo to Magic Stories Records — melodic and organic house with a story to tell."
+    },
+    "library": {
+      "title": "Magic Library — Magic Stories Records",
+      "description": "Gather round. Stories, links and conversation from the MSR community."
+    },
+    "account": {
+      "title": "Account — Magic Stories Records",
+      "description": "Your profile in the Magic Stories community."
+    }
+  },
+  "stories": {
+    "kicker": "Stories",
+    "title": "Every release opens a chapter.",
+    "lead": "A growing library of melodic & organic house — each record a page in the same evening, caught somewhere between dusk and dream."
+  },
+  "authors": {
+    "kicker": "Artists",
+    "title": "Every artist writes their own.",
+    "lead": "The voices behind the label — each one a chapter that keeps unfolding, release after release.",
+    "artistLabel": "Artist"
+  },
+  "podcasts": {
+    "kicker": "Podcasts",
+    "title": "Every chapter, a new mix.",
+    "lead": "The Magic Stories podcast series — hour-long journeys mixed by the label's artists and friends, new sounds gathered from around the world.",
+    "featuring": "Featuring",
+    "listen": "Listen on SoundCloud",
+    "listenAria": "Listen to {code} on SoundCloud"
+  },
+  "submit": {
+    "kicker": "Submit",
+    "title": "Send us your story.",
+    "lead": "Every release here began as a demo in somebody's inbox. If your music belongs in the evening mist — melodic, organic, patient — we would love to hear it.",
+    "mailSubject": "Demo — [your artist name]",
+    "rule1Title": "Two or three tracks",
+    "rule1Body": "Finished, or close to it. Private SoundCloud links work best — please, no attachments or zips.",
+    "rule2Title": "A line about you",
+    "rule2Body": "Who you are, where your sound comes from, and one link to wherever you live online.",
+    "rule3Title": "Your story, not a copy",
+    "rule3Body": "We listen for melodic and organic house with a heart — music that paints a place we haven't been yet.",
+    "cta": "Send your demo",
+    "orWriteTo": "or write to",
+    "footnote": "We listen to everything that arrives. If your story resonates with ours, we'll write back — it can take a little while, and silence never means your music wasn't heard."
+  },
+  "library": {
+    "kicker": "Magic Library",
+    "title": "The Magic Library",
+    "lead": "The community's shared chapter — posts, links and conversation. Drop a track from YouTube, SoundCloud or X and tell your story.",
+    "empty": "The Library is still empty. Write the first chapter."
+  },
+  "account": {
+    "kicker": "Your Profile",
+    "titleIn": "Your profile",
+    "titleOut": "Join the community",
+    "leadIn": "Set your name and avatar — this is how others will see you in the Library.",
+    "leadOut": "Sign in with your Google account to write chapters, like and reply."
+  },
+  "auth": {
+    "signInGoogle": "Sign in with Google",
+    "connecting": "Connecting to Google…",
+    "signOut": "Sign out",
+    "signingOut": "Signing out…",
+    "signInPrompt": "Sign in to write your chapter.",
+    "signInShort": "Sign in"
+  },
+  "profile": {
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "your_name",
+    "displayNameLabel": "Display name",
+    "displayNamePlaceholder": "How you want to appear",
+    "save": "Save changes",
+    "saving": "Saving…",
+    "saved": "Saved.",
+    "errUpload": "Could not upload the picture.",
+    "errUploadProfile": "Picture uploaded, but it didn't save to your profile.",
+    "errUsername": "Username: 3–20 characters, lowercase letters, digits and underscore.",
+    "errTaken": "This username is already taken.",
+    "errSave": "Could not save your changes.",
+    "changeAvatar": "Change avatar",
+    "avatarHint": "JPG or PNG, up to ~2 MB.",
+    "artistBadge": "Artist",
+    "optional": "(optional)",
+    "signedInAs": "Signed in as {email}",
+    "savedCheck": "Saved ✓"
+  },
+  "composer": {
+    "placeholder": "Write your chapter…",
+    "linkPlaceholder": "Link (YouTube, SoundCloud, X) — optional",
+    "publish": "Publish",
+    "posting": "Posting…",
+    "errEmpty": "Write something before you post.",
+    "errLink": "That link doesn't look right.",
+    "errSend": "Could not post. Please try again."
+  },
+  "post": {
+    "someone": "Someone",
+    "errEmpty": "A post can't be empty.",
+    "errLink": "That link doesn't look right.",
+    "errSave": "Could not save.",
+    "errDelete": "Could not delete.",
+    "edit": "Edit",
+    "editAria": "Edit post",
+    "delete": "Delete",
+    "deleteAria": "Delete post",
+    "deleting": "Deleting…",
+    "confirmDelete": "Delete this post?",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saving": "Saving…",
+    "linkOptional": "Link (optional)",
+    "repliesAria": "Replies",
+    "artistBadge": "Artist"
+  },
+  "reply": {
+    "placeholder": "Reply…",
+    "send": "Send",
+    "empty": "No replies yet. Be the first.",
+    "toReply": "to reply."
+  },
+  "like": {
+    "like": "Like",
+    "unlike": "Unlike",
+    "signInToReact": "Sign in to react"
+  },
+  "news": {
+    "kicker": "News",
+    "title": "Fresh from the label.",
+    "readMore": "Read more",
+    "commentsAria": "Comments",
+    "prevAria": "Previous news item",
+    "nextAria": "Next news item",
+    "gotoAria": "Go to news item {n}",
+    "commentPlaceholder": "Comment…",
+    "send": "Send",
+    "empty": "No comments yet. Be the first.",
+    "share": "Share",
+    "shareAria": "Share as a Stories image",
+    "shareTitle": "Share / download a Stories image",
+    "shareFailed": "Could not generate the image.",
+    "shareDownloaded": "Image downloaded — post it to your Instagram Stories.",
+    "toComment": "to comment."
+  }
+}

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import LikeButton from "@/components/campfire/LikeButton";
 import NewsComments from "@/components/news/NewsComments";
 import ShareStory from "@/components/news/ShareStory";
@@ -9,14 +10,14 @@ import type { FeedAuthor } from "@/components/campfire/types";
 import type { News } from "@/data/news";
 import type { NewsEngagement } from "@/components/news/types";
 
-const MONTHS = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-];
-function prettyDate(iso: string): string {
+function prettyDate(iso: string, locale: string): string {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  return d.toLocaleDateString(locale === "pl" ? "pl-PL" : "en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 }
 
 function isExternal(href: string): boolean {
@@ -38,6 +39,8 @@ export default function NewsCard({
   onToggleLike: (slug: string) => void;
   onCommentAdded: (slug: string) => void;
 }) {
+  const t = useTranslations("news");
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
 
   return (
@@ -70,7 +73,7 @@ export default function NewsCard({
           }`}
         >
           <p className="font-serif text-xs uppercase tracking-[0.28em] text-warm/85">
-            {prettyDate(item.date)}
+            {prettyDate(item.date, locale)}
           </p>
           <h3 className="mt-3 font-serif text-2xl font-normal leading-[1.1] tracking-tight text-cream md:text-3xl">
             {item.title}
@@ -88,14 +91,14 @@ export default function NewsCard({
                   rel="noopener noreferrer"
                   className="liquid-glass inline-flex items-center rounded-full px-6 py-2.5 text-[0.85rem] text-cream"
                 >
-                  {item.cta ?? "Read more"}
+                  {item.cta ?? t("readMore")}
                 </a>
               ) : (
                 <Link
                   href={item.link}
                   className="liquid-glass inline-flex items-center rounded-full px-6 py-2.5 text-[0.85rem] text-cream"
                 >
-                  {item.cta ?? "Read more"}
+                  {item.cta ?? t("readMore")}
                 </Link>
               )}
             </div>
@@ -113,7 +116,7 @@ export default function NewsCard({
               type="button"
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
-              aria-label="Komentarze"
+              aria-label={t("commentsAria")}
               className={`group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-150 ${
                 open ? "bg-cream/5 text-cream" : "text-cream/55 hover:bg-cream/5 hover:text-cream"
               }`}

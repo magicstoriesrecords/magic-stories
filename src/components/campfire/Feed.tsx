@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Composer from "@/components/campfire/Composer";
 import PostCard from "@/components/campfire/PostCard";
 import { createClient } from "@/lib/supabase/client";
@@ -19,6 +20,8 @@ export default function Feed({
   authorId: string | null;
   author: FeedAuthor | null;
 }) {
+  const t = useTranslations("auth");
+  const tl = useTranslations("library");
   const [posts, setPosts] = useState<FeedPost[]>(initialPosts);
 
   function handlePosted(post: FeedPost) {
@@ -163,19 +166,19 @@ export default function Feed({
         <Composer authorId={authorId} author={author} onPosted={handlePosted} />
       ) : (
         <div className="glass-card rounded-2xl p-6 text-center">
-          <p className="font-sans text-cream/80">Zaloguj się, aby dopisać swój rozdział.</p>
+          <p className="font-sans text-cream/80">{t("signInPrompt")}</p>
           <Link
             href="/account"
             className="liquid-glass mt-4 inline-block rounded-full px-7 py-2.5 text-sm"
           >
-            Zaloguj się przez Google
+            {t("signInGoogle")}
           </Link>
         </div>
       )}
 
       {posts.length === 0 ? (
         <p className="py-12 text-center font-sans text-cream/50">
-          Biblioteka jest jeszcze pusta. Dopisz pierwszy rozdział.
+          {tl("empty")}
         </p>
       ) : (
         posts.map((post) => (

@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
@@ -9,6 +10,7 @@ type MiniProfile = { username: string; avatar_url: string | null };
 // Compact auth indicator for the top navigation. Shows a "Sign in" link when
 // logged out, or the user's avatar + handle linking to /account when logged in.
 export default function AuthNav({ tone }: { tone: "cream" | "ink" }) {
+  const t = useTranslations("nav");
   const [profile, setProfile] = useState<MiniProfile | null>(null);
   const [ready, setReady] = useState(false);
 
@@ -83,13 +85,13 @@ export default function AuthNav({ tone }: { tone: "cream" | "ink" }) {
   if (!profile) {
     return (
       <Link href="/account" className={`font-serif text-sm tracking-wide transition ${text}`}>
-        Sign in
+        {t("signIn")}
       </Link>
     );
   }
 
   return (
-    <Link href="/account" className={`group flex items-center gap-2 ${text}`} aria-label="Your account">
+    <Link href="/account" className={`group flex items-center gap-2 ${text}`} aria-label={t("yourAccount")}>
       {profile.avatar_url ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img

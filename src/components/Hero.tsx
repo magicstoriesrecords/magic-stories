@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
 
 // Background video — wildflower magic-hour loop (Kling AI).
@@ -10,6 +11,7 @@ import Button from "@/components/ui/Button";
 const VIDEO_SRC = "/hero-wildflower-v4.mp4";
 
 export default function Hero() {
+  const t = useTranslations("hero");
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // iOS Safari can be picky about autoplay — nudge playback.
@@ -79,7 +81,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="animate-fade-rise-delay max-w-3xl font-serif text-4xl font-normal leading-[1.05] tracking-tight sm:text-5xl md:text-6xl text-cream [text-shadow:_0_2px_4px_rgba(8,7,24,0.55),_0_4px_34px_rgba(8,7,24,0.75)]">
-          Where music <span className="text-twilight">paints dreams.</span>
+          {t("title1")} <span className="text-twilight">{t("title2")}</span>
         </h1>
 
         <Button
@@ -87,7 +89,7 @@ export default function Hero() {
           size="lg"
           className="animate-fade-rise-delay-2 mt-9"
         >
-          Enter the Story
+          {t("cta")}
         </Button>
       </div>
     </section>

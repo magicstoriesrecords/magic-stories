@@ -5,12 +5,20 @@ import type { FeedAuthor } from "@/components/campfire/types";
 import type { EngagementMap } from "@/components/news/types";
 import { createClient } from "@/lib/supabase/server";
 
+type Props = { params: Promise<{ locale: string }> };
+
 // Engagement is user-specific (my likes) and changes often → render at request
 // time. If the news_* tables aren't set up yet, the queries simply return no
 // rows and the carousel shows zero counts (graceful).
 export const dynamic = "force-dynamic";
 
-export default async function Home() {
+export default async function Home({ params }: Props) {
+  const { locale } = await params;
+  // Swap in the Polish headline/blurb/CTA before the items reach the
+  // client components; engagement stays keyed by the locale-independent slug.
+  const items = locale === "pl"
+    ? news.map((n) => ({ ...n, title: n.titlePl, blurb: n.blurbPl, cta: n.ctaPl ?? n.cta }))
+    : news;
   const supabase = await createClient();
   const slugs = news.map((n) => n.slug);
 
@@ -54,7 +62,7 @@ export default async function Home() {
     <>
       <Hero />
       <NewsSection
-        items={news}
+        items={items}
         engagement={engagement}
         meId={user?.id ?? null}
         meAuthor={author}

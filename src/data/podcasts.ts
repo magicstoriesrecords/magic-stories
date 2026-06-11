@@ -9,7 +9,8 @@ export type Podcast = {
   episode: number; // 12
   guest: string; // who mixed the episode
   cover: string; // local file in /public/images/podcasts (export at 3:2, e.g. 1500x1000)
-  blurb: string; // 1-2 sentence summary
+  blurb: string; // 1-2 sentence summary (EN)
+  blurbPl: string; // Polish version of the summary
   artists: string[]; // line-up heard in the set
   soundcloud: string; // link to the episode
 };
@@ -22,6 +23,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-012.jpg",
     blurb:
       "The latest chapter of the series, mixed by founder Mazze — a fresh journey through the Magic Stories sound.",
+    blurbPl:
+      "Najnowszy rozdział serii w miksie założyciela — Mazze zabiera nas w świeżą podróż przez brzmienie Magic Stories.",
     artists: [
       "&Friends",
       "Joseph",
@@ -49,6 +52,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-011.jpg",
     blurb:
       "Mazze returns with a brand-new journey — close your eyes, follow the melodies, and let the story unfold.",
+    blurbPl:
+      "Mazze wraca z zupełnie nową podróżą — zamknij oczy, podążaj za melodiami i pozwól historii się rozwinąć.",
     artists: [
       "Kontaktees",
       "Loui & Scibi",
@@ -72,6 +77,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-010.jpg",
     blurb:
       "US producer Robyn Balliet, who recently remixed an MSR release, leads a special tenth-episode journey of hypnotic grooves and warm melodies.",
+    blurbPl:
+      "Amerykańska producentka Robyn Balliet, autorka niedawnego remiksu dla MSR, prowadzi wyjątkowy dziesiąty odcinek — hipnotyczne groove'y i ciepłe melodie.",
     artists: [
       "Hardy Heller & Alex Connors",
       "Julian Millan",
@@ -98,6 +105,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-009.jpg",
     blurb:
       "Spanish producer Adrià Falcó takes the reins, curating a breathtaking one-hour set of deep melodies and hypnotic rhythms.",
+    blurbPl:
+      "Hiszpański producent Adrià Falcó przejmuje stery, układając zapierający dech godzinny set głębokich melodii i hipnotycznych rytmów.",
     artists: [
       "Double Touch",
       "Adrià Falcó",
@@ -120,6 +129,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-008.jpg",
     blurb:
       "Italian deep and progressive talent Mauro Masi takes over for episode eight — melodic, organic, golden-hour grooves.",
+    blurbPl:
+      "Włoski talent deep i progressive Mauro Masi przejmuje ósmy odcinek — melodyjne, organiczne groove'y złotej godziny.",
     artists: [
       "Mauro Masi",
       "Ilias Katelanos",
@@ -143,6 +154,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-007.jpg",
     blurb:
       "Founder Mazze returns with an expansive seventh chapter spanning organic, melodic and deep house.",
+    blurbPl:
+      "Założyciel Mazze wraca z rozległym siódmym rozdziałem, rozpiętym między organic, melodic i deep house.",
     artists: [
       "Christian Löffler",
       "Our Spaces",
@@ -182,6 +195,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-006.jpg",
     blurb:
       "A holiday special from Poznań's DJ Pequeño — organic house rhythms and beautiful melodies, by way of Ibiza Global Radio.",
+    blurbPl:
+      "Świąteczny odcinek specjalny od poznańskiego DJ-a Pequeño — rytmy organic house i piękne melodie, prosto z anteny Ibiza Global Radio.",
     artists: [
       "Mauro Masi",
       "Ootkeen",
@@ -207,6 +222,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-005.jpg",
     blurb:
       "Tommy Gustav (aka Groove Cocktail), co-founder of Taste The Music, brings an hour of distinctive electronic grooves.",
+    blurbPl:
+      "Tommy Gustav (aka Groove Cocktail), współzałożyciel Taste The Music, przynosi godzinę charakterystycznych elektronicznych groove'ów.",
     artists: [
       "Massh & Adam Port",
       "Kashovski",
@@ -226,6 +243,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-004.jpg",
     blurb:
       "Polish producer Milkwish — released on Anjunabeats, Armada and Colorize — explores the deeper, more organic side of his sound.",
+    blurbPl:
+      "Polski producent Milkwish — z wydaniami w Anjunabeats, Armadzie i Colorize — eksploruje głębszą, bardziej organiczną stronę swojego brzmienia.",
     artists: [
       "Missfeat",
       "Den Macklin",
@@ -247,6 +266,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-003.jpg",
     blurb:
       "A legend of the Polish club scene, DJ NeeVald delivers a set inspired by his iconic 'Sexy Sunday' series on Ibiza Global Radio.",
+    blurbPl:
+      "Legenda polskiej sceny klubowej, DJ NeeVald, dostarcza set inspirowany swoim kultowym cyklem 'Sexy Sunday' z Ibiza Global Radio.",
     artists: [
       "M.O.S",
       "Trilucid",
@@ -269,6 +290,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-002.jpg",
     blurb:
       "The series returns with Rafa'EL, fresh off his 'Elderose' debut — a warm, melodic organic-house tale.",
+    blurbPl:
+      "Seria wraca z Rafa'ELem, świeżo po debiutanckiej 'Elderose' — ciepła, melodyjna opowieść organic house.",
     artists: [
       "Sam Rose",
       "Eryc Karezza",
@@ -299,6 +322,8 @@ export const podcasts: Podcast[] = [
     cover: "/images/podcasts/msrp-001.jpg",
     blurb:
       "The very first chapter. Label founder Mazze opens the series with an hour of unconventional, boundary-pushing sounds.",
+    blurbPl:
+      "Pierwszy rozdział. Założyciel wytwórni Mazze otwiera serię godziną niekonwencjonalnych, przekraczających granice brzmień.",
     artists: [
       "Joe Miller",
       "Ólafur Arnalds",

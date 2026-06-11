@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import StoriesGrid from "@/components/StoriesGrid";
 import NightSky from "@/components/NightSky";
 
-export const metadata: Metadata = {
-  title: "Stories — Magic Stories Records",
-  description:
-    "Every release opens a chapter. A library of melodic & organic house.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function StoriesPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.stories" });
+  return { title: t("title"), description: t("description") };
+}
+
+export default async function StoriesPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("stories");
+
   return (
     <section
       className="relative isolate overflow-hidden px-6 pb-24 pt-16 md:px-12 md:pb-32 md:pt-20"
@@ -31,14 +38,13 @@ export default function StoriesPage() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <header className="mx-auto max-w-2xl text-center">
           <p className="animate-fade-rise font-serif text-xs uppercase tracking-[0.28em] text-cream/70 md:text-sm">
-            Stories
+            {t("kicker")}
           </p>
           <h1 className="animate-fade-rise-delay mt-4 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-cream sm:text-4xl md:text-5xl">
-            Every release opens a chapter.
+            {t("title")}
           </h1>
           <p className="animate-fade-rise-delay-2 mt-6 font-sans text-base leading-relaxed text-cream/75">
-            A growing library of melodic &amp; organic house — each record a page
-            in the same evening, caught somewhere between dusk and dream.
+            {t("lead")}
           </p>
         </header>
 

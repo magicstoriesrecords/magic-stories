@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import Reveal from "@/components/Reveal";
 import { releases } from "@/data/releases";
 import {
@@ -18,6 +19,7 @@ const platforms = [
 // Release "chapters" rendered as open-book spreads (matching Artists & Podcasts):
 // a square album cover on one side, the chapter note on the other, alternating.
 export default function StoriesGrid() {
+  const locale = useLocale();
   return (
     <div className="mt-14 flex flex-col gap-14 md:mt-20 md:gap-20">
       {releases.map((release, i) => {
@@ -60,7 +62,7 @@ export default function StoriesGrid() {
                   </p>
 
                   <p className="mt-5 font-sans text-sm leading-relaxed text-cream/80 md:text-base">
-                    {release.blurb}
+                    {locale === "pl" ? release.blurbPl : release.blurb}
                   </p>
 
                   <div className="mt-8 flex flex-wrap gap-3">
