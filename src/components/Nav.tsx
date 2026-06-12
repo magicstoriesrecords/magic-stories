@@ -19,7 +19,7 @@ const navLinks = [
 // dark glass strip with cream text so it reads against the sky.
 // NOTE: usePathname (from i18n/navigation) returns the path WITHOUT the
 // locale prefix, so these checks work for both / and /pl/.
-const darkPages = ["/authors", "/stories", "/library", "/podcasts", "/submit"];
+const darkPages = ["/authors", "/stories", "/library", "/podcasts", "/submit", "/account"];
 
 // Inline EN | PL toggle. Switching locales keeps the current route; next-intl
 // remembers the choice in the NEXT_LOCALE cookie.
