@@ -189,7 +189,7 @@ export default function ReplyThread({
                     <span className="font-serif text-sm text-cream/90">{name}</span>
                     {r.author?.role === "artist" && (
                       <Link
-                        href="/authors"
+                        href={r.author?.author_slug ? `/authors#${r.author.author_slug}` : "/authors"}
                         className="rounded-full border border-warm/50 bg-warm/10 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-wide text-warm"
                       >
                         {tp("artistBadge")}

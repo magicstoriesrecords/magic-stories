@@ -389,7 +389,7 @@ export default async function AuthorsPage({ params }: Props) {
             const flip = i % 2 === 1; // zig-zag: portrait left / right alternately
             return (
               <Reveal key={author.slug}>
-                <article className="glass-card relative overflow-hidden rounded-3xl">
+                <article id={author.slug} className="glass-card relative overflow-hidden rounded-3xl scroll-mt-28">
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Portrait page (parallax) */}
                     <div

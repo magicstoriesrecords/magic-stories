@@ -110,7 +110,7 @@ export default function PostCard({
             <span className="truncate font-serif text-sm text-cream">{name}</span>
             {isArtist && (
               <Link
-                href="/authors"
+                href={author?.author_slug ? `/authors#${author.author_slug}` : "/authors"}
                 className="rounded-full border border-warm/50 bg-warm/10 px-2 py-0.5 font-serif text-[0.65rem] uppercase tracking-wide text-warm transition hover:bg-warm/20"
               >
                 {t("artistBadge")}
