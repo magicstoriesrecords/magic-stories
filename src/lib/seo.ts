@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // ── SEO helpers ───────────────────────────────────────────────────────────────
 // Canonical site origin (production). Used for metadataBase, canonical URLs,
 // the sitemap and JSON-LD. Update here if we move to a custom domain.
-export const SITE_URL = "https://magic-stories-three.vercel.app";
+export const SITE_URL = "https://magicstoriesrecords.com";
 
 export const SITE_NAME = "Magic Stories Records";
 
