@@ -12,13 +12,19 @@ import {
 } from "@/components/PlatformIcons";
 import MagicBackdrop from "@/components/MagicBackdrop";
 import NightSky from "@/components/NightSky";
+import { buildPageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.authors" });
-  return { title: t("title"), description: t("description") };
+  return buildPageMeta({
+    locale,
+    path: "/authors",
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 // ── Authors ──────────────────────────────────────────────────────────────────

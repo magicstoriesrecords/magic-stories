@@ -4,13 +4,19 @@ import NightSky from "@/components/NightSky";
 import Feed from "@/components/campfire/Feed";
 import type { FeedAuthor, FeedPost } from "@/components/campfire/types";
 import { createClient } from "@/lib/supabase/server";
+import { buildPageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.library" });
-  return { title: t("title"), description: t("description") };
+  return buildPageMeta({
+    locale,
+    path: "/library",
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 // User-specific (composer + my likes) + fresh feed → render dynamically.

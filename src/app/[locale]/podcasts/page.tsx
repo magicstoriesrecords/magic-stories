@@ -4,13 +4,19 @@ import Reveal from "@/components/Reveal";
 import NightSky from "@/components/NightSky";
 import { SoundcloudIcon } from "@/components/PlatformIcons";
 import { podcasts } from "@/data/podcasts";
+import { buildPageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.podcasts" });
-  return { title: t("title"), description: t("description") };
+  return buildPageMeta({
+    locale,
+    path: "/podcasts",
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function PodcastsPage({ params }: Props) {

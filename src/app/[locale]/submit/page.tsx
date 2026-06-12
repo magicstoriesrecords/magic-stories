@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Reveal from "@/components/Reveal";
 import NightSky from "@/components/NightSky";
+import { buildPageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.submit" });
-  return { title: t("title"), description: t("description") };
+  return buildPageMeta({
+    locale,
+    path: "/submit",
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 const DEMO_EMAIL = "magicstoriesrecords@gmail.com";

@@ -5,13 +5,21 @@ import SignInButton from "@/components/auth/SignInButton";
 import SignOutButton from "@/components/auth/SignOutButton";
 import ProfileEditor, { type Profile } from "@/components/account/ProfileEditor";
 import { createClient } from "@/lib/supabase/server";
+import { buildPageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.account" });
-  return { title: t("title"), description: t("description") };
+  // Private, per-user page — keep it out of search results.
+  return buildPageMeta({
+    locale,
+    path: "/account",
+    title: t("title"),
+    description: t("description"),
+    noindex: true,
+  });
 }
 
 // Profile is per-user and depends on the auth cookie, so render dynamically.

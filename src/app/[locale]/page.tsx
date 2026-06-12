@@ -4,8 +4,22 @@ import { news } from "@/data/news";
 import type { FeedAuthor } from "@/components/campfire/types";
 import type { EngagementMap } from "@/components/news/types";
 import { createClient } from "@/lib/supabase/server";
+import { buildPageMeta } from "@/lib/seo";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.home" });
+  return buildPageMeta({
+    locale,
+    path: "/",
+    title: t("title"),
+    description: t("description"),
+  });
+}
 
 // Engagement is user-specific (my likes) and changes often → render at request
 // time. If the news_* tables aren't set up yet, the queries simply return no
