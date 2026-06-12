@@ -406,7 +406,7 @@ export default async function AuthorsPage({ params }: Props) {
                               alt={author.name}
                               fill
                               sizes="(min-width: 768px) 50vw, 100vw"
-                              className={author.cutout ? "object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]" : "object-cover"}
+                              className={author.cutout ? "object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] [mask-image:linear-gradient(to_bottom,black_70%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,black_70%,transparent_99%)] md:[mask-image:none] md:[-webkit-mask-image:none]" : "object-cover"}
                             />
                           </div>
                         </Parallax>
