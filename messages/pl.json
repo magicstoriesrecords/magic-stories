@@ -27,23 +27,23 @@
     },
     "stories": {
       "title": "Historie — Magic Stories Records",
-      "description": "Każde wydanie otwiera nowy rozdział. Biblioteka melodic i organic house."
+      "description": "Każda melodia otwiera nowy rozdział. Rosnąca biblioteka brzmień z pogranicza electronic, organic, deep i melodic house."
     },
     "authors": {
       "title": "Artyści — Magic Stories Records",
-      "description": "Każdy artysta pisze własny rozdział."
+      "description": "Każdy artysta pisze własny rozdział. Ich muzyka, emocje i brzmienie tworzą Magic Stories Records."
     },
     "podcasts": {
       "title": "Podcasty — Magic Stories Records",
-      "description": "Seria podcastów Magic Stories Records — mixy gości i założyciela, rozdział za rozdziałem."
+      "description": "Godzinne podróże prowadzone przez artystów, przyjaciół wytwórni i selekcjonerów — electronic, organic, deep i melodic house."
     },
     "submit": {
       "title": "Wyślij demo — Magic Stories Records",
-      "description": "Wyślij swoje demo do Magic Stories Records — melodic i organic house z historią do opowiedzenia."
+      "description": "Każde wydanie zaczyna się od pierwszego odsłuchu — wyślij demo: electronic, organic, deep lub melodic house."
     },
     "library": {
       "title": "Magiczna Biblioteka — Magic Stories Records",
-      "description": "Usiądź z nami. Historie, linki i rozmowy społeczności MSR."
+      "description": "Wspólna przestrzeń społeczności MSR — wpisy, linki, muzyczne odkrycia i krótkie historie."
     },
     "account": {
       "title": "Konto — Magic Stories Records",
@@ -52,19 +52,19 @@
   },
   "stories": {
     "kicker": "Historie",
-    "title": "Każde wydanie otwiera nowy rozdział.",
-    "lead": "Rosnąca biblioteka melodic i organic house — każda płyta to strona tego samego wieczoru, uchwycona gdzieś między zmierzchem a snem."
+    "title": "Każda melodia otwiera nowy rozdział.",
+    "lead": "Magic Stories Records to rosnąca biblioteka brzmień z pogranicza electronic, organic, deep i melodic house, gdzie każde wydanie dopisuje własną stronę do jednej większej opowieści."
   },
   "authors": {
     "kicker": "Artyści",
-    "title": "Każdy artysta pisze własny.",
-    "lead": "Głosy, które tworzą wytwórnię — każdy z nich to rozdział, który rozwija się dalej, wydanie po wydaniu.",
+    "title": "Każdy artysta pisze własny rozdział.",
+    "lead": "Ich muzyka, emocje i brzmienie tworzą Magic Stories Records, rozwijając tę opowieść wydanie po wydaniu.",
     "artistLabel": "Artysta"
   },
   "podcasts": {
     "kicker": "Podcasty",
     "title": "Każdy rozdział to nowy mix.",
-    "lead": "Seria podcastów Magic Stories — godzinne podróże miksowane przez artystów i przyjaciół wytwórni, nowe brzmienia zebrane z całego świata.",
+    "lead": "Seria podcastów Magic Stories Records to godzinne podróże prowadzone przez artystów, przyjaciół wytwórni i selekcjonerów z różnych stron świata. Electronic, organic, deep i melodic house zebrane w opowieści, które rozwijają świat MSR poza samymi wydaniami.",
     "featuring": "Usłyszysz",
     "listen": "Słuchaj na SoundCloud",
     "listenAria": "Słuchaj {code} na SoundCloud"
@@ -72,7 +72,7 @@
   "submit": {
     "kicker": "Demo",
     "title": "Wyślij nam swoją historię.",
-    "lead": "Każde z naszych wydań zaczęło się jako demo w czyjejś skrzynce. Jeśli Twoja muzyka należy do wieczornej mgły — melodyjna, organiczna, cierpliwa — chętnie jej posłuchamy.",
+    "lead": "Każde wydanie zaczyna się od pierwszego odsłuchu. Jeśli tworzysz muzykę z pogranicza electronic, organic, deep lub melodic house, emocjonalną, przestrzenną i cierpliwie budowaną, chętnie sprawdzimy, dokąd prowadzi Twoja opowieść.",
     "mailSubject": "Demo — [twoja nazwa artystyczna]",
     "rule1Title": "Dwa, trzy utwory",
     "rule1Body": "Skończone albo prawie skończone. Najlepiej prywatne linki SoundCloud — prosimy, bez załączników i zipów.",
@@ -87,7 +87,7 @@
   "library": {
     "kicker": "Magic Library",
     "title": "Magiczna Biblioteka",
-    "lead": "Wspólny rozdział społeczności MSR — wpisy, linki i rozmowy. Wrzuć kawałek z YouTube, SoundCloud czy X i opowiedz swoją historię.",
+    "lead": "Wspólna przestrzeń społeczności MSR. Miejsce na wpisy, linki, muzyczne odkrycia i krótkie historie. Dodaj utwór z YouTube, SoundCloud albo X i pokaż, co właśnie gra w Twoim świecie.",
     "empty": "Biblioteka jest jeszcze pusta. Dopisz pierwszy rozdział."
   },
   "account": {

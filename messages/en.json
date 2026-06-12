@@ -27,23 +27,23 @@
     },
     "stories": {
       "title": "Stories — Magic Stories Records",
-      "description": "Every release opens a chapter. A library of melodic & organic house."
+      "description": "Every melody opens a new chapter. A growing library of electronic, organic, deep and melodic house."
     },
     "authors": {
       "title": "Artists — Magic Stories Records",
-      "description": "Every artist writes their own chapter."
+      "description": "Every artist writes their own chapter. Their music, emotion and sound shape Magic Stories Records."
     },
     "podcasts": {
       "title": "Podcasts — Magic Stories Records",
-      "description": "The Magic Stories Records podcast series — guest and founder mixes, chapter after chapter."
+      "description": "Hour-long journeys guided by the label's artists, friends and selectors — electronic, organic, deep and melodic house."
     },
     "submit": {
       "title": "Submit — Magic Stories Records",
-      "description": "Send your demo to Magic Stories Records — melodic and organic house with a story to tell."
+      "description": "Every release begins with a first listen — send your demo: electronic, organic, deep or melodic house."
     },
     "library": {
       "title": "Magic Library — Magic Stories Records",
-      "description": "Gather round. Stories, links and conversation from the MSR community."
+      "description": "The shared space of the MSR community — posts, links, musical discoveries and short stories."
     },
     "account": {
       "title": "Account — Magic Stories Records",
@@ -52,19 +52,19 @@
   },
   "stories": {
     "kicker": "Stories",
-    "title": "Every release opens a chapter.",
-    "lead": "A growing library of melodic & organic house — each record a page in the same evening, caught somewhere between dusk and dream."
+    "title": "Every melody opens a new chapter.",
+    "lead": "Magic Stories Records is a growing library of sounds at the crossroads of electronic, organic, deep and melodic house — where every release adds its own page to one larger story."
   },
   "authors": {
     "kicker": "Artists",
-    "title": "Every artist writes their own.",
-    "lead": "The voices behind the label — each one a chapter that keeps unfolding, release after release.",
+    "title": "Every artist writes their own chapter.",
+    "lead": "Their music, emotion and sound shape Magic Stories Records, carrying the story forward release after release.",
     "artistLabel": "Artist"
   },
   "podcasts": {
     "kicker": "Podcasts",
     "title": "Every chapter, a new mix.",
-    "lead": "The Magic Stories podcast series — hour-long journeys mixed by the label's artists and friends, new sounds gathered from around the world.",
+    "lead": "The Magic Stories Records podcast series — hour-long journeys guided by the label's artists, friends and selectors from around the world. Electronic, organic, deep and melodic house gathered into stories that carry the MSR world beyond the releases themselves.",
     "featuring": "Featuring",
     "listen": "Listen on SoundCloud",
     "listenAria": "Listen to {code} on SoundCloud"
@@ -72,7 +72,7 @@
   "submit": {
     "kicker": "Submit",
     "title": "Send us your story.",
-    "lead": "Every release here began as a demo in somebody's inbox. If your music belongs in the evening mist — melodic, organic, patient — we would love to hear it.",
+    "lead": "Every release begins with a first listen. If you make music at the crossroads of electronic, organic, deep or melodic house — emotional, spacious and patiently built — we'd love to hear where your story leads.",
     "mailSubject": "Demo — [your artist name]",
     "rule1Title": "Two or three tracks",
     "rule1Body": "Finished, or close to it. Private SoundCloud links work best — please, no attachments or zips.",
@@ -87,7 +87,7 @@
   "library": {
     "kicker": "Magic Library",
     "title": "The Magic Library",
-    "lead": "The community's shared chapter — posts, links and conversation. Drop a track from YouTube, SoundCloud or X and tell your story.",
+    "lead": "The shared space of the MSR community. A place for posts, links, musical discoveries and short stories. Drop a track from YouTube, SoundCloud or X and show what's playing in your world.",
     "empty": "The Library is still empty. Write the first chapter."
   },
   "account": {
