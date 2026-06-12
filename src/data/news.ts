@@ -16,6 +16,8 @@ export type News = {
   link?: string; // optional "read more" / external link
   cta?: string; // optional label for the link button (default: "Read more")
   ctaPl?: string; // Polish label for the link button
+  story?: string; // short text for the IG Stories graphic (1-2 sentences)
+  storyPl?: string; // Polish version of the share text
 };
 
 export const news: News[] = [
@@ -28,6 +30,10 @@ export const news: News[] = [
       "On June 27, 2026, Magic Stories Records artists take over KOLORY at Zielone Patio in Szczecin. MIQRO and MAZZE play in the heart of the city, surrounded by light, summer air and electronic sounds. Milkwish and Jazzek join the lineup. Doors at 8:00 PM.",
     blurbPl:
       "Już 27 czerwca 2026 artyści Magic Stories Records wystąpią na wydarzeniu KOLORY w Zielonym Patio w Szczecinie. MIQRO i MAZZE zagrają w sercu miasta, w otoczeniu światła, letniego klimatu i elektronicznych brzmień. Na scenie pojawią się także Milkwish i Jazzek. Start o 20:00.",
+    story:
+      "MIQRO and MAZZE play KOLORY at Zielone Patio in Szczecin on June 27. Doors at 8:00 PM.",
+    storyPl:
+      "MIQRO i MAZZE zagrają 27 czerwca na wydarzeniu KOLORY w Zielonym Patio w Szczecinie. Start o 20:00.",
     image: "/images/news/kolory-szczecin-2026.jpg",
     link: "https://www.evently.pl",
     cta: "Tickets",
@@ -42,6 +48,10 @@ export const news: News[] = [
       "Rafa'EL returns with new music. On July 28, “White City” arrives via Ame Records, his latest release. It is another step in his musical story and a new chapter for an artist whose sound has always stayed close to the MSR world.",
     blurbPl:
       "Artysta związany z Magic Stories Records wraca z nową muzyką. Już 28 lipca ukaże się „White City”, najnowsze wydanie Rafa'ELa przygotowane dla Ame Records. To kolejny krok w jego muzycznej historii i następny rozdział dla artysty, którego brzmienie od początku pozostaje blisko świata MSR.",
+    story:
+      "On July 28, Rafa'EL's new release “White City” arrives via Ame Records.",
+    storyPl:
+      "Już 28 lipca ukaże się „White City”, nowe wydanie Rafa'ELa dla Ame Records.",
     image: "/images/news/rafael-white-city.jpg",
     link: "/authors#rafael",
     cta: "Meet the artist",
@@ -56,6 +66,10 @@ export const news: News[] = [
       "Peres is shaping his own home for music. His latest single, “Endless Again”, arrives June 22, 2026 on NURAO Records, the artist's own label. A deep house record with a focused, nocturnal character, showing a more personal side of his musical world beyond the Magic Stories catalogue.",
     blurbPl:
       "Peres rozwija własną przestrzeń wydawniczą. Jego najnowszy singiel „Endless Again” ukaże się 22 czerwca 2026 nakładem NURAO Records, autorskiego labelu artysty. To deep house'owe nagranie o skupionym, nocnym charakterze, pokazujące bardziej osobistą stronę jego muzycznego świata poza katalogiem Magic Stories Records.",
+    story:
+      "Peres' new single “Endless Again” arrives June 22 on NURAO Records, the artist's own label.",
+    storyPl:
+      "Nowy singiel Peresa „Endless Again” ukaże się 22 czerwca nakładem NURAO Records.",
     image: "/images/news/peres-endless-again.jpg",
     link: "/authors#peres",
     cta: "Meet the artist",
@@ -70,6 +84,10 @@ export const news: News[] = [
       "The new MSR site has launched. You will find our releases, artists, podcasts, news and the Magic Library, a space for the label's community. Sign in to write your own post, share a track from YouTube, SoundCloud or X and trade musical discoveries with others. Come help write the world of Magic Stories Records.",
     blurbPl:
       "Nowa odsłona strony MSR właśnie wystartowała. Znajdziecie tam nasze wydania, artystów, podcasty, newsy oraz Magic Library, czyli przestrzeń dla społeczności labelu. Po zalogowaniu można dodać własny wpis, udostępnić utwór, wrzucić link z YouTube, SoundCloud albo X i podzielić się muzycznymi odkryciami z innymi. Zapraszamy do wspólnego tworzenia świata Magic Stories Records.",
+    story:
+      "The new Magic Stories Records website is live. Step into the Magic Library and join the community.",
+    storyPl:
+      "Nowa strona Magic Stories Records jest już online. Zajrzyj do Magic Library i dołącz do społeczności.",
     image: "/images/news/msr-website-live.jpg",
     link: "/library",
     cta: "Enter the Library",

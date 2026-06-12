@@ -53,6 +53,29 @@ function roundedPath(
   ctx.closePath();
 }
 
+// Trims `text` to whole sentences that fit `maxLines`; if even the first
+// sentence overflows, cuts at a word boundary and appends an ellipsis.
+function fitLines(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  maxW: number,
+  maxLines: number,
+): string[] {
+  const all = wrapLines(ctx, text, maxW);
+  if (all.length <= maxLines) return all;
+  const sentences = text.match(/[^.!?]+[.!?]+["”]?(\s+|$)/g) ?? [];
+  let acc = "";
+  for (const sen of sentences) {
+    const test = (acc + sen).trim();
+    if (wrapLines(ctx, test, maxW).length > maxLines) break;
+    acc = test;
+  }
+  if (acc) return wrapLines(ctx, acc, maxW);
+  const cut = all.slice(0, maxLines);
+  cut[cut.length - 1] = cut[cut.length - 1].replace(/\s+\S*$/, "") + "…";
+  return cut;
+}
+
 // Wraps `text` to a max width, returns the lines.
 function wrapLines(ctx: CanvasRenderingContext2D, text: string, maxW: number): string[] {
   const words = text.split(/\s+/);
@@ -230,7 +253,7 @@ export default function ShareStory({ item }: { item: News }) {
     ctx.font = art
       ? "400 34px Inter, system-ui, sans-serif"
       : "400 38px Inter, system-ui, sans-serif";
-    const blurbLines = wrapLines(ctx, item.blurb, W - 240).slice(0, art ? 3 : 4);
+    const blurbLines = fitLines(ctx, item.story ?? item.blurb, W - 240, art ? 3 : 4);
     let by = ty + (art ? 28 : 36);
     const blurbLineH = art ? 48 : 52;
     for (const ln of blurbLines) {
