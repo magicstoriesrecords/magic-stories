@@ -31,7 +31,7 @@ export default async function Home({ params }: Props) {
   // Swap in the Polish headline/blurb/CTA before the items reach the
   // client components; engagement stays keyed by the locale-independent slug.
   const items = locale === "pl"
-    ? news.map((n) => ({ ...n, title: n.titlePl, blurb: n.blurbPl, cta: n.ctaPl ?? n.cta, story: n.storyPl ?? n.story }))
+    ? news.map((n) => ({ ...n, title: n.titlePl, blurb: n.blurbPl, cta: n.ctaPl ?? n.cta, cta2: n.cta2Pl ?? n.cta2, story: n.storyPl ?? n.story }))
     : news;
   const supabase = await createClient();
   const slugs = news.map((n) => n.slug);

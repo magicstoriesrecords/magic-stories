@@ -95,23 +95,30 @@ export default function NewsCard({
           </p>
 
           {item.link && (
-            <div className="mt-6">
-              {isExternal(item.link) ? (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="liquid-glass inline-flex items-center rounded-full px-6 py-2.5 text-[0.85rem] text-cream"
-                >
-                  {item.cta ?? t("readMore")}
-                </a>
-              ) : (
-                <Link
-                  href={item.link}
-                  className="liquid-glass inline-flex items-center rounded-full px-6 py-2.5 text-[0.85rem] text-cream"
-                >
-                  {item.cta ?? t("readMore")}
-                </Link>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              {[
+                { href: item.link, label: item.cta ?? t("readMore") },
+                ...(item.link2 ? [{ href: item.link2, label: item.cta2 ?? t("readMore") }] : []),
+              ].map(({ href, label }) =>
+                isExternal(href) ? (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="liquid-glass inline-flex items-center rounded-full px-6 py-2.5 text-[0.85rem] text-cream"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="liquid-glass inline-flex items-center rounded-full px-6 py-2.5 text-[0.85rem] text-cream"
+                  >
+                    {label}
+                  </Link>
+                ),
               )}
             </div>
           )}

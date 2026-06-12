@@ -95,6 +95,14 @@ function wrapLines(ctx: CanvasRenderingContext2D, text: string, maxW: number): s
 }
 
 // Draws letter-spaced uppercase text centred at (cx, y).
+// next/font registers fonts under scoped family names — read the real ones
+// from the CSS variables set on <html>, with sane fallbacks for canvas.
+function cssFontFamily(varName: string, fallback: string): string {
+  if (typeof window === "undefined") return fallback;
+  const v = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+  return v ? v + ", " + fallback : fallback;
+}
+
 function drawTracked(
   ctx: CanvasRenderingContext2D,
   text: string,
@@ -143,6 +151,11 @@ export default function ShareStory({ item }: { item: News }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return null;
 
+    // Site typography on the canvas (Cinzel for headings, Inter for body).
+    const serif = cssFontFamily("--font-cinzel", "Georgia, serif");
+    const sans = cssFontFamily("--font-inter", "system-ui, sans-serif");
+    await document.fonts.ready;
+
     const [bg, logo, art] = await Promise.all([
       loadImage(STORY_BG),
       loadImage(LOGO),
@@ -184,12 +197,12 @@ export default function ShareStory({ item }: { item: News }) {
       ctx.drawImage(logo, (W - lw) / 2, 104, lw, lh);
       ctx.restore();
       ctx.fillStyle = "rgba(243,232,216,0.88)";
-      ctx.font = "600 28px Georgia, 'Times New Roman', serif";
+      ctx.font = `600 28px ${serif}`;
       drawTracked(ctx, "MAGIC STORIES RECORDS", W / 2, 104 + lh + 58, 8);
       headerBottom = 104 + lh + 58;
     } else {
       ctx.fillStyle = "rgba(243,232,216,0.85)";
-      ctx.font = "600 30px Georgia, 'Times New Roman', serif";
+      ctx.font = `600 30px ${serif}`;
       drawTracked(ctx, "MAGIC STORIES RECORDS", W / 2, 150, 8);
       ctx.strokeStyle = "rgba(232,184,144,0.7)";
       ctx.lineWidth = 2;
@@ -230,8 +243,8 @@ export default function ShareStory({ item }: { item: News }) {
     // ── Title ──
     ctx.fillStyle = "#f3e8d8";
     ctx.font = art
-      ? "400 76px Georgia, 'Times New Roman', serif"
-      : "400 96px Georgia, 'Times New Roman', serif";
+      ? `400 76px ${serif}`
+      : `400 96px ${serif}`;
     const maxTitleLines = art ? 3 : 5;
     const lines = wrapLines(ctx, item.title, W - 200).slice(0, maxTitleLines);
     const lineH = art ? 92 : 116;
@@ -251,11 +264,11 @@ export default function ShareStory({ item }: { item: News }) {
     // ── Blurb ──
     ctx.fillStyle = "rgba(243,232,216,0.82)";
     ctx.font = art
-      ? "400 34px Inter, system-ui, sans-serif"
-      : "400 38px Inter, system-ui, sans-serif";
-    const blurbLines = fitLines(ctx, item.story ?? item.blurb, W - 240, art ? 3 : 4);
+      ? `400 31px ${sans}`
+      : `400 35px ${sans}`;
+    const blurbLines = fitLines(ctx, item.story ?? item.blurb, W - 240, art ? 5 : 6);
     let by = ty + (art ? 28 : 36);
-    const blurbLineH = art ? 48 : 52;
+    const blurbLineH = art ? 44 : 50;
     for (const ln of blurbLines) {
       ctx.fillText(ln, W / 2, by);
       by += blurbLineH;
@@ -263,7 +276,7 @@ export default function ShareStory({ item }: { item: News }) {
 
     // ── Footer: date only (no URL — keeps the story clean). ──
     ctx.fillStyle = "rgba(232,184,144,0.9)";
-    ctx.font = "600 30px Georgia, serif";
+    ctx.font = `600 30px ${serif}`;
     drawTracked(ctx, prettyDate(item.date, locale).toUpperCase(), W / 2, H - 120, 5);
 
     return await new Promise<Blob | null>((resolve) =>

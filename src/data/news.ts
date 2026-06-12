@@ -18,6 +18,9 @@ export type News = {
   ctaPl?: string; // Polish label for the link button
   story?: string; // short text for the IG Stories graphic (1-2 sentences)
   storyPl?: string; // Polish version of the share text
+  link2?: string; // optional secondary link (renders as a second button)
+  cta2?: string; // label for the secondary button
+  cta2Pl?: string; // Polish label for the secondary button
 };
 
 export const news: News[] = [
@@ -31,11 +34,11 @@ export const news: News[] = [
     blurbPl:
       "Już 27 czerwca 2026 artyści Magic Stories Records wystąpią na wydarzeniu KOLORY w Zielonym Patio w Szczecinie. MIQRO i MAZZE zagrają w sercu miasta, w otoczeniu światła, letniego klimatu i elektronicznych brzmień. Na scenie pojawią się także Milkwish i Jazzek. Start o 20:00.",
     story:
-      "MIQRO and MAZZE play KOLORY at Zielone Patio in Szczecin on June 27. Doors at 8:00 PM.",
+      "On June 27, Magic Stories Records artists take over KOLORY at Zielone Patio in Szczecin. MIQRO and MAZZE play in the heart of the city, joined by Milkwish and Jazzek. Doors at 8:00 PM, tickets at evently.pl.",
     storyPl:
-      "MIQRO i MAZZE zagrają 27 czerwca na wydarzeniu KOLORY w Zielonym Patio w Szczecinie. Start o 20:00.",
+      "Już 27 czerwca artyści Magic Stories Records wystąpią na wydarzeniu KOLORY w Zielonym Patio w Szczecinie. MIQRO i MAZZE zagrają w sercu miasta, obok nich Milkwish i Jazzek. Start o 20:00, bilety na evently.pl.",
     image: "/images/news/kolory-szczecin-2026.jpg",
-    link: "https://www.evently.pl",
+    link: "https://bit.ly/koloryxzielonepatio",
     cta: "Tickets",
     ctaPl: "Bilety online",
   },
@@ -49,9 +52,9 @@ export const news: News[] = [
     blurbPl:
       "Artysta związany z Magic Stories Records wraca z nową muzyką. Już 28 lipca ukaże się „White City”, najnowsze wydanie Rafa'ELa przygotowane dla Ame Records. To kolejny krok w jego muzycznej historii i następny rozdział dla artysty, którego brzmienie od początku pozostaje blisko świata MSR.",
     story:
-      "On July 28, Rafa'EL's new release “White City” arrives via Ame Records.",
+      "Rafa'EL returns with new music. On July 28, “White City” arrives via Ame Records, his latest release. Another chapter for an artist whose sound stays close to the MSR world.",
     storyPl:
-      "Już 28 lipca ukaże się „White City”, nowe wydanie Rafa'ELa dla Ame Records.",
+      "Rafa'EL wraca z nową muzyką. Już 28 lipca ukaże się „White City”, jego najnowsze wydanie przygotowane dla Ame Records. To kolejny rozdział artysty, którego brzmienie pozostaje blisko świata MSR.",
     image: "/images/news/rafael-white-city.jpg",
     link: "/authors#rafael",
     cta: "Meet the artist",
@@ -67,13 +70,16 @@ export const news: News[] = [
     blurbPl:
       "Peres rozwija własną przestrzeń wydawniczą. Jego najnowszy singiel „Endless Again” ukaże się 22 czerwca 2026 nakładem NURAO Records, autorskiego labelu artysty. To deep house'owe nagranie o skupionym, nocnym charakterze, pokazujące bardziej osobistą stronę jego muzycznego świata poza katalogiem Magic Stories Records.",
     story:
-      "Peres' new single “Endless Again” arrives June 22 on NURAO Records, the artist's own label.",
+      "Peres is shaping his own home for music. “Endless Again” arrives June 22 on NURAO Records, the artist's own label. Deep house with a focused, nocturnal character.",
     storyPl:
-      "Nowy singiel Peresa „Endless Again” ukaże się 22 czerwca nakładem NURAO Records.",
+      "Peres rozwija własną przestrzeń wydawniczą. Singiel „Endless Again” ukaże się 22 czerwca nakładem NURAO Records, autorskiego labelu artysty. Deep house o skupionym, nocnym charakterze.",
     image: "/images/news/peres-endless-again.jpg",
-    link: "/authors#peres",
-    cta: "Meet the artist",
-    ctaPl: "Poznaj artystę",
+    link: "https://www.beatport.com/release/endless-again-oryginal/6984388",
+    cta: "Pre-order on Beatport",
+    ctaPl: "Pre-order na Beatport",
+    link2: "/authors#peres",
+    cta2: "Meet the artist",
+    cta2Pl: "Poznaj artystę",
   },
   {
     slug: "msr-website-live",
@@ -85,9 +91,9 @@ export const news: News[] = [
     blurbPl:
       "Nowa odsłona strony MSR właśnie wystartowała. Znajdziecie tam nasze wydania, artystów, podcasty, newsy oraz Magic Library, czyli przestrzeń dla społeczności labelu. Po zalogowaniu można dodać własny wpis, udostępnić utwór, wrzucić link z YouTube, SoundCloud albo X i podzielić się muzycznymi odkryciami z innymi. Zapraszamy do wspólnego tworzenia świata Magic Stories Records.",
     story:
-      "The new Magic Stories Records website is live. Step into the Magic Library and join the community.",
+      "The new Magic Stories Records website is live, with releases, artists, podcasts and news. Step into the Magic Library, share a track and join the label's community.",
     storyPl:
-      "Nowa strona Magic Stories Records jest już online. Zajrzyj do Magic Library i dołącz do społeczności.",
+      "Nowa strona Magic Stories Records jest już online. Znajdziecie tam wydania, artystów, podcasty i newsy. Zajrzyjcie do Magic Library, podzielcie się muzyką i dołączcie do społeczności labelu.",
     image: "/images/news/msr-website-live.jpg",
     link: "/library",
     cta: "Enter the Library",
