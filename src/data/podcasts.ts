@@ -128,9 +128,9 @@ export const podcasts: Podcast[] = [
     guest: "Mauro Masi",
     cover: "/images/podcasts/msrp-008.jpg",
     blurb:
-      "Italian deep and progressive talent Mauro Masi takes over for episode eight — melodic, organic, golden-hour grooves.",
+      "Argentinian deep and progressive talent Mauro Masi takes over for episode eight — melodic, organic, golden-hour grooves.",
     blurbPl:
-      "Włoski talent deep i progressive Mauro Masi przejmuje ósmy odcinek — melodyjne, organiczne groove'y złotej godziny.",
+      "Argentyński talent deep i progressive Mauro Masi przejmuje ósmy odcinek — melodyjne, organiczne groove'y złotej godziny.",
     artists: [
       "Mauro Masi",
       "Ilias Katelanos",

@@ -157,7 +157,9 @@
     "placeholder": "Odpowiedz…",
     "send": "Wyślij",
     "empty": "Brak odpowiedzi. Bądź pierwszy.",
-    "toReply": "aby odpowiedzieć."
+    "toReply": "aby odpowiedzieć.",
+    "loading": "Wczytuję odpowiedzi…",
+    "confirmDelete": "Usunąć tę odpowiedź?"
   },
   "like": {
     "like": "Polub",
@@ -180,6 +182,8 @@
     "shareTitle": "Udostępnij / pobierz grafikę do Stories",
     "shareFailed": "Nie udało się wygenerować grafiki.",
     "shareDownloaded": "Pobrano grafikę — wrzuć ją na Instagram Stories.",
-    "toComment": "aby skomentować."
+    "toComment": "aby skomentować.",
+    "loading": "Wczytuję komentarze…",
+    "confirmDelete": "Usunąć ten komentarz?"
   }
 }

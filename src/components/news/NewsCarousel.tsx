@@ -88,6 +88,13 @@ export default function NewsCarousel({
     });
   }
 
+  function dropComment(slug: string) {
+    setEng((m) => {
+      const c = m[slug] ?? ZERO;
+      return { ...m, [slug]: { ...c, comment_count: Math.max(0, c.comment_count - 1) } };
+    });
+  }
+
   // Realtime — reflect other people's likes and comments live.
   useEffect(() => {
     const slugs = new Set(items.map((n) => n.slug));
@@ -162,6 +169,7 @@ export default function NewsCarousel({
             meAuthor={meAuthor}
             onToggleLike={toggleLike}
             onCommentAdded={bumpComment}
+            onCommentDeleted={dropComment}
           />
         </div>
 

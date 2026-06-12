@@ -15,7 +15,8 @@ export async function proxy(request: NextRequest) {
 
   // OAuth callback and other /auth routes are locale-less route handlers —
   // skip i18n routing there, but still refresh the session.
-  if (pathname.startsWith("/auth")) {
+  // NOTE: exact-segment check — naive startsWith("/auth") also matched /authors!
+  if (pathname === "/auth" || pathname.startsWith("/auth/")) {
     return await updateSession(request);
   }
 

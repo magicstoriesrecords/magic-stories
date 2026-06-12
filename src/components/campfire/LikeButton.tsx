@@ -9,11 +9,13 @@ export default function LikeButton({
   count,
   disabled,
   onClick,
+  size = "md",
 }: {
   liked: boolean;
   count: number;
   disabled?: boolean;
   onClick: () => void;
+  size?: "md" | "sm";
 }) {
   const t = useTranslations("like");
   const [pop, setPop] = useState(false);
@@ -34,7 +36,9 @@ export default function LikeButton({
       aria-pressed={liked}
       aria-label={liked ? t("unlike") : t("like")}
       title={disabled ? t("signInToReact") : liked ? t("unlike") : t("like")}
-      className={`group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-150 disabled:cursor-default disabled:opacity-60 ${
+      className={`group inline-flex items-center rounded-full font-medium transition-colors duration-150 disabled:cursor-default disabled:opacity-60 ${
+        size === "sm" ? "gap-1.5 px-2 py-1 text-xs" : "gap-2 px-3 py-1.5 text-sm"
+      } ${
         liked
           ? "text-rose-300 hover:bg-rose-300/10"
           : "text-cream/55 hover:bg-cream/5 hover:text-rose-200"
@@ -42,8 +46,8 @@ export default function LikeButton({
     >
       <span className={pop ? "animate-heart-pop" : ""}>
         <svg
-          width="18"
-          height="18"
+          width={size === "sm" ? 14 : 18}
+          height={size === "sm" ? 14 : 18}
           viewBox="0 0 24 24"
           fill={liked ? "currentColor" : "none"}
           aria-hidden="true"

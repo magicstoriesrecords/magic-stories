@@ -168,7 +168,8 @@ const authors: Author[] = [
   {
     slug: "mauro-masi",
     name: "Mauro Masi",
-    origin: "",
+    origin: "Argentina",
+    originPl: "Argentyna",
     genres: ["Deep House", "Progressive House", "Organic House"],
     bio: [
       "Mauro Masi is a producer of deep and progressive house with a melodic, organic streak — a regular on labels like Consapevole, 3rd Avenue and The Purr.",

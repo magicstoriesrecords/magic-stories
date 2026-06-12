@@ -157,7 +157,9 @@
     "placeholder": "Reply…",
     "send": "Send",
     "empty": "No replies yet. Be the first.",
-    "toReply": "to reply."
+    "toReply": "to reply.",
+    "loading": "Loading replies…",
+    "confirmDelete": "Delete this reply?"
   },
   "like": {
     "like": "Like",
@@ -180,6 +182,8 @@
     "shareTitle": "Share / download a Stories image",
     "shareFailed": "Could not generate the image.",
     "shareDownloaded": "Image downloaded — post it to your Instagram Stories.",
-    "toComment": "to comment."
+    "toComment": "to comment.",
+    "loading": "Loading comments…",
+    "confirmDelete": "Delete this comment?"
   }
 }

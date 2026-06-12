@@ -31,6 +31,7 @@ export default function NewsCard({
   meAuthor,
   onToggleLike,
   onCommentAdded,
+  onCommentDeleted,
 }: {
   item: News;
   eng: NewsEngagement;
@@ -38,6 +39,7 @@ export default function NewsCard({
   meAuthor: FeedAuthor | null;
   onToggleLike: (slug: string) => void;
   onCommentAdded: (slug: string) => void;
+  onCommentDeleted: (slug: string) => void;
 }) {
   const t = useTranslations("news");
   const locale = useLocale();
@@ -143,16 +145,22 @@ export default function NewsCard({
             </div>
           </div>
 
-          {open && (
-            <NewsComments
-              slug={item.slug}
-              meId={meId}
-              meAuthor={meAuthor}
-              onCommentAdded={() => onCommentAdded(item.slug)}
-            />
-          )}
         </div>
       </div>
+
+      {/* Comments drawer — full card width BELOW the image/text spread, so an
+          expanding thread never stretches the 3:2 artwork above it. */}
+      {open && (
+        <div className="border-t border-cream/10 bg-[#100e28]/35 px-7 py-6 md:px-12 md:py-7">
+          <NewsComments
+            slug={item.slug}
+            meId={meId}
+            meAuthor={meAuthor}
+            onCommentAdded={() => onCommentAdded(item.slug)}
+            onCommentDeleted={() => onCommentDeleted(item.slug)}
+          />
+        </div>
+      )}
     </article>
   );
 }

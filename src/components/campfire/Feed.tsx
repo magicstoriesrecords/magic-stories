@@ -34,6 +34,14 @@ export default function Feed({
     );
   }
 
+  function handleReplyDeleted(postId: string) {
+    setPosts((prev) =>
+      prev.map((p) =>
+        p.id === postId ? { ...p, reply_count: Math.max(0, p.reply_count - 1) } : p,
+      ),
+    );
+  }
+
   function handleUpdated(updated: FeedPost) {
     setPosts((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
   }
@@ -189,6 +197,7 @@ export default function Feed({
             meAuthor={author}
             onToggleLike={handleToggleLike}
             onReplyAdded={handleReplyAdded}
+            onReplyDeleted={handleReplyDeleted}
             onUpdated={handleUpdated}
             onDeleted={handleDeleted}
           />

@@ -21,7 +21,10 @@ export type FeedPost = {
 
 export type Reply = {
   id: string;
+  author_id: string;
   body: string;
   created_at: string;
   author: FeedAuthor | null;
+  like_count: number;
+  liked_by_me: boolean;
 };

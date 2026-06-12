@@ -17,6 +17,7 @@ export default function PostCard({
   meAuthor,
   onToggleLike,
   onReplyAdded,
+  onReplyDeleted,
   onUpdated,
   onDeleted,
 }: {
@@ -25,6 +26,7 @@ export default function PostCard({
   meAuthor: FeedAuthor | null;
   onToggleLike: (post: FeedPost) => void;
   onReplyAdded: (postId: string) => void;
+  onReplyDeleted: (postId: string) => void;
   onUpdated: (post: FeedPost) => void;
   onDeleted: (postId: string) => void;
 }) {
@@ -279,6 +281,7 @@ export default function PostCard({
           meId={meId}
           meAuthor={meAuthor}
           onReplyAdded={() => onReplyAdded(post.id)}
+          onReplyDeleted={() => onReplyDeleted(post.id)}
         />
       )}
     </article>
