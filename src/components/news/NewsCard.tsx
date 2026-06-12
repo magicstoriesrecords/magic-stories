@@ -51,14 +51,24 @@ export default function NewsCard({
         {/* Optional art — fixed 3:2 so any artwork fills the slot edge to edge. */}
         {item.image && (
           <div
-            className="relative aspect-[3/2] w-full overflow-hidden md:order-1 md:aspect-auto md:min-h-[20rem]"
+            className="relative aspect-[3/2] w-full overflow-hidden md:order-1 md:aspect-auto md:h-full md:min-h-[20rem]"
             style={{ background: "#171633" }}
           >
+            {/* Blurred copy fills any leftover panel height (desktop), the
+                sharp copy stays fully visible via object-contain. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={item.image}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-[.55]"
+              loading="lazy"
+            />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={item.image}
               alt={item.title}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-contain"
               loading="lazy"
             />
             <div

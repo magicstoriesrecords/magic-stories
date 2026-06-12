@@ -26,27 +26,27 @@
       "description": "Gdzie muzyka maluje sny"
     },
     "stories": {
-      "title": "Historie — Magic Stories Records",
+      "title": "Historie | Magic Stories Records",
       "description": "Każda melodia otwiera nowy rozdział. Rosnąca biblioteka brzmień z pogranicza electronic, organic, deep i melodic house."
     },
     "authors": {
-      "title": "Artyści — Magic Stories Records",
+      "title": "Artyści | Magic Stories Records",
       "description": "Każdy artysta pisze własny rozdział. Ich muzyka, emocje i brzmienie tworzą Magic Stories Records."
     },
     "podcasts": {
-      "title": "Podcasty — Magic Stories Records",
+      "title": "Podcasty | Magic Stories Records",
       "description": "Godzinne podróże prowadzone przez artystów, przyjaciół wytwórni i selekcjonerów — electronic, organic, deep i melodic house."
     },
     "submit": {
-      "title": "Wyślij demo — Magic Stories Records",
+      "title": "Wyślij demo | Magic Stories Records",
       "description": "Każde wydanie zaczyna się od pierwszego odsłuchu — wyślij demo: electronic, organic, deep lub melodic house."
     },
     "library": {
-      "title": "Magiczna Biblioteka — Magic Stories Records",
+      "title": "Magiczna Biblioteka | Magic Stories Records",
       "description": "Wspólna przestrzeń społeczności MSR — wpisy, linki, muzyczne odkrycia i krótkie historie."
     },
     "account": {
-      "title": "Konto — Magic Stories Records",
+      "title": "Konto | Magic Stories Records",
       "description": "Twój profil w społeczności Magic Stories."
     }
   },
@@ -63,7 +63,7 @@
   },
   "podcasts": {
     "kicker": "Podcasty",
-    "title": "Każdy rozdział to nowy mix.",
+    "title": "Każdy mix to nowy rozdział.",
     "lead": "Seria podcastów Magic Stories Records to godzinne podróże prowadzone przez artystów, przyjaciół wytwórni i selekcjonerów z różnych stron świata. Electronic, organic, deep i melodic house zebrane w opowieści, które rozwijają świat MSR poza samymi wydaniami.",
     "featuring": "Usłyszysz",
     "listen": "Słuchaj na SoundCloud",

@@ -44,3 +44,6 @@ next-env.d.ts
 .fuse_hidden*
 ~$*
 *.tmp
+
+# raw news art drop-zone (processed into public/images/news/)
+news-inbox/

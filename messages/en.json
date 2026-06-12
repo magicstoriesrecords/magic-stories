@@ -26,27 +26,27 @@
       "description": "Where music paints dreams"
     },
     "stories": {
-      "title": "Stories — Magic Stories Records",
+      "title": "Stories | Magic Stories Records",
       "description": "Every melody opens a new chapter. A growing library of electronic, organic, deep and melodic house."
     },
     "authors": {
-      "title": "Artists — Magic Stories Records",
+      "title": "Artists | Magic Stories Records",
       "description": "Every artist writes their own chapter. Their music, emotion and sound shape Magic Stories Records."
     },
     "podcasts": {
-      "title": "Podcasts — Magic Stories Records",
+      "title": "Podcasts | Magic Stories Records",
       "description": "Hour-long journeys guided by the label's artists, friends and selectors — electronic, organic, deep and melodic house."
     },
     "submit": {
-      "title": "Submit — Magic Stories Records",
+      "title": "Submit | Magic Stories Records",
       "description": "Every release begins with a first listen — send your demo: electronic, organic, deep or melodic house."
     },
     "library": {
-      "title": "Magic Library — Magic Stories Records",
+      "title": "Magic Library | Magic Stories Records",
       "description": "The shared space of the MSR community — posts, links, musical discoveries and short stories."
     },
     "account": {
-      "title": "Account — Magic Stories Records",
+      "title": "Account | Magic Stories Records",
       "description": "Your profile in the Magic Stories community."
     }
   },
@@ -63,7 +63,7 @@
   },
   "podcasts": {
     "kicker": "Podcasts",
-    "title": "Every chapter, a new mix.",
+    "title": "Every mix, a new chapter.",
     "lead": "The Magic Stories Records podcast series — hour-long journeys guided by the label's artists, friends and selectors from around the world. Electronic, organic, deep and melodic house gathered into stories that carry the MSR world beyond the releases themselves.",
     "featuring": "Featuring",
     "listen": "Listen on SoundCloud",
