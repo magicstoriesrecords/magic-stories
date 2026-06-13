@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import NewsCard from "@/components/news/NewsCard";
 import { createClient } from "@/lib/supabase/client";
@@ -32,6 +32,28 @@ export default function NewsCarousel({
     (next: number) => setIndex(() => ((next % count) + count) % count),
     [count],
   );
+
+  // Touch swipe (mobile). Record the start point; on release, advance only if
+  // the gesture is clearly horizontal and past a threshold — so it never
+  // hijacks vertical scrolling or taps on the card's buttons.
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.changedTouches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+    setPaused(true);
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    setPaused(false);
+    if (!start || count <= 1) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      go(dx < 0 ? index + 1 : index - 1);
+    }
+  };
 
   // Auto-advance — paused on hover/focus, disabled for reduced-motion or a
   // single item.
@@ -160,7 +182,11 @@ export default function NewsCarousel({
           centred on the card itself (not card + dots) and sit at exactly the
           same height: top 50% minus half the 44px button via margin — no
           translate, nothing else can move them. */}
-      <div className="relative">
+      <div
+        className="relative touch-pan-y"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <div key={current.slug} className="animate-fade-rise">
           <NewsCard
             item={current}
