@@ -109,11 +109,11 @@ export default function Nav() {
   return (
     <>
       <header className={header}>
-        <nav className="mx-auto flex max-w-7xl items-center justify-between">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4">
           <Link
             href="/"
             aria-label="Magic Stories Records"
-            className={`flex items-center ${logoTone}`}
+            className={`flex items-center ${logoTone} md:justify-self-start`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -123,8 +123,8 @@ export default function Nav() {
             />
           </Link>
 
-          {/* Desktop links */}
-          <div className="hidden items-center gap-8 md:flex">
+          {/* Desktop links — centered between logo and actions */}
+          <div className="hidden items-center gap-8 md:flex md:justify-self-center">
             {navLinks.map((item) => (
               <Link
                 key={item.key}
@@ -134,6 +134,10 @@ export default function Nav() {
                 {t(item.key)}
               </Link>
             ))}
+          </div>
+
+          {/* Desktop actions — right */}
+          <div className="hidden items-center gap-6 md:flex md:justify-self-end">
             <Button href="/stories" size="sm">
               {t("browseReleases")}
             </Button>
