@@ -35,15 +35,15 @@
     },
     "podcasts": {
       "title": "Podcasts | Magic Stories Records",
-      "description": "Hour-long journeys guided by the label's artists, friends and selectors — electronic, organic, deep and melodic house."
+      "description": "Hour-long journeys guided by the label's artists, friends and selectors, electronic, organic, deep and melodic house."
     },
     "submit": {
       "title": "Submit | Magic Stories Records",
-      "description": "Every release begins with a first listen — send your demo: electronic, organic, deep or melodic house."
+      "description": "Every release begins with a first listen, send your demo: electronic, organic, deep or melodic house."
     },
     "library": {
       "title": "Magic Library | Magic Stories Records",
-      "description": "The shared space of the MSR community — posts, links, musical discoveries and short stories."
+      "description": "The shared space of the MSR community, posts, links, musical discoveries and short stories."
     },
     "account": {
       "title": "Account | Magic Stories Records",
@@ -53,7 +53,7 @@
   "stories": {
     "kicker": "Stories",
     "title": "Every melody opens a new chapter.",
-    "lead": "Magic Stories Records is a growing library of sounds at the crossroads of electronic, organic, deep and melodic house — where every release adds its own page to one larger story."
+    "lead": "Magic Stories Records is a growing library of sounds at the crossroads of electronic, organic, deep and melodic house, where every release adds its own page to one larger story."
   },
   "authors": {
     "kicker": "Artists",
@@ -64,7 +64,7 @@
   "podcasts": {
     "kicker": "Podcasts",
     "title": "Every mix, a new chapter.",
-    "lead": "The Magic Stories Records podcast series — hour-long journeys guided by the label's artists, friends and selectors from around the world. Electronic, organic, deep and melodic house gathered into stories that carry the MSR world beyond the releases themselves.",
+    "lead": "The Magic Stories Records podcast series, hour-long journeys guided by the label's artists, friends and selectors from around the world. Electronic, organic, deep and melodic house gathered into stories that carry the MSR world beyond the releases themselves.",
     "featuring": "Featuring",
     "listen": "Listen on SoundCloud",
     "listenAria": "Listen to {code} on SoundCloud"
@@ -72,17 +72,17 @@
   "submit": {
     "kicker": "Submit",
     "title": "Send us your story.",
-    "lead": "Every release begins with a first listen. If you make music at the crossroads of electronic, organic, deep or melodic house — emotional, spacious and patiently built — we'd love to hear where your story leads.",
-    "mailSubject": "Demo — [your artist name]",
+    "lead": "Every release begins with a first listen. If you make music at the crossroads of electronic, organic, deep or melodic house, emotional, spacious and patiently built, we'd love to hear where your story leads.",
+    "mailSubject": "Demo: [your artist name]",
     "rule1Title": "Two or three tracks",
-    "rule1Body": "Finished, or close to it. Private SoundCloud links work best — please, no attachments or zips.",
+    "rule1Body": "Finished, or close to it. Private SoundCloud links work best, please, no attachments or zips.",
     "rule2Title": "A line about you",
     "rule2Body": "Who you are, where your sound comes from, and one link to wherever you live online.",
     "rule3Title": "Your story, not a copy",
-    "rule3Body": "We listen for melodic and organic house with a heart — music that paints a place we haven't been yet.",
+    "rule3Body": "We listen for melodic and organic house with a heart, music that paints a place we haven't been yet.",
     "cta": "Send your demo",
     "orWriteTo": "or write to",
-    "footnote": "We listen to everything that arrives. If your story resonates with ours, we'll write back — it can take a little while, and silence never means your music wasn't heard."
+    "footnote": "We listen to everything that arrives. If your story resonates with ours, we'll write back, it can take a little while, and silence never means your music wasn't heard."
   },
   "library": {
     "kicker": "Magic Library",
@@ -94,7 +94,7 @@
     "kicker": "Your Profile",
     "titleIn": "Your profile",
     "titleOut": "Join the community",
-    "leadIn": "Set your name and avatar — this is how others will see you in the Library.",
+    "leadIn": "Set your name and avatar, this is how others will see you in the Library.",
     "leadOut": "Sign in with your Google account to write chapters, like and reply."
   },
   "auth": {
@@ -127,7 +127,7 @@
   },
   "composer": {
     "placeholder": "Write your chapter…",
-    "linkPlaceholder": "Link (YouTube, SoundCloud, X) — optional",
+    "linkPlaceholder": "Link (YouTube, SoundCloud, X), optional",
     "publish": "Publish",
     "posting": "Posting…",
     "errEmpty": "Write something before you post.",
@@ -181,7 +181,7 @@
     "shareAria": "Share as a Stories image",
     "shareTitle": "Share / download a Stories image",
     "shareFailed": "Could not generate the image.",
-    "shareDownloaded": "Image downloaded — post it to your Instagram Stories.",
+    "shareDownloaded": "Image downloaded, post it to your Instagram Stories.",
     "toComment": "to comment.",
     "loading": "Loading comments…",
     "confirmDelete": "Delete this comment?"

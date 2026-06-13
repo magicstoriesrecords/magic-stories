@@ -60,12 +60,12 @@ const authors: Author[] = [
     originPl: "Założyciel · Szczecin",
     genres: ["Organic House", "Deep House", "Progressive"],
     bio: [
-      "Mazze is a DJ and producer from Szczecin and the founder of Magic Stories Records — the steady hand behind its organic, deep and progressive sound.",
+      "Mazze is a DJ and producer from Szczecin and the founder of Magic Stories Records, the steady hand behind its organic, deep and progressive sound.",
       "His productions have travelled far beyond Poland, landing on labels like Magician on Duty and Where The Heart Is and into sets at Burning Man and All Day I Dream, championed by the likes of Nick Warren and David Hohme. MSR is the home he built for that story to keep unfolding, release after release.",
     ],
     bioPl: [
-      "Mazze to DJ i producent ze Szczecina, założyciel Magic Stories Records — pewna ręka stojąca za jej organicznym, głębokim i progresywnym brzmieniem.",
-      "Jego produkcje zawędrowały daleko poza Polskę — na labele takie jak Magician on Duty i Where The Heart Is oraz do setów na Burning Man i All Day I Dream, wspierane przez Nicka Warrena czy Davida Hohme. MSR to dom, który zbudował, by ta historia rozwijała się dalej, wydanie po wydaniu.",
+      "Mazze to DJ i producent ze Szczecina, założyciel Magic Stories Records, pewna ręka stojąca za jej organicznym, głębokim i progresywnym brzmieniem.",
+      "Jego produkcje zawędrowały daleko poza Polskę, na labele takie jak Magician on Duty i Where The Heart Is oraz do setów na Burning Man i All Day I Dream, wspierane przez Nicka Warrena czy Davida Hohme. MSR to dom, który zbudował, by ta historia rozwijała się dalej, wydanie po wydaniu.",
     ],
     portrait: "/images/artists/dj-mazze.png",
     cutout: true,
@@ -85,11 +85,11 @@ const authors: Author[] = [
     genres: ["Organic House", "Melodic House"],
     bio: [
       "Rafa'EL is a DJ, producer and live performer based in Gdynia, Poland, with fourteen years in the electronic scene.",
-      "He blends organic textures with melodic house, chasing one thing above all — emotion. That heartfelt instinct runs through ‘Elderose’, his Magic Stories debut, and his ongoing work alongside Mazze.",
+      "He blends organic textures with melodic house, chasing one thing above all, emotion. That heartfelt instinct runs through ‘Elderose’, his Magic Stories debut, and his ongoing work alongside Mazze.",
     ],
     bioPl: [
       "Rafa'EL to DJ, producent i artysta live z Gdyni, od czternastu lat obecny na scenie elektronicznej.",
-      "Łączy organiczne faktury z melodic house, goniąc przede wszystkim jedno — emocje. Ten płynący z serca instynkt słychać w 'Elderose', jego debiucie dla Magic Stories, i w dalszej pracy u boku Mazze.",
+      "Łączy organiczne faktury z melodic house, goniąc przede wszystkim jedno, emocje. Ten płynący z serca instynkt słychać w 'Elderose', jego debiucie dla Magic Stories, i w dalszej pracy u boku Mazze.",
     ],
     portrait: "/images/artists/rafa-el.png",
     cutout: true,
@@ -107,11 +107,11 @@ const authors: Author[] = [
     originPl: "Polska",
     genres: ["House"],
     bio: [
-      "Miqro is one of the legends of the Polish house scene — a vinyl specialist since the late ’90s who became one of the country's most in-demand house DJs.",
+      "Miqro is one of the legends of the Polish house scene, a vinyl specialist since the late ’90s who became one of the country's most in-demand house DJs.",
       "A resident and promoter at the legendary AfterParty of Sunrise Festival, with releases reaching as far as Sony BMG Poland, he co-founded the label RANDEWU in 2017. ‘Sleep Alone’ is his sun-soaked, summer-facing chapter for Magic Stories.",
     ],
     bioPl: [
-      "Miqro to jedna z legend polskiej sceny house — winylowy specjalista od końca lat 90., który stał się jednym z najbardziej rozchwytywanych house'owych DJ-ów w kraju.",
+      "Miqro to jedna z legend polskiej sceny house, winylowy specjalista od końca lat 90., który stał się jednym z najbardziej rozchwytywanych house'owych DJ-ów w kraju.",
       "Rezydent i promotor legendarnego AfterParty Sunrise Festival, z wydaniami sięgającymi Sony BMG Poland; w 2017 roku współzałożył label RANDEWU. 'Sleep Alone' to jego słoneczny, letni rozdział dla Magic Stories.",
     ],
     portrait: "/images/artists/dj-miqro.png",
@@ -131,11 +131,11 @@ const authors: Author[] = [
     originPl: "Śląsk / Warszawa",
     genres: ["Progressive House", "Melodic House"],
     bio: [
-      "Peres is a Silesian DJ and producer, now based in Warsaw — a veteran of progressive and melodic house whose career reaches back to the late 2000s.",
+      "Peres is a Silesian DJ and producer, now based in Warsaw, a veteran of progressive and melodic house whose career reaches back to the late 2000s.",
       "Across years on labels like LuPS Records and Mistique Music, and stages shared with Carl Cox, Hernán Cattaneo and John Digweed, he has kept an old-school, deeply melodic instinct. The Mirra EP is his reflective, mirrored chapter for Magic Stories.",
     ],
     bioPl: [
-      "Peres to śląski DJ i producent, dziś mieszkający w Warszawie — weteran progressive i melodic house, którego kariera sięga końcówki pierwszej dekady XXI wieku.",
+      "Peres to śląski DJ i producent, dziś mieszkający w Warszawie, weteran progressive i melodic house, którego kariera sięga końcówki pierwszej dekady XXI wieku.",
       "Przez lata na labelach takich jak LuPS Records i Mistique Music oraz na scenach dzielonych z Carlem Coxem, Hernánem Cattaneo i Johnem Digweedem zachował old-schoolowy, głęboko melodyjny instynkt. Mirra EP to jego refleksyjny, lustrzany rozdział dla Magic Stories.",
     ],
     portrait: "/images/artists/dj-peres.png",
@@ -155,11 +155,11 @@ const authors: Author[] = [
     originPl: "aka Miguel Lessey · Wenezuela",
     genres: ["Organic House", "House"],
     bio: [
-      "Slaqk — Miguel Lessey from Venezuela — works in the space where house music meets something more organic and weightless.",
+      "Slaqk, Miguel Lessey from Venezuela, works in the space where house music meets something more organic and weightless.",
       "His Feathers EP brought a light, airy touch to the label: productions that balance a dancefloor pulse against soft, breathing textures.",
     ],
     bioPl: [
-      "Slaqk — Miguel Lessey z Wenezueli — porusza się w przestrzeni, gdzie house spotyka coś bardziej organicznego i nieważkiego.",
+      "Slaqk, Miguel Lessey z Wenezueli, porusza się w przestrzeni, gdzie house spotyka coś bardziej organicznego i nieważkiego.",
       "Jego Feathers EP wniosła do wytwórni lekki, zwiewny dotyk: produkcje, które równoważą puls parkietu miękkimi, oddychającymi fakturami.",
     ],
     portrait: "/images/artists/dj-slaqk.png",
@@ -178,12 +178,12 @@ const authors: Author[] = [
     originPl: "Argentyna",
     genres: ["Deep House", "Progressive House", "Organic House"],
     bio: [
-      "Mauro Masi is a producer of deep and progressive house with a melodic, organic streak — a regular on labels like Consapevole, 3rd Avenue and The Purr.",
+      "Mauro Masi is a producer of deep and progressive house with a melodic, organic streak, a regular on labels like Consapevole, 3rd Avenue and The Purr.",
       "His work has drawn support from Hernán Cattaneo and Nick Warren, and he records as half of the duo Newcorp. For Magic Stories he turns that craft toward warm chords and unhurried, golden-hour grooves across the Face EP and ‘Flames’.",
     ],
     bioPl: [
-      "Mauro Masi to producent deep i progressive house z melodyjną, organiczną żyłką — stały gość labeli takich jak Consapevole, 3rd Avenue i The Purr.",
-      "Jego muzykę wspierali Hernán Cattaneo i Nick Warren; nagrywa też jako połowa duetu Newcorp. Dla Magic Stories kieruje to rzemiosło ku ciepłym akordom i niespiesznym groove'om złotej godziny — na Face EP i singlu 'Flames'.",
+      "Mauro Masi to producent deep i progressive house z melodyjną, organiczną żyłką, stały gość labeli takich jak Consapevole, 3rd Avenue i The Purr.",
+      "Jego muzykę wspierali Hernán Cattaneo i Nick Warren; nagrywa też jako połowa duetu Newcorp. Dla Magic Stories kieruje to rzemiosło ku ciepłym akordom i niespiesznym groove'om złotej godziny, na Face EP i singlu 'Flames'.",
     ],
     portrait: "/images/artists/mauro-masi.png",
     cutout: true,
@@ -201,11 +201,11 @@ const authors: Author[] = [
     originPl: "aka Greg Roslon · Warszawa",
     genres: ["Electronica", "Organic House", "Downtempo"],
     bio: [
-      "Modern Walking — Greg Roslon from Warsaw — is a DJ and producer who blends electronica, organic house, downtempo, deep house, breaks and ambient, all carried by the warmth of classic synthesizers.",
+      "Modern Walking, Greg Roslon from Warsaw, is a DJ and producer who blends electronica, organic house, downtempo, deep house, breaks and ambient, all carried by the warmth of classic synthesizers.",
       "His story began in the late 1990s, shaped by Warsaw's club culture and later by formative years in Leeds, where vinyl, parties and the underground helped define his sound.",
     ],
     bioPl: [
-      "Modern Walking — Greg Roslon z Warszawy — to DJ i producent łączący electronikę, organic house, downtempo, deep house, breaki i ambient, niesione ciepłem klasycznych syntezatorów.",
+      "Modern Walking, Greg Roslon z Warszawy, to DJ i producent łączący electronikę, organic house, downtempo, deep house, breaki i ambient, niesione ciepłem klasycznych syntezatorów.",
       "Jego historia zaczęła się pod koniec lat 90., ukształtowana przez warszawską kulturę klubową, a później przez formacyjne lata w Leeds, gdzie winyle, imprezy i underground pomogły zdefiniować jego brzmienie.",
     ],
     portrait: "/images/artists/modern-walking.png",
@@ -223,11 +223,11 @@ const authors: Author[] = [
     origin: "",
     genres: ["Melodic House", "Organic House"],
     bio: [
-      "Enigmatic is a DJ, producer and promoter — a dreamy tastemaker with releases on labels like Bar25, Hoomidaas and Melody of the Soul, and a frequent collaborator of Rafa'EL.",
+      "Enigmatic is a DJ, producer and promoter, a dreamy tastemaker with releases on labels like Bar25, Hoomidaas and Melody of the Soul, and a frequent collaborator of Rafa'EL.",
       "He brought his mesmerizing, melodic touch to Magic Stories with his remix of Mazze's ‘Sagala’.",
     ],
     bioPl: [
-      "Enigmatic to DJ, producent i promotor — rozmarzony tastemaker z wydaniami na labelach takich jak Bar25, Hoomidaas i Melody of the Soul, częsty współpracownik Rafa'ELa.",
+      "Enigmatic to DJ, producent i promotor, rozmarzony tastemaker z wydaniami na labelach takich jak Bar25, Hoomidaas i Melody of the Soul, częsty współpracownik Rafa'ELa.",
       "Swój hipnotyzujący, melodyjny dotyk wniósł do Magic Stories remiksem 'Sagali' Mazze.",
     ],
     portrait: "/images/artists/dj-enigmatic.png",
@@ -247,12 +247,12 @@ const authors: Author[] = [
     originPl: "Rafa'EL & Marylin · Trójmiasto",
     genres: ["Organic House"],
     bio: [
-      "Our Spaces is a duo from Tricity, Poland — Rafa'EL crafting intricate compositions, Marylin bringing voice, lyrics and violin.",
-      "Together they weave captivating, emotive melodies inspired by the spirit of their coastal home, as on the Ordinary Vision EP — the extraordinary found inside the everyday.",
+      "Our Spaces is a duo from Tricity, Poland, Rafa'EL crafting intricate compositions, Marylin bringing voice, lyrics and violin.",
+      "Together they weave captivating, emotive melodies inspired by the spirit of their coastal home, as on the Ordinary Vision EP, the extraordinary found inside the everyday.",
     ],
     bioPl: [
-      "Our Spaces to duet z Trójmiasta — Rafa'EL tka misterne kompozycje, a Marylin wnosi głos, słowa i skrzypce.",
-      "Razem snują urzekające, pełne emocji melodie inspirowane duchem ich nadmorskiego domu — jak na Ordinary Vision EP, gdzie niezwykłość kryje się w codzienności.",
+      "Our Spaces to duet z Trójmiasta, Rafa'EL tka misterne kompozycje, a Marylin wnosi głos, słowa i skrzypce.",
+      "Razem snują urzekające, pełne emocji melodie inspirowane duchem ich nadmorskiego domu, jak na Ordinary Vision EP, gdzie niezwykłość kryje się w codzienności.",
     ],
     portrait: "/images/artists/our-spaces.png",
     cutout: true,
@@ -270,11 +270,11 @@ const authors: Author[] = [
     genres: ["Organic House", "Melodic House", "Progressive"],
     bio: [
       "Adrià Falcó is a Spanish producer from Tarragona, classically trained on piano from the age of five at the Conservatori de Música de Tarragona.",
-      "His sound moves between deep, ethnic, progressive and melodic — refined, groove-led and genre-defying, with releases on Déepalma and Café de Anatolia. The Sakura EP is his blossoming, nostalgic chapter for Magic Stories.",
+      "His sound moves between deep, ethnic, progressive and melodic, refined, groove-led and genre-defying, with releases on Déepalma and Café de Anatolia. The Sakura EP is his blossoming, nostalgic chapter for Magic Stories.",
     ],
     bioPl: [
       "Adrià Falcó to hiszpański producent z Tarragony, od piątego roku życia klasycznie kształcony na fortepianie w Conservatori de Música de Tarragona.",
-      "Jego brzmienie porusza się między deep, ethnic, progressive i melodic — wyrafinowane, oparte na groovie i wymykające się gatunkom, z wydaniami na Déepalma i Café de Anatolia. Sakura EP to jego rozkwitający, nostalgiczny rozdział dla Magic Stories.",
+      "Jego brzmienie porusza się między deep, ethnic, progressive i melodic, wyrafinowane, oparte na groovie i wymykające się gatunkom, z wydaniami na Déepalma i Café de Anatolia. Sakura EP to jego rozkwitający, nostalgiczny rozdział dla Magic Stories.",
     ],
     portrait: "/images/artists/adria-falco.png",
     cutout: true,
@@ -292,11 +292,11 @@ const authors: Author[] = [
     originPl: "Detroit / Los Angeles, USA",
     genres: ["Deep House", "Progressive"],
     bio: [
-      "Robyn Balliet is a Detroit-born, Los Angeles-based producer and first-string violinist whose sound lives in deep house with progressive undertones — melodic, percussive and emotive.",
+      "Robyn Balliet is a Detroit-born, Los Angeles-based producer and first-string violinist whose sound lives in deep house with progressive undertones, melodic, percussive and emotive.",
       "With releases on labels like 8Bit and Deepalma and stages shared with John Digweed, Sasha and Nora En Pure, she lent her groove to Magic Stories with her remix of Adrià Falcó's ‘Sakura’.",
     ],
     bioPl: [
-      "Robyn Balliet to urodzona w Detroit, a mieszkająca w Los Angeles producentka i pierwsza skrzypaczka — jej brzmienie żyje w deep housie z progresywnymi podtekstami: melodyjne, perkusyjne i pełne emocji.",
+      "Robyn Balliet to urodzona w Detroit, a mieszkająca w Los Angeles producentka i pierwsza skrzypaczka, jej brzmienie żyje w deep housie z progresywnymi podtekstami: melodyjne, perkusyjne i pełne emocji.",
       "Z wydaniami na labelach takich jak 8Bit i Deepalma oraz scenami dzielonymi z Johnem Digweedem, Sashą i Norą En Pure, swój groove podarowała Magic Stories remiksem 'Sakury' Adrià Falcó.",
     ],
     portrait: "/images/artists/robyn-balliet.png",
@@ -316,11 +316,11 @@ const authors: Author[] = [
     genres: ["Electronica"],
     bio: [
       "Manu Amon is a DJ, producer, drummer and pianist from Nuremberg, Germany.",
-      "That musicianship shows in his electronica — hypnotic melodies and meticulously arranged spaces, as on the Dot Circle EP, each track built for immersion.",
+      "That musicianship shows in his electronica, hypnotic melodies and meticulously arranged spaces, as on the Dot Circle EP, each track built for immersion.",
     ],
     bioPl: [
       "Manu Amon to DJ, producent, perkusista i pianista z Norymbergi.",
-      "Tę muzykalność słychać w jego electronice — hipnotyczne melodie i pieczołowicie zaaranżowane przestrzenie, jak na Dot Circle EP, gdzie każdy utwór zbudowany jest do pełnego zanurzenia.",
+      "Tę muzykalność słychać w jego electronice, hipnotyczne melodie i pieczołowicie zaaranżowane przestrzenie, jak na Dot Circle EP, gdzie każdy utwór zbudowany jest do pełnego zanurzenia.",
     ],
     portrait: "/images/artists/manu-amon.png",
     cutout: true,

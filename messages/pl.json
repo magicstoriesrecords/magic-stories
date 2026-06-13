@@ -35,15 +35,15 @@
     },
     "podcasts": {
       "title": "Podcasty | Magic Stories Records",
-      "description": "Godzinne podróże prowadzone przez artystów, przyjaciół wytwórni i selekcjonerów — electronic, organic, deep i melodic house."
+      "description": "Godzinne podróże prowadzone przez artystów, przyjaciół wytwórni i selekcjonerów, electronic, organic, deep i melodic house."
     },
     "submit": {
       "title": "Wyślij demo | Magic Stories Records",
-      "description": "Każde wydanie zaczyna się od pierwszego odsłuchu — wyślij demo: electronic, organic, deep lub melodic house."
+      "description": "Każde wydanie zaczyna się od pierwszego odsłuchu, wyślij demo: electronic, organic, deep lub melodic house."
     },
     "library": {
       "title": "Magiczna Biblioteka | Magic Stories Records",
-      "description": "Wspólna przestrzeń społeczności MSR — wpisy, linki, muzyczne odkrycia i krótkie historie."
+      "description": "Wspólna przestrzeń społeczności MSR, wpisy, linki, muzyczne odkrycia i krótkie historie."
     },
     "account": {
       "title": "Konto | Magic Stories Records",
@@ -73,16 +73,16 @@
     "kicker": "Demo",
     "title": "Wyślij nam swoją historię.",
     "lead": "Każde wydanie zaczyna się od pierwszego odsłuchu. Jeśli tworzysz muzykę z pogranicza electronic, organic, deep lub melodic house, emocjonalną, przestrzenną i cierpliwie budowaną, chętnie sprawdzimy, dokąd prowadzi Twoja opowieść.",
-    "mailSubject": "Demo — [twoja nazwa artystyczna]",
+    "mailSubject": "Demo: [twoja nazwa artystyczna]",
     "rule1Title": "Dwa, trzy utwory",
-    "rule1Body": "Skończone albo prawie skończone. Najlepiej prywatne linki SoundCloud — prosimy, bez załączników i zipów.",
+    "rule1Body": "Skończone albo prawie skończone. Najlepiej prywatne linki SoundCloud, prosimy, bez załączników i zipów.",
     "rule2Title": "Parę słów o Tobie",
     "rule2Body": "Kim jesteś, skąd bierze się Twoje brzmienie i jeden link do miejsca, gdzie mieszkasz w sieci.",
     "rule3Title": "Twoja historia, nie kopia",
-    "rule3Body": "Szukamy melodic i organic house z sercem — muzyki, która maluje miejsce, w którym jeszcze nie byliśmy.",
+    "rule3Body": "Szukamy melodic i organic house z sercem, muzyki, która maluje miejsce, w którym jeszcze nie byliśmy.",
     "cta": "Wyślij demo",
     "orWriteTo": "albo napisz na",
-    "footnote": "Słuchamy wszystkiego, co do nas trafia. Jeśli Twoja historia zabrzmi razem z naszą, odpiszemy — może to chwilę potrwać, a cisza nigdy nie znaczy, że Twoja muzyka nie została wysłuchana."
+    "footnote": "Słuchamy wszystkiego, co do nas trafia. Jeśli Twoja historia zabrzmi razem z naszą, odpiszemy, może to chwilę potrwać, a cisza nigdy nie znaczy, że Twoja muzyka nie została wysłuchana."
   },
   "library": {
     "kicker": "Magic Library",
@@ -94,7 +94,7 @@
     "kicker": "Twój profil",
     "titleIn": "Twój profil",
     "titleOut": "Dołącz do społeczności",
-    "leadIn": "Ustaw swoją nazwę i avatar — tak zobaczą Cię inni w Bibliotece.",
+    "leadIn": "Ustaw swoją nazwę i avatar, tak zobaczą Cię inni w Bibliotece.",
     "leadOut": "Zaloguj się kontem Google, by dopisywać rozdziały, lajkować i odpowiadać."
   },
   "auth": {
@@ -127,7 +127,7 @@
   },
   "composer": {
     "placeholder": "Dopisz swój rozdział…",
-    "linkPlaceholder": "Link (YouTube, SoundCloud, X) — opcjonalnie",
+    "linkPlaceholder": "Link (YouTube, SoundCloud, X), opcjonalnie",
     "publish": "Opublikuj",
     "posting": "Wysyłam…",
     "errEmpty": "Napisz coś, zanim wyślesz.",
@@ -181,7 +181,7 @@
     "shareAria": "Udostępnij jako grafikę do Stories",
     "shareTitle": "Udostępnij / pobierz grafikę do Stories",
     "shareFailed": "Nie udało się wygenerować grafiki.",
-    "shareDownloaded": "Pobrano grafikę — wrzuć ją na Instagram Stories.",
+    "shareDownloaded": "Pobrano grafikę, wrzuć ją na Instagram Stories.",
     "toComment": "aby skomentować.",
     "loading": "Wczytuję komentarze…",
     "confirmDelete": "Usunąć ten komentarz?"

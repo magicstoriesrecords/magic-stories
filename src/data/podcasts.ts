@@ -22,9 +22,9 @@ export const podcasts: Podcast[] = [
     guest: "Mazze",
     cover: "/images/podcasts/msrp-012.jpg",
     blurb:
-      "The latest chapter of the series, mixed by founder Mazze — a fresh journey through the Magic Stories sound.",
+      "The latest chapter of the series, mixed by founder Mazze, a fresh journey through the Magic Stories sound.",
     blurbPl:
-      "Najnowszy rozdział serii w miksie założyciela — Mazze zabiera nas w świeżą podróż przez brzmienie Magic Stories.",
+      "Najnowszy rozdział serii w miksie założyciela, Mazze zabiera nas w świeżą podróż przez brzmienie Magic Stories.",
     artists: [
       "&Friends",
       "Joseph",
@@ -51,9 +51,9 @@ export const podcasts: Podcast[] = [
     guest: "Mazze",
     cover: "/images/podcasts/msrp-011.jpg",
     blurb:
-      "Mazze returns with a brand-new journey — close your eyes, follow the melodies, and let the story unfold.",
+      "Mazze returns with a brand-new journey, close your eyes, follow the melodies, and let the story unfold.",
     blurbPl:
-      "Mazze wraca z zupełnie nową podróżą — zamknij oczy, podążaj za melodiami i pozwól historii się rozwinąć.",
+      "Mazze wraca z zupełnie nową podróżą, zamknij oczy, podążaj za melodiami i pozwól historii się rozwinąć.",
     artists: [
       "Kontaktees",
       "Loui & Scibi",
@@ -78,7 +78,7 @@ export const podcasts: Podcast[] = [
     blurb:
       "US producer Robyn Balliet, who recently remixed an MSR release, leads a special tenth-episode journey of hypnotic grooves and warm melodies.",
     blurbPl:
-      "Amerykańska producentka Robyn Balliet, autorka niedawnego remiksu dla MSR, prowadzi wyjątkowy dziesiąty odcinek — hipnotyczne groove'y i ciepłe melodie.",
+      "Amerykańska producentka Robyn Balliet, autorka niedawnego remiksu dla MSR, prowadzi wyjątkowy dziesiąty odcinek, hipnotyczne groove'y i ciepłe melodie.",
     artists: [
       "Hardy Heller & Alex Connors",
       "Julian Millan",
@@ -128,9 +128,9 @@ export const podcasts: Podcast[] = [
     guest: "Mauro Masi",
     cover: "/images/podcasts/msrp-008.jpg",
     blurb:
-      "Argentinian deep and progressive talent Mauro Masi takes over for episode eight — melodic, organic, golden-hour grooves.",
+      "Argentinian deep and progressive talent Mauro Masi takes over for episode eight, melodic, organic, golden-hour grooves.",
     blurbPl:
-      "Argentyński talent deep i progressive Mauro Masi przejmuje ósmy odcinek — melodyjne, organiczne groove'y złotej godziny.",
+      "Argentyński talent deep i progressive Mauro Masi przejmuje ósmy odcinek, melodyjne, organiczne groove'y złotej godziny.",
     artists: [
       "Mauro Masi",
       "Ilias Katelanos",
@@ -194,9 +194,9 @@ export const podcasts: Podcast[] = [
     guest: "Pequeño",
     cover: "/images/podcasts/msrp-006.jpg",
     blurb:
-      "A holiday special from Poznań's DJ Pequeño — organic house rhythms and beautiful melodies, by way of Ibiza Global Radio.",
+      "A holiday special from Poznań's DJ Pequeño, organic house rhythms and beautiful melodies, by way of Ibiza Global Radio.",
     blurbPl:
-      "Świąteczny odcinek specjalny od poznańskiego DJ-a Pequeño — rytmy organic house i piękne melodie, prosto z anteny Ibiza Global Radio.",
+      "Świąteczny odcinek specjalny od poznańskiego DJ-a Pequeño, rytmy organic house i piękne melodie, prosto z anteny Ibiza Global Radio.",
     artists: [
       "Mauro Masi",
       "Ootkeen",
@@ -242,9 +242,9 @@ export const podcasts: Podcast[] = [
     guest: "Milkwish",
     cover: "/images/podcasts/msrp-004.jpg",
     blurb:
-      "Polish producer Milkwish — released on Anjunabeats, Armada and Colorize — explores the deeper, more organic side of his sound.",
+      "Polish producer Milkwish, released on Anjunabeats, Armada and Colorize, explores the deeper, more organic side of his sound.",
     blurbPl:
-      "Polski producent Milkwish — z wydaniami w Anjunabeats, Armadzie i Colorize — eksploruje głębszą, bardziej organiczną stronę swojego brzmienia.",
+      "Polski producent Milkwish, z wydaniami w Anjunabeats, Armadzie i Colorize, eksploruje głębszą, bardziej organiczną stronę swojego brzmienia.",
     artists: [
       "Missfeat",
       "Den Macklin",
@@ -289,9 +289,9 @@ export const podcasts: Podcast[] = [
     guest: "Rafa'EL",
     cover: "/images/podcasts/msrp-002.jpg",
     blurb:
-      "The series returns with Rafa'EL, fresh off his 'Elderose' debut — a warm, melodic organic-house tale.",
+      "The series returns with Rafa'EL, fresh off his 'Elderose' debut, a warm, melodic organic-house tale.",
     blurbPl:
-      "Seria wraca z Rafa'ELem, świeżo po debiutanckiej 'Elderose' — ciepła, melodyjna opowieść organic house.",
+      "Seria wraca z Rafa'ELem, świeżo po debiutanckiej 'Elderose', ciepła, melodyjna opowieść organic house.",
     artists: [
       "Sam Rose",
       "Eryc Karezza",

@@ -20,10 +20,10 @@ export default function Footer() {
           alt="Magic Stories Records"
           className="h-auto w-36 md:w-44"
         />
-        <p className="mt-4 font-display text-[0.7rem] tracking-[0.42em] opacity-60">
+        <p className="mt-4 font-display text-[0.7rem] tracking-[0.42em]">
           RECORDS
         </p>
-        <p className="mt-5 font-serif text-sm italic opacity-70">
+        <p className="mt-5 font-serif text-sm italic">
           {t("tagline")}
         </p>
         <nav
