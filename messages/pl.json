@@ -156,7 +156,9 @@
     "saving": "Zapisuję…",
     "linkOptional": "Link (opcjonalnie)",
     "repliesAria": "Odpowiedzi",
-    "artistBadge": "Artysta"
+    "artistBadge": "Artysta",
+    "memberBadge": "Społeczność",
+    "shareInvite": "Zapraszamy do Magicznej Biblioteki."
   },
   "reply": {
     "placeholder": "Odpowiedz…",

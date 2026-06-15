@@ -7,8 +7,9 @@ import LinkEmbed from "@/components/campfire/LinkEmbed";
 import TimeAgo from "@/components/campfire/TimeAgo";
 import LikeButton from "@/components/campfire/LikeButton";
 import ReplyThread from "@/components/campfire/ReplyThread";
+import ShareStory from "@/components/news/ShareStory";
 import { createClient } from "@/lib/supabase/client";
-import { normalizeUrl, detectLinkType } from "@/lib/links";
+import { normalizeUrl, detectLinkType, youtubeId } from "@/lib/links";
 import type { FeedAuthor, FeedPost } from "@/components/campfire/types";
 
 export default function PostCard({
@@ -43,6 +44,7 @@ export default function PostCard({
   const name = author?.display_name || (author ? `@${author.username}` : t("someone"));
   const isArtist = author?.role === "artist";
   const canManage = !!meId && post.author_id === meId;
+  const ytId = post.link_type === "youtube" && post.link_url ? youtubeId(post.link_url) : null;
 
   async function saveEdit() {
     const text = editBody.trim();
@@ -273,6 +275,25 @@ export default function PostCard({
           </svg>
           {post.reply_count > 0 && <span className="tabular-nums">{post.reply_count}</span>}
         </button>
+        <div className="ml-auto">
+          <ShareStory
+            content={{
+              text: post.body,
+              date: post.created_at,
+              fileSlug: post.id,
+              authorName: name,
+              authorHandle: author ? `@${author.username}` : undefined,
+              avatarUrl: author?.avatar_url ?? undefined,
+              roleLabel: isArtist ? t("artistBadge") : t("memberBadge"),
+              isArtist,
+              likeCount: post.like_count,
+              commentCount: post.reply_count,
+              image: ytId ? `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg` : undefined,
+              imageRatio: ytId ? "16:9" : undefined,
+              invite: t("shareInvite"),
+            }}
+          />
+        </div>
       </div>
 
       {open && (

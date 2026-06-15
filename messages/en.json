@@ -156,7 +156,9 @@
     "saving": "Saving…",
     "linkOptional": "Link (optional)",
     "repliesAria": "Replies",
-    "artistBadge": "Artist"
+    "artistBadge": "Artist",
+    "memberBadge": "Member",
+    "shareInvite": "Join us in the Magic Library."
   },
   "reply": {
     "placeholder": "Reply…",
