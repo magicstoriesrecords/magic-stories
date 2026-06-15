@@ -160,7 +160,15 @@ export default function NewsCard({
               {eng.comment_count > 0 && <span className="tabular-nums">{eng.comment_count}</span>}
             </button>
             <div className="ml-auto">
-              <ShareStory item={item} />
+              <ShareStory
+                content={{
+                  title: item.title,
+                  text: item.story ?? item.blurb,
+                  date: item.date,
+                  image: item.image,
+                  fileSlug: item.slug,
+                }}
+              />
             </div>
           </div>
 
