@@ -20,6 +20,7 @@ type PageMetaInput = {
   path: string; // locale-less route, e.g. "/" or "/stories"
   title: string;
   description: string;
+  image?: string; // per-page OG image (e.g. a news item's artwork)
   noindex?: boolean; // private pages (e.g. /account)
 };
 
@@ -31,9 +32,13 @@ export function buildPageMeta({
   path,
   title,
   description,
+  image,
   noindex,
 }: PageMetaInput): Metadata {
   const canonical = locale === "pl" ? plPath(path) : path;
+  const ogImages = image
+    ? [{ url: image, alt: title }]
+    : [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }];
   return {
     title,
     description,
@@ -48,7 +53,7 @@ export function buildPageMeta({
       siteName: SITE_NAME,
       type: "website",
       locale: locale === "pl" ? "pl_PL" : "en_US",
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",

@@ -4,6 +4,7 @@
     "artists": "Artyści",
     "library": "Magiczna Biblioteka",
     "podcasts": "Podcasty",
+    "news": "Magic News",
     "submit": "Wyślij demo",
     "account": "Konto",
     "browseReleases": "Przeglądaj wydania",
@@ -21,6 +22,10 @@
     "tagline": "Gdzie muzyka maluje sny"
   },
   "meta": {
+    "news": {
+      "title": "Magic News | Magic Stories Records",
+      "description": "Wiadomości, premiery i wydarzenia Magic Stories Records. Każdy rozdział pozostaje otwarty: czytaj, polub, komentuj."
+    },
     "home": {
       "title": "Magic Stories Records",
       "description": "Gdzie muzyka maluje sny"
@@ -184,6 +189,11 @@
     "shareDownloaded": "Pobrano grafikę, wrzuć ją na Instagram Stories.",
     "toComment": "aby skomentować.",
     "loading": "Wczytuję komentarze…",
-    "confirmDelete": "Usunąć ten komentarz?"
+    "confirmDelete": "Usunąć ten komentarz?",
+    "viewAll": "Wszystkie wiadomości",
+    "archiveKicker": "Magic News",
+    "archiveTitle": "Każda historia zostaje.",
+    "archiveLead": "Wiadomości, premiery i wieczory wytwórni. Nic tu nie znika, każdy rozdział pozostaje otwarty: można go czytać, polubić i o nim porozmawiać.",
+    "back": "Wszystkie wiadomości"
   }
 }

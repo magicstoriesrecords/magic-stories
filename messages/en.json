@@ -4,6 +4,7 @@
     "artists": "Artists",
     "library": "Magic Library",
     "podcasts": "Podcasts",
+    "news": "Magic News",
     "submit": "Submit",
     "account": "Account",
     "browseReleases": "Browse Releases",
@@ -21,6 +22,10 @@
     "tagline": "Where music paints dreams"
   },
   "meta": {
+    "news": {
+      "title": "Magic News | Magic Stories Records",
+      "description": "News, releases and events from Magic Stories Records. Every chapter stays open to read, like and comment."
+    },
     "home": {
       "title": "Magic Stories Records",
       "description": "Where music paints dreams"
@@ -184,6 +189,11 @@
     "shareDownloaded": "Image downloaded, post it to your Instagram Stories.",
     "toComment": "to comment.",
     "loading": "Loading comments…",
-    "confirmDelete": "Delete this comment?"
+    "confirmDelete": "Delete this comment?",
+    "viewAll": "All news",
+    "archiveKicker": "Magic News",
+    "archiveTitle": "Every story, kept.",
+    "archiveLead": "News, releases and nights from the label. Nothing disappears here, every chapter stays open to read, like and talk about.",
+    "back": "All news"
   }
 }

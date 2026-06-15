@@ -12,6 +12,7 @@ const navLinks = [
   { key: "artists", href: "/authors" },
   { key: "library", href: "/library" },
   { key: "podcasts", href: "/podcasts" },
+  { key: "news", href: "/news" },
   { key: "submit", href: "/submit" },
 ] as const;
 
@@ -19,7 +20,7 @@ const navLinks = [
 // dark glass strip with cream text so it reads against the sky.
 // NOTE: usePathname (from i18n/navigation) returns the path WITHOUT the
 // locale prefix, so these checks work for both / and /pl/.
-const darkPages = ["/authors", "/stories", "/library", "/podcasts", "/submit", "/account"];
+const darkPages = ["/authors", "/stories", "/library", "/podcasts", "/news", "/submit", "/account"];
 
 // Inline EN | PL toggle. Switching locales keeps the current route; next-intl
 // remembers the choice in the NEXT_LOCALE cookie.

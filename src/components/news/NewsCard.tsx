@@ -32,6 +32,7 @@ export default function NewsCard({
   onToggleLike,
   onCommentAdded,
   onCommentDeleted,
+  defaultOpen = false,
 }: {
   item: News;
   eng: NewsEngagement;
@@ -40,10 +41,11 @@ export default function NewsCard({
   onToggleLike: (slug: string) => void;
   onCommentAdded: (slug: string) => void;
   onCommentDeleted: (slug: string) => void;
+  defaultOpen?: boolean;
 }) {
   const t = useTranslations("news");
   const locale = useLocale();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <article className="glass-card overflow-hidden rounded-3xl">

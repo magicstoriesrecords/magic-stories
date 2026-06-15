@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import NewsCarousel from "@/components/news/NewsCarousel";
 import type { FeedAuthor } from "@/components/campfire/types";
 import type { News } from "@/data/news";
@@ -110,6 +111,15 @@ export default function NewsSection({
             meId={meId}
             meAuthor={meAuthor}
           />
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/news"
+            className="font-serif text-sm uppercase tracking-[0.22em] text-cream/75 transition hover:text-cream [text-shadow:_0_1px_10px_rgba(8,7,24,0.7)]"
+          >
+            {t("viewAll")}
+          </Link>
         </div>
       </div>
     </section>
