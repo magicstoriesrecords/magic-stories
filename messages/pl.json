@@ -197,5 +197,16 @@
     "archiveTitle": "Każda historia zostaje.",
     "archiveLead": "Wiadomości, premiery i wieczory wytwórni. Nic tu nie znika, każdy rozdział pozostaje otwarty: można go czytać, polubić i o nim porozmawiać.",
     "back": "Wszystkie wiadomości"
+  },
+  "notif": {
+    "title": "Powiadomienia",
+    "empty": "Brak powiadomień.",
+    "someone": "Ktoś",
+    "postLike": "{name} polubił(a) Twój wpis.",
+    "replyLike": "{name} polubił(a) Twoją odpowiedź.",
+    "commentLike": "{name} polubił(a) Twój komentarz.",
+    "postReply": "{name} odpowiedział(a) na Twój wpis.",
+    "threadReply": "{name} dołączył(a) do wątku, w którym jesteś.",
+    "news": "Nowa historia: {title}"
   }
 }

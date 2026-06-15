@@ -197,5 +197,16 @@
     "archiveTitle": "Every story, kept.",
     "archiveLead": "News, releases and nights from the label. Nothing disappears here, every chapter stays open to read, like and talk about.",
     "back": "All news"
+  },
+  "notif": {
+    "title": "Notifications",
+    "empty": "No notifications yet.",
+    "someone": "Someone",
+    "postLike": "{name} liked your post.",
+    "replyLike": "{name} liked your reply.",
+    "commentLike": "{name} liked your comment.",
+    "postReply": "{name} replied to your post.",
+    "threadReply": "{name} also replied in a thread you joined.",
+    "news": "New story: {title}"
   }
 }

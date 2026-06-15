@@ -6,6 +6,7 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import Button from "@/components/ui/Button";
 import AuthNav from "@/components/auth/AuthNav";
+import NotificationBell from "@/components/NotificationBell";
 
 const navLinks = [
   { key: "stories", href: "/stories" },
@@ -143,21 +144,25 @@ export default function Nav() {
               {t("browseReleases")}
             </Button>
             <AuthNav tone={lightOnDark ? "cream" : "ink"} />
+            <NotificationBell tone={lightOnDark ? "cream" : "ink"} />
             <LocaleSwitch tone={lightOnDark ? "cream" : "ink"} />
           </div>
 
-          {/* Mobile toggle — subtle two-line mark */}
-          <button
-            type="button"
-            aria-label={t("openMenu")}
-            aria-expanded={open}
-            onClick={() => setOpen(true)}
-            className={`flex h-11 w-11 items-center justify-center md:hidden ${toggle}`}
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M3 9h18M3 15h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </button>
+          {/* Mobile: notifications + menu toggle */}
+          <div className="flex items-center gap-1 md:hidden">
+            <NotificationBell tone={lightOnDark ? "cream" : "ink"} />
+            <button
+              type="button"
+              aria-label={t("openMenu")}
+              aria-expanded={open}
+              onClick={() => setOpen(true)}
+              className={`flex h-11 w-11 items-center justify-center ${toggle}`}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 9h18M3 15h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
         </nav>
       </header>
 

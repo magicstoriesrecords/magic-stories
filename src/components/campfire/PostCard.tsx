@@ -92,7 +92,7 @@ export default function PostCard({
   }
 
   return (
-    <article className="glass-card rounded-2xl p-5 md:p-6">
+    <article id={`post-${post.id}`} className="glass-card scroll-mt-28 rounded-2xl p-5 md:p-6">
       <header className="flex items-center gap-3">
         {author?.avatar_url ? (
           // eslint-disable-next-line @next/next/no-img-element
