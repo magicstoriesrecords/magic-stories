@@ -221,7 +221,7 @@ export default function NotificationBell({ tone }: { tone: "cream" | "ink" }) {
       </button>
 
       {open && (
-        <div className="absolute right-0 z-[80] mt-2 w-[min(360px,86vw)] overflow-hidden rounded-2xl border border-cream/15 bg-[#15142f]/95 shadow-2xl backdrop-blur-md">
+        <div className="fixed right-3 top-[4.75rem] z-[80] w-[calc(100vw-1.5rem)] max-w-sm overflow-hidden rounded-2xl border border-cream/15 bg-[#15142f]/95 shadow-2xl backdrop-blur-md md:absolute md:right-0 md:top-auto md:mt-2 md:w-[360px] md:max-w-none">
           <div className="border-b border-cream/10 px-4 py-3 font-serif text-sm tracking-wide text-cream">
             {t("title")}
           </div>
